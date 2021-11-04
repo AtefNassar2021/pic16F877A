@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Wed Nov 03 21:16:12 2021
+                                                                                               Thu Nov 04 23:02:07 2021
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	16F877A
@@ -13,1542 +13,908 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
      7                           	psect	text1,local,class=CODE,merge=1,delta=2
      8                           	psect	text2,local,class=CODE,merge=1,delta=2
      9                           	psect	text3,local,class=CODE,merge=1,delta=2
-    10                           	psect	text4,local,class=CODE,merge=1,delta=2
-    11                           	dabs	1,0x7E,2
-    12  0000                     
-    13                           ; Version 2.20
-    14                           ; Generated 12/02/2020 GMT
-    15                           ; 
-    16                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    17                           ; All rights reserved.
-    18                           ; 
-    19                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+    10                           	dabs	1,0x7E,2
+    11  0000                     
+    12                           ; Version 2.20
+    13                           ; Generated 12/02/2020 GMT
+    14                           ; 
+    15                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    16                           ; All rights reserved.
+    17                           ; 
+    18                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
-    20                           ; 
-    21                           ; Redistribution and use in source and binary forms, with or without modification, are
-    22                           ; permitted provided that the following conditions are met:
-    23                           ; 
-    24                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    19                           ; 
+    20                           ; Redistribution and use in source and binary forms, with or without modification, are
+    21                           ; permitted provided that the following conditions are met:
+    22                           ; 
+    23                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    25                           ;        conditions and the following disclaimer.
-    26                           ; 
-    27                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    24                           ;        conditions and the following disclaimer.
+    25                           ; 
+    26                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    28                           ;        of conditions and the following disclaimer in the documentation and/or other
-    29                           ;        materials provided with the distribution.
-    30                           ; 
-    31                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    27                           ;        of conditions and the following disclaimer in the documentation and/or other
+    28                           ;        materials provided with the distribution.
+    29                           ; 
+    30                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    32                           ;        software without specific prior written permission.
-    33                           ; 
-    34                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    35                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    31                           ;        software without specific prior written permission.
+    32                           ; 
+    33                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    34                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    36                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    35                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    37                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    38                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    39                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    36                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    37                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    38                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    40                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    39                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    41                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    40                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    41                           ; 
     42                           ; 
-    43                           ; 
-    44                           ; Code-generator required, PIC16F877A Definitions
-    45                           ; 
-    46                           ; SFR Addresses
-    47  0000                     	;# 
-    48  0001                     	;# 
-    49  0002                     	;# 
-    50  0003                     	;# 
-    51  0004                     	;# 
-    52  0005                     	;# 
-    53  0006                     	;# 
-    54  0007                     	;# 
-    55  0008                     	;# 
-    56  0009                     	;# 
-    57  000A                     	;# 
-    58  000B                     	;# 
-    59  000C                     	;# 
-    60  000D                     	;# 
+    43                           ; Code-generator required, PIC16F877A Definitions
+    44                           ; 
+    45                           ; SFR Addresses
+    46  0000                     	;# 
+    47  0001                     	;# 
+    48  0002                     	;# 
+    49  0003                     	;# 
+    50  0004                     	;# 
+    51  0005                     	;# 
+    52  0006                     	;# 
+    53  0007                     	;# 
+    54  0008                     	;# 
+    55  0009                     	;# 
+    56  000A                     	;# 
+    57  000B                     	;# 
+    58  000C                     	;# 
+    59  000D                     	;# 
+    60  000E                     	;# 
     61  000E                     	;# 
-    62  000E                     	;# 
-    63  000F                     	;# 
-    64  0010                     	;# 
-    65  0011                     	;# 
-    66  0012                     	;# 
-    67  0013                     	;# 
-    68  0014                     	;# 
+    62  000F                     	;# 
+    63  0010                     	;# 
+    64  0011                     	;# 
+    65  0012                     	;# 
+    66  0013                     	;# 
+    67  0014                     	;# 
+    68  0015                     	;# 
     69  0015                     	;# 
-    70  0015                     	;# 
-    71  0016                     	;# 
-    72  0017                     	;# 
-    73  0018                     	;# 
-    74  0019                     	;# 
-    75  001A                     	;# 
+    70  0016                     	;# 
+    71  0017                     	;# 
+    72  0018                     	;# 
+    73  0019                     	;# 
+    74  001A                     	;# 
+    75  001B                     	;# 
     76  001B                     	;# 
-    77  001B                     	;# 
-    78  001C                     	;# 
-    79  001D                     	;# 
-    80  001E                     	;# 
-    81  001F                     	;# 
-    82  0081                     	;# 
-    83  0085                     	;# 
-    84  0086                     	;# 
-    85  0087                     	;# 
-    86  0088                     	;# 
-    87  0089                     	;# 
-    88  008C                     	;# 
-    89  008D                     	;# 
-    90  008E                     	;# 
-    91  0091                     	;# 
-    92  0092                     	;# 
-    93  0093                     	;# 
-    94  0094                     	;# 
-    95  0098                     	;# 
-    96  0099                     	;# 
-    97  009C                     	;# 
-    98  009D                     	;# 
-    99  009E                     	;# 
-   100  009F                     	;# 
-   101  010C                     	;# 
-   102  010D                     	;# 
-   103  010E                     	;# 
-   104  010F                     	;# 
-   105  018C                     	;# 
-   106  018D                     	;# 
-   107  0000                     	;# 
-   108  0001                     	;# 
-   109  0002                     	;# 
-   110  0003                     	;# 
-   111  0004                     	;# 
-   112  0005                     	;# 
-   113  0006                     	;# 
-   114  0007                     	;# 
-   115  0008                     	;# 
-   116  0009                     	;# 
-   117  000A                     	;# 
-   118  000B                     	;# 
-   119  000C                     	;# 
-   120  000D                     	;# 
+    77  001C                     	;# 
+    78  001D                     	;# 
+    79  001E                     	;# 
+    80  001F                     	;# 
+    81  0081                     	;# 
+    82  0085                     	;# 
+    83  0086                     	;# 
+    84  0087                     	;# 
+    85  0088                     	;# 
+    86  0089                     	;# 
+    87  008C                     	;# 
+    88  008D                     	;# 
+    89  008E                     	;# 
+    90  0091                     	;# 
+    91  0092                     	;# 
+    92  0093                     	;# 
+    93  0094                     	;# 
+    94  0098                     	;# 
+    95  0099                     	;# 
+    96  009C                     	;# 
+    97  009D                     	;# 
+    98  009E                     	;# 
+    99  009F                     	;# 
+   100  010C                     	;# 
+   101  010D                     	;# 
+   102  010E                     	;# 
+   103  010F                     	;# 
+   104  018C                     	;# 
+   105  018D                     	;# 
+   106  0000                     	;# 
+   107  0001                     	;# 
+   108  0002                     	;# 
+   109  0003                     	;# 
+   110  0004                     	;# 
+   111  0005                     	;# 
+   112  0006                     	;# 
+   113  0007                     	;# 
+   114  0008                     	;# 
+   115  0009                     	;# 
+   116  000A                     	;# 
+   117  000B                     	;# 
+   118  000C                     	;# 
+   119  000D                     	;# 
+   120  000E                     	;# 
    121  000E                     	;# 
-   122  000E                     	;# 
-   123  000F                     	;# 
-   124  0010                     	;# 
-   125  0011                     	;# 
-   126  0012                     	;# 
-   127  0013                     	;# 
-   128  0014                     	;# 
+   122  000F                     	;# 
+   123  0010                     	;# 
+   124  0011                     	;# 
+   125  0012                     	;# 
+   126  0013                     	;# 
+   127  0014                     	;# 
+   128  0015                     	;# 
    129  0015                     	;# 
-   130  0015                     	;# 
-   131  0016                     	;# 
-   132  0017                     	;# 
-   133  0018                     	;# 
-   134  0019                     	;# 
-   135  001A                     	;# 
+   130  0016                     	;# 
+   131  0017                     	;# 
+   132  0018                     	;# 
+   133  0019                     	;# 
+   134  001A                     	;# 
+   135  001B                     	;# 
    136  001B                     	;# 
-   137  001B                     	;# 
-   138  001C                     	;# 
-   139  001D                     	;# 
-   140  001E                     	;# 
-   141  001F                     	;# 
-   142  0081                     	;# 
-   143  0085                     	;# 
-   144  0086                     	;# 
-   145  0087                     	;# 
-   146  0088                     	;# 
-   147  0089                     	;# 
-   148  008C                     	;# 
-   149  008D                     	;# 
-   150  008E                     	;# 
-   151  0091                     	;# 
-   152  0092                     	;# 
-   153  0093                     	;# 
-   154  0094                     	;# 
-   155  0098                     	;# 
-   156  0099                     	;# 
-   157  009C                     	;# 
-   158  009D                     	;# 
-   159  009E                     	;# 
-   160  009F                     	;# 
-   161  010C                     	;# 
-   162  010D                     	;# 
-   163  010E                     	;# 
-   164  010F                     	;# 
-   165  018C                     	;# 
-   166  018D                     	;# 
-   167  0000                     	;# 
-   168  0001                     	;# 
-   169  0002                     	;# 
-   170  0003                     	;# 
-   171  0004                     	;# 
-   172  0005                     	;# 
-   173  0006                     	;# 
-   174  0007                     	;# 
-   175  0008                     	;# 
-   176  0009                     	;# 
-   177  000A                     	;# 
-   178  000B                     	;# 
-   179  000C                     	;# 
-   180  000D                     	;# 
+   137  001C                     	;# 
+   138  001D                     	;# 
+   139  001E                     	;# 
+   140  001F                     	;# 
+   141  0081                     	;# 
+   142  0085                     	;# 
+   143  0086                     	;# 
+   144  0087                     	;# 
+   145  0088                     	;# 
+   146  0089                     	;# 
+   147  008C                     	;# 
+   148  008D                     	;# 
+   149  008E                     	;# 
+   150  0091                     	;# 
+   151  0092                     	;# 
+   152  0093                     	;# 
+   153  0094                     	;# 
+   154  0098                     	;# 
+   155  0099                     	;# 
+   156  009C                     	;# 
+   157  009D                     	;# 
+   158  009E                     	;# 
+   159  009F                     	;# 
+   160  010C                     	;# 
+   161  010D                     	;# 
+   162  010E                     	;# 
+   163  010F                     	;# 
+   164  018C                     	;# 
+   165  018D                     	;# 
+   166  0000                     	;# 
+   167  0001                     	;# 
+   168  0002                     	;# 
+   169  0003                     	;# 
+   170  0004                     	;# 
+   171  0005                     	;# 
+   172  0006                     	;# 
+   173  0007                     	;# 
+   174  0008                     	;# 
+   175  0009                     	;# 
+   176  000A                     	;# 
+   177  000B                     	;# 
+   178  000C                     	;# 
+   179  000D                     	;# 
+   180  000E                     	;# 
    181  000E                     	;# 
-   182  000E                     	;# 
-   183  000F                     	;# 
-   184  0010                     	;# 
-   185  0011                     	;# 
-   186  0012                     	;# 
-   187  0013                     	;# 
-   188  0014                     	;# 
+   182  000F                     	;# 
+   183  0010                     	;# 
+   184  0011                     	;# 
+   185  0012                     	;# 
+   186  0013                     	;# 
+   187  0014                     	;# 
+   188  0015                     	;# 
    189  0015                     	;# 
-   190  0015                     	;# 
-   191  0016                     	;# 
-   192  0017                     	;# 
-   193  0018                     	;# 
-   194  0019                     	;# 
-   195  001A                     	;# 
+   190  0016                     	;# 
+   191  0017                     	;# 
+   192  0018                     	;# 
+   193  0019                     	;# 
+   194  001A                     	;# 
+   195  001B                     	;# 
    196  001B                     	;# 
-   197  001B                     	;# 
-   198  001C                     	;# 
-   199  001D                     	;# 
-   200  001E                     	;# 
-   201  001F                     	;# 
-   202  0081                     	;# 
-   203  0085                     	;# 
-   204  0086                     	;# 
-   205  0087                     	;# 
-   206  0088                     	;# 
-   207  0089                     	;# 
-   208  008C                     	;# 
-   209  008D                     	;# 
-   210  008E                     	;# 
-   211  0091                     	;# 
-   212  0092                     	;# 
-   213  0093                     	;# 
-   214  0094                     	;# 
-   215  0098                     	;# 
-   216  0099                     	;# 
-   217  009C                     	;# 
-   218  009D                     	;# 
-   219  009E                     	;# 
-   220  009F                     	;# 
-   221  010C                     	;# 
-   222  010D                     	;# 
-   223  010E                     	;# 
-   224  010F                     	;# 
-   225  018C                     	;# 
-   226  018D                     	;# 
-   227  0009                     _PORTE	set	9
-   228  0008                     _PORTD	set	8
-   229  0007                     _PORTC	set	7
-   230  0006                     _PORTB	set	6
-   231  0005                     _PORTA	set	5
-   232  0089                     _TRISE	set	137
-   233  0088                     _TRISD	set	136
-   234  0087                     _TRISC	set	135
-   235  0086                     _TRISB	set	134
-   236  0085                     _TRISA	set	133
-   237                           
-   238                           	psect	cinit
-   239  07FC                     start_initialization:	
-   240                           ; #config settings
-   241                           
-   242  07FC                     __initialization:
-   243  07FC                     end_of_initialization:	
-   244                           ;End of C runtime variable initialization code
-   245                           
-   246  07FC                     __end_of__initialization:
-   247  07FC  0183               	clrf	3
-   248  07FD  120A  118A  2E1A   	ljmp	_main	;jump to C main() function
-   249                           
-   250                           	psect	cstackCOMMON
-   251  0070                     __pcstackCOMMON:
-   252  0070                     ?_setPortDir:
-   253  0070                     ?_setPinDir:	
-   254                           ; 1 bytes @ 0x0
-   255                           
-   256  0070                     ?_togglePinData:	
-   257                           ; 1 bytes @ 0x0
-   258                           
-   259  0070                     ?_main:	
-   260                           ; 1 bytes @ 0x0
-   261                           
-   262  0070                     ?_isPressed:	
-   263                           ; 1 bytes @ 0x0
-   264                           
-   265  0070                     isPressed@portNum:	
-   266                           ; 2 bytes @ 0x0
-   267                           
-   268  0070                     setPortDir@portNum:	
-   269                           ; 2 bytes @ 0x0
+   197  001C                     	;# 
+   198  001D                     	;# 
+   199  001E                     	;# 
+   200  001F                     	;# 
+   201  0081                     	;# 
+   202  0085                     	;# 
+   203  0086                     	;# 
+   204  0087                     	;# 
+   205  0088                     	;# 
+   206  0089                     	;# 
+   207  008C                     	;# 
+   208  008D                     	;# 
+   209  008E                     	;# 
+   210  0091                     	;# 
+   211  0092                     	;# 
+   212  0093                     	;# 
+   213  0094                     	;# 
+   214  0098                     	;# 
+   215  0099                     	;# 
+   216  009C                     	;# 
+   217  009D                     	;# 
+   218  009E                     	;# 
+   219  009F                     	;# 
+   220  010C                     	;# 
+   221  010D                     	;# 
+   222  010E                     	;# 
+   223  010F                     	;# 
+   224  018C                     	;# 
+   225  018D                     	;# 
+   226  0009                     _PORTE	set	9
+   227  0008                     _PORTD	set	8
+   228  0007                     _PORTC	set	7
+   229  0006                     _PORTB	set	6
+   230  0005                     _PORTA	set	5
+   231  0089                     _TRISE	set	137
+   232  0088                     _TRISD	set	136
+   233  0087                     _TRISC	set	135
+   234  0086                     _TRISB	set	134
+   235  0085                     _TRISA	set	133
+   236                           
+   237                           	psect	cinit
+   238  07FC                     start_initialization:	
+   239                           ; #config settings
+   240                           
+   241  07FC                     __initialization:
+   242  07FC                     end_of_initialization:	
+   243                           ;End of C runtime variable initialization code
+   244                           
+   245  07FC                     __end_of__initialization:
+   246  07FC  0183               	clrf	3
+   247  07FD  120A  118A  2F05   	ljmp	_main	;jump to C main() function
+   248                           
+   249                           	psect	cstackCOMMON
+   250  0070                     __pcstackCOMMON:
+   251  0070                     ?_setPortDir:
+   252  0070                     ?_setPortData:	
+   253                           ; 1 bytes @ 0x0
+   254                           
+   255  0070                     ?_togglePortData:	
+   256                           ; 1 bytes @ 0x0
+   257                           
+   258  0070                     ?_main:	
+   259                           ; 1 bytes @ 0x0
+   260                           
+   261  0070                     setPortDir@portNum:	
+   262                           ; 1 bytes @ 0x0
+   263                           
+   264  0070                     setPortData@portNum:	
+   265                           ; 2 bytes @ 0x0
+   266                           
+   267  0070                     togglePortData@portNum:	
+   268                           ; 2 bytes @ 0x0
+   269                           
    270                           
-   271  0070                     setPinDir@portNum:	
-   272                           ; 2 bytes @ 0x0
-   273                           
-   274  0070                     togglePinData@portNum:	
-   275                           ; 2 bytes @ 0x0
+   271                           ; 2 bytes @ 0x0
+   272  0070                     	ds	2
+   273  0072                     ??_togglePortData:
+   274  0072                     setPortDir@state:	
+   275                           ; 1 bytes @ 0x2
    276                           
-   277                           
-   278                           ; 2 bytes @ 0x0
-   279  0070                     	ds	2
-   280  0072                     isPressed@pinNum:
-   281  0072                     setPortDir@state:	
-   282                           ; 2 bytes @ 0x2
-   283                           
-   284  0072                     setPinDir@pinNum:	
-   285                           ; 2 bytes @ 0x2
+   277  0072                     setPortData@data:	
+   278                           ; 2 bytes @ 0x2
+   279                           
+   280                           
+   281                           ; 2 bytes @ 0x2
+   282  0072                     	ds	2
+   283  0074                     ??_setPortDir:
+   284  0074                     ??_setPortData:	
+   285                           ; 1 bytes @ 0x4
    286                           
-   287  0072                     togglePinData@pinNum:	
-   288                           ; 2 bytes @ 0x2
+   287  0074                     ??_main:	
+   288                           ; 1 bytes @ 0x4
    289                           
    290                           
-   291                           ; 2 bytes @ 0x2
-   292  0072                     	ds	2
-   293  0074                     ??_setPortDir:
-   294  0074                     ??_isPressed:	
-   295                           ; 1 bytes @ 0x4
-   296                           
-   297  0074                     ??_togglePinData:	
-   298                           ; 1 bytes @ 0x4
-   299                           
-   300  0074                     setPinDir@state:	
-   301                           ; 1 bytes @ 0x4
-   302                           
-   303                           
-   304                           ; 2 bytes @ 0x4
-   305  0074                     	ds	2
-   306  0076                     ??_setPinDir:
-   307                           
-   308                           ; 1 bytes @ 0x6
-   309  0076                     	ds	5
-   310  007B                     ??_main:
-   311                           
-   312                           ; 1 bytes @ 0xB
-   313  007B                     	ds	1
-   314                           
-   315                           	psect	maintext
-   316  061A                     __pmaintext:	
-   317 ;;
-   318 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
-   319 ;;
-   320 ;; *************** function _main *****************
-   321 ;; Defined at:
-   322 ;;		line 14 in file "main.c"
-   323 ;; Parameters:    Size  Location     Type
-   324 ;;		None
-   325 ;; Auto vars:     Size  Location     Type
-   326 ;;		None
-   327 ;; Return value:  Size  Location     Type
-   328 ;;                  1    wreg      void 
-   329 ;; Registers used:
-   330 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-   331 ;; Tracked objects:
-   332 ;;		On entry : B00/0
-   333 ;;		On exit  : 0/0
-   334 ;;		Unchanged: 0/0
-   335 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   336 ;;      Params:         0       0       0       0       0
-   337 ;;      Locals:         0       0       0       0       0
-   338 ;;      Temps:          1       0       0       0       0
-   339 ;;      Totals:         1       0       0       0       0
-   340 ;;Total ram usage:        1 bytes
-   341 ;; Hardware stack levels required when called: 1
-   342 ;; This function calls:
-   343 ;;		_isPressed
-   344 ;;		_setPinDir
-   345 ;;		_setPortDir
-   346 ;;		_togglePinData
-   347 ;; This function is called by:
-   348 ;;		Startup code after reset
-   349 ;; This function uses a non-reentrant model
-   350 ;;
-   351                           
-   352                           
-   353                           ;psect for function _main
-   354  061A                     _main:
-   355  061A                     l1204:	
-   356                           ;incstack = 0
-   357                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-   358                           
-   359                           
-   360                           ;main.c: 15:     setPortDir(0,0);
-   361  061A  3000               	movlw	0
-   362  061B  00F0               	movwf	setPortDir@portNum
-   363  061C  00F1               	movwf	setPortDir@portNum+1
-   364  061D  3000               	movlw	0
-   365  061E  00F2               	movwf	setPortDir@state
-   366  061F  00F3               	movwf	setPortDir@state+1
-   367  0620  120A  118A  2551  120A  118A  	fcall	_setPortDir
-   368                           
-   369                           ;main.c: 18:     setPortDir(4,0);
-   370  0625  3004               	movlw	4
-   371  0626  00F0               	movwf	setPortDir@portNum
-   372  0627  3000               	movlw	0
-   373  0628  00F1               	movwf	setPortDir@portNum+1
-   374  0629  3000               	movlw	0
-   375  062A  00F2               	movwf	setPortDir@state
-   376  062B  00F3               	movwf	setPortDir@state+1
-   377  062C  120A  118A  2551  120A  118A  	fcall	_setPortDir
-   378                           
-   379                           ;main.c: 19:     setPortDir(2,0);
-   380  0631  3002               	movlw	2
-   381  0632  00F0               	movwf	setPortDir@portNum
-   382  0633  3000               	movlw	0
-   383  0634  00F1               	movwf	setPortDir@portNum+1
-   384  0635  3000               	movlw	0
-   385  0636  00F2               	movwf	setPortDir@state
-   386  0637  00F3               	movwf	setPortDir@state+1
-   387  0638  120A  118A  2551  120A  118A  	fcall	_setPortDir
-   388                           
-   389                           ;main.c: 20:     setPortDir(3,0);
-   390  063D  3003               	movlw	3
-   391  063E  00F0               	movwf	setPortDir@portNum
-   392  063F  3000               	movlw	0
-   393  0640  00F1               	movwf	setPortDir@portNum+1
-   394  0641  3000               	movlw	0
-   395  0642  00F2               	movwf	setPortDir@state
-   396  0643  00F3               	movwf	setPortDir@state+1
-   397  0644  120A  118A  2551  120A  118A  	fcall	_setPortDir
-   398                           
-   399                           ;main.c: 21:     setPortDir(1,0);
-   400  0649  3001               	movlw	1
-   401  064A  00F0               	movwf	setPortDir@portNum
-   402  064B  3000               	movlw	0
-   403  064C  00F1               	movwf	setPortDir@portNum+1
-   404  064D  3000               	movlw	0
-   405  064E  00F2               	movwf	setPortDir@state
-   406  064F  00F3               	movwf	setPortDir@state+1
-   407  0650  120A  118A  2551  120A  118A  	fcall	_setPortDir
+   291                           ; 1 bytes @ 0x4
+   292  0074                     	ds	1
+   293                           
+   294                           	psect	maintext
+   295  0705                     __pmaintext:	
+   296 ;;
+   297 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   298 ;;
+   299 ;; *************** function _main *****************
+   300 ;; Defined at:
+   301 ;;		line 14 in file "main.c"
+   302 ;; Parameters:    Size  Location     Type
+   303 ;;		None
+   304 ;; Auto vars:     Size  Location     Type
+   305 ;;  count           2    0        int 
+   306 ;; Return value:  Size  Location     Type
+   307 ;;                  1    wreg      void 
+   308 ;; Registers used:
+   309 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   310 ;; Tracked objects:
+   311 ;;		On entry : B00/0
+   312 ;;		On exit  : 0/0
+   313 ;;		Unchanged: 0/0
+   314 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   315 ;;      Params:         0       0       0       0       0
+   316 ;;      Locals:         0       0       0       0       0
+   317 ;;      Temps:          1       0       0       0       0
+   318 ;;      Totals:         1       0       0       0       0
+   319 ;;Total ram usage:        1 bytes
+   320 ;; Hardware stack levels required when called: 1
+   321 ;; This function calls:
+   322 ;;		_setPortData
+   323 ;;		_setPortDir
+   324 ;;		_togglePortData
+   325 ;; This function is called by:
+   326 ;;		Startup code after reset
+   327 ;; This function uses a non-reentrant model
+   328 ;;
+   329                           
+   330                           
+   331                           ;psect for function _main
+   332  0705                     _main:
+   333  0705                     l1077:	
+   334                           ;incstack = 0
+   335                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   336                           
+   337                           
+   338                           ;main.c: 15:     setPortDir(1,0);
+   339  0705  3001               	movlw	1
+   340  0706  00F0               	movwf	setPortDir@portNum
+   341  0707  3000               	movlw	0
+   342  0708  00F1               	movwf	setPortDir@portNum+1
+   343  0709  3000               	movlw	0
+   344  070A  00F2               	movwf	setPortDir@state
+   345  070B  00F3               	movwf	setPortDir@state+1
+   346  070C  120A  118A  279B  120A  118A  	fcall	_setPortDir
+   347                           
+   348                           ;main.c: 16:     setPortData(1,7);
+   349  0711  3001               	movlw	1
+   350  0712  00F0               	movwf	setPortData@portNum
+   351  0713  3000               	movlw	0
+   352  0714  00F1               	movwf	setPortData@portNum+1
+   353  0715  3007               	movlw	7
+   354  0716  00F2               	movwf	setPortData@data
+   355  0717  3000               	movlw	0
+   356  0718  00F3               	movwf	setPortData@data+1
+   357  0719  120A  118A  272F  120A  118A  	fcall	_setPortData
+   358  071E                     l1079:
+   359  071E                     l1081:
+   360                           
+   361                           ;main.c: 27:         togglePortData(1),
+   362  071E  3001               	movlw	1
+   363  071F  00F0               	movwf	togglePortData@portNum
+   364  0720  3000               	movlw	0
+   365  0721  00F1               	movwf	togglePortData@portNum+1
+   366  0722  120A  118A  2760  120A  118A  	fcall	_togglePortData
+   367  0727                     l1083:
+   368  0727  3021               	movlw	33
+   369  0728  00F4               	movwf	??_main
+   370  0729                     u307:
+   371  0729  0BF4               	decfsz	??_main,f
+   372  072A  2F29               	goto	u307
+   373  072B  2F1E               	goto	l1081
+   374  072C  120A  118A  2800   	ljmp	start
+   375  072F                     __end_of_main:
+   376                           
+   377                           	psect	text1
+   378  0760                     __ptext1:	
+   379 ;; *************** function _togglePortData *****************
+   380 ;; Defined at:
+   381 ;;		line 99 in file "MIO.c"
+   382 ;; Parameters:    Size  Location     Type
+   383 ;;  portNum         2    0[COMMON] int 
+   384 ;; Auto vars:     Size  Location     Type
+   385 ;;		None
+   386 ;; Return value:  Size  Location     Type
+   387 ;;                  1    wreg      void 
+   388 ;; Registers used:
+   389 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   390 ;; Tracked objects:
+   391 ;;		On entry : 0/0
+   392 ;;		On exit  : 0/0
+   393 ;;		Unchanged: 0/0
+   394 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   395 ;;      Params:         2       0       0       0       0
+   396 ;;      Locals:         0       0       0       0       0
+   397 ;;      Temps:          1       0       0       0       0
+   398 ;;      Totals:         3       0       0       0       0
+   399 ;;Total ram usage:        3 bytes
+   400 ;; Hardware stack levels used: 1
+   401 ;; This function calls:
+   402 ;;		Nothing
+   403 ;; This function is called by:
+   404 ;;		_main
+   405 ;; This function uses a non-reentrant model
+   406 ;;
+   407                           
    408                           
-   409                           ;main.c: 22:     setPinDir(1,2,0);
-   410  0655  3001               	movlw	1
-   411  0656  00F0               	movwf	setPinDir@portNum
-   412  0657  3000               	movlw	0
-   413  0658  00F1               	movwf	setPinDir@portNum+1
-   414  0659  3002               	movlw	2
-   415  065A  00F2               	movwf	setPinDir@pinNum
-   416  065B  3000               	movlw	0
-   417  065C  00F3               	movwf	setPinDir@pinNum+1
-   418  065D  3000               	movlw	0
-   419  065E  00F4               	movwf	setPinDir@state
-   420  065F  00F5               	movwf	setPinDir@state+1
-   421  0660  120A  118A  2723  120A  118A  	fcall	_setPinDir
-   422                           
-   423                           ;main.c: 23:     setPinDir(1,0,1);
-   424  0665  3001               	movlw	1
-   425  0666  00F0               	movwf	setPinDir@portNum
-   426  0667  3000               	movlw	0
-   427  0668  00F1               	movwf	setPinDir@portNum+1
-   428  0669  3000               	movlw	0
-   429  066A  00F2               	movwf	setPinDir@pinNum
-   430  066B  00F3               	movwf	setPinDir@pinNum+1
-   431  066C  3001               	movlw	1
-   432  066D  00F4               	movwf	setPinDir@state
-   433  066E  3000               	movlw	0
-   434  066F  00F5               	movwf	setPinDir@state+1
-   435  0670  120A  118A  2723  120A  118A  	fcall	_setPinDir
-   436  0675                     l15:	
-   437                           ;main.c: 24:     while(1){
-   438                           
+   409                           ;psect for function _togglePortData
+   410  0760                     _togglePortData:
+   411  0760                     l1059:	
+   412                           ;incstack = 0
+   413                           ; Regs used in _togglePortData: [wreg-fsr0h+status,2+status,0]
+   414                           
+   415                           
+   416                           ;MIO.c: 101: switch (portNum) {
+   417  0760  2F84               	goto	l1071
+   418  0761                     l1061:
+   419                           
+   420                           ;MIO.c: 103:             PORTA ^= 0xFF;
+   421  0761  30FF               	movlw	255
+   422  0762  00F2               	movwf	??_togglePortData
+   423  0763  0872               	movf	??_togglePortData,w
+   424  0764  1283               	bcf	3,5	;RP0=0, select bank0
+   425  0765  1303               	bcf	3,6	;RP1=0, select bank0
+   426  0766  0685               	xorwf	5,f	;volatile
+   427                           
+   428                           ;MIO.c: 104:             break;
+   429  0767  2F9A               	goto	l90
+   430  0768                     l1063:
+   431                           
+   432                           ;MIO.c: 106:             PORTB ^= 0xFF;
+   433  0768  30FF               	movlw	255
+   434  0769  00F2               	movwf	??_togglePortData
+   435  076A  0872               	movf	??_togglePortData,w
+   436  076B  1283               	bcf	3,5	;RP0=0, select bank0
+   437  076C  1303               	bcf	3,6	;RP1=0, select bank0
+   438  076D  0686               	xorwf	6,f	;volatile
    439                           
-   440                           ;main.c: 35:          if(isPressed(1,0)){
-   441  0675  3001               	movlw	1
-   442  0676  00F0               	movwf	isPressed@portNum
-   443  0677  3000               	movlw	0
-   444  0678  00F1               	movwf	isPressed@portNum+1
-   445  0679  3000               	movlw	0
-   446  067A  00F2               	movwf	isPressed@pinNum
-   447  067B  00F3               	movwf	isPressed@pinNum+1
-   448  067C  120A  118A  269C  120A  118A  	fcall	_isPressed
-   449  0681  0870               	movf	?_isPressed,w
-   450  0682  0471               	iorwf	?_isPressed+1,w
-   451  0683  1903               	btfsc	3,2
-   452  0684  2E86               	goto	u711
-   453  0685  2E87               	goto	u710
-   454  0686                     u711:
-   455  0686  2E75               	goto	l15
-   456  0687                     u710:
-   457  0687                     l1206:
-   458                           
-   459                           ;main.c: 36:           _delay(100);
-   460  0687  3021               	movlw	33
-   461  0688  00FB               	movwf	??_main
-   462  0689                     u727:
-   463  0689  0BFB               	decfsz	??_main,f
-   464  068A  2E89               	goto	u727
-   465  068B                     l1208:
-   466                           
-   467                           ;main.c: 37:         togglePinData(1,2);
-   468  068B  3001               	movlw	1
-   469  068C  00F0               	movwf	togglePinData@portNum
-   470  068D  3000               	movlw	0
-   471  068E  00F1               	movwf	togglePinData@portNum+1
-   472  068F  3002               	movlw	2
-   473  0690  00F2               	movwf	togglePinData@pinNum
-   474  0691  3000               	movlw	0
-   475  0692  00F3               	movwf	togglePinData@pinNum+1
-   476  0693  120A  118A  25B2  120A  118A  	fcall	_togglePinData
-   477  0698  2E75               	goto	l15
-   478  0699  120A  118A  2800   	ljmp	start
-   479  069C                     __end_of_main:
-   480                           
-   481                           	psect	text1
-   482  05B2                     __ptext1:	
-   483 ;; *************** function _togglePinData *****************
-   484 ;; Defined at:
-   485 ;;		line 215 in file "MIO.c"
-   486 ;; Parameters:    Size  Location     Type
-   487 ;;  portNum         2    0[COMMON] int 
-   488 ;;  pinNum          2    2[COMMON] int 
-   489 ;; Auto vars:     Size  Location     Type
-   490 ;;		None
-   491 ;; Return value:  Size  Location     Type
-   492 ;;                  1    wreg      void 
-   493 ;; Registers used:
-   494 ;;		wreg, fsr0l, fsr0h, status,2, status,0
-   495 ;; Tracked objects:
-   496 ;;		On entry : 0/0
-   497 ;;		On exit  : 0/0
-   498 ;;		Unchanged: 0/0
-   499 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   500 ;;      Params:         4       0       0       0       0
-   501 ;;      Locals:         0       0       0       0       0
-   502 ;;      Temps:          2       0       0       0       0
-   503 ;;      Totals:         6       0       0       0       0
-   504 ;;Total ram usage:        6 bytes
-   505 ;; Hardware stack levels used: 1
-   506 ;; This function calls:
-   507 ;;		Nothing
-   508 ;; This function is called by:
-   509 ;;		_main
-   510 ;; This function uses a non-reentrant model
-   511 ;;
-   512                           
-   513                           
-   514                           ;psect for function _togglePinData
-   515  05B2                     _togglePinData:
-   516  05B2                     l1186:	
-   517                           ;incstack = 0
-   518                           ; Regs used in _togglePinData: [wreg-fsr0h+status,2+status,0]
-   519                           
-   520                           
-   521                           ;MIO.c: 216:     switch (portNum) {
-   522  05B2  2E03               	goto	l1198
-   523  05B3                     l1188:
+   440                           ;MIO.c: 107:             break;
+   441  076E  2F9A               	goto	l90
+   442  076F                     l1065:
+   443                           
+   444                           ;MIO.c: 109:             PORTC ^= 0xFF;
+   445  076F  30FF               	movlw	255
+   446  0770  00F2               	movwf	??_togglePortData
+   447  0771  0872               	movf	??_togglePortData,w
+   448  0772  1283               	bcf	3,5	;RP0=0, select bank0
+   449  0773  1303               	bcf	3,6	;RP1=0, select bank0
+   450  0774  0687               	xorwf	7,f	;volatile
+   451                           
+   452                           ;MIO.c: 110:             break;
+   453  0775  2F9A               	goto	l90
+   454  0776                     l1067:
+   455                           
+   456                           ;MIO.c: 112:             PORTD ^= 0xFF;
+   457  0776  30FF               	movlw	255
+   458  0777  00F2               	movwf	??_togglePortData
+   459  0778  0872               	movf	??_togglePortData,w
+   460  0779  1283               	bcf	3,5	;RP0=0, select bank0
+   461  077A  1303               	bcf	3,6	;RP1=0, select bank0
+   462  077B  0688               	xorwf	8,f	;volatile
+   463                           
+   464                           ;MIO.c: 113:             break;
+   465  077C  2F9A               	goto	l90
+   466  077D                     l1069:
+   467                           
+   468                           ;MIO.c: 115:             PORTE ^= 0xFF;
+   469  077D  30FF               	movlw	255
+   470  077E  00F2               	movwf	??_togglePortData
+   471  077F  0872               	movf	??_togglePortData,w
+   472  0780  1283               	bcf	3,5	;RP0=0, select bank0
+   473  0781  1303               	bcf	3,6	;RP1=0, select bank0
+   474  0782  0689               	xorwf	9,f	;volatile
+   475                           
+   476                           ;MIO.c: 116:             break;
+   477  0783  2F9A               	goto	l90
+   478  0784                     l1071:
+   479                           
+   480                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   481                           ; Switch size 1, requested type "simple"
+   482                           ; Number of cases is 1, Range of values is 0 to 0
+   483                           ; switch strategies available:
+   484                           ; Name         Instructions Cycles
+   485                           ; simple_byte            4     3 (average)
+   486                           ; direct_byte           11     8 (fixed)
+   487                           ; jumptable            260     6 (fixed)
+   488                           ;	Chosen strategy is simple_byte
+   489  0784  0871               	movf	togglePortData@portNum+1,w
+   490  0785  3A00               	xorlw	0	; case 0
+   491  0786  1903               	skipnz
+   492  0787  2F89               	goto	l1165
+   493  0788  2F9A               	goto	l90
+   494  0789                     l1165:
+   495                           
+   496                           ; Switch size 1, requested type "simple"
+   497                           ; Number of cases is 5, Range of values is 0 to 4
+   498                           ; switch strategies available:
+   499                           ; Name         Instructions Cycles
+   500                           ; simple_byte           16     9 (average)
+   501                           ; direct_byte           23     8 (fixed)
+   502                           ; jumptable            260     6 (fixed)
+   503                           ;	Chosen strategy is simple_byte
+   504  0789  0870               	movf	togglePortData@portNum,w
+   505  078A  3A00               	xorlw	0	; case 0
+   506  078B  1903               	skipnz
+   507  078C  2F61               	goto	l1061
+   508  078D  3A01               	xorlw	1	; case 1
+   509  078E  1903               	skipnz
+   510  078F  2F68               	goto	l1063
+   511  0790  3A03               	xorlw	3	; case 2
+   512  0791  1903               	skipnz
+   513  0792  2F6F               	goto	l1065
+   514  0793  3A01               	xorlw	1	; case 3
+   515  0794  1903               	skipnz
+   516  0795  2F76               	goto	l1067
+   517  0796  3A07               	xorlw	7	; case 4
+   518  0797  1903               	skipnz
+   519  0798  2F7D               	goto	l1069
+   520  0799  2F9A               	goto	l90
+   521  079A                     l90:
+   522  079A  0008               	return
+   523  079B                     __end_of_togglePortData:
    524                           
-   525                           ;MIO.c: 218:             PORTA ^= (1 << pinNum);
-   526  05B3  3001               	movlw	1
-   527  05B4  00F4               	movwf	??_togglePinData
-   528  05B5  0A72               	incf	togglePinData@pinNum,w
-   529  05B6  2DB9               	goto	u664
-   530  05B7                     u665:
-   531  05B7  1003               	clrc
-   532  05B8  0DF4               	rlf	??_togglePinData,f
-   533  05B9                     u664:
-   534  05B9  3EFF               	addlw	-1
-   535  05BA  1D03               	skipz
-   536  05BB  2DB7               	goto	u665
-   537  05BC  0874               	movf	??_togglePinData,w
-   538  05BD  00F5               	movwf	??_togglePinData+1
-   539  05BE  0875               	movf	??_togglePinData+1,w
-   540  05BF  1283               	bcf	3,5	;RP0=0, select bank0
-   541  05C0  1303               	bcf	3,6	;RP1=0, select bank0
-   542  05C1  0685               	xorwf	5,f	;volatile
-   543                           
-   544                           ;MIO.c: 219:             break;
-   545  05C2  2E19               	goto	l146
-   546  05C3                     l1190:
-   547                           
-   548                           ;MIO.c: 221:             PORTB ^= (1 << pinNum);
-   549  05C3  3001               	movlw	1
-   550  05C4  00F4               	movwf	??_togglePinData
-   551  05C5  0A72               	incf	togglePinData@pinNum,w
-   552  05C6  2DC9               	goto	u674
-   553  05C7                     u675:
-   554  05C7  1003               	clrc
-   555  05C8  0DF4               	rlf	??_togglePinData,f
-   556  05C9                     u674:
-   557  05C9  3EFF               	addlw	-1
-   558  05CA  1D03               	skipz
-   559  05CB  2DC7               	goto	u675
-   560  05CC  0874               	movf	??_togglePinData,w
-   561  05CD  00F5               	movwf	??_togglePinData+1
-   562  05CE  0875               	movf	??_togglePinData+1,w
-   563  05CF  1283               	bcf	3,5	;RP0=0, select bank0
-   564  05D0  1303               	bcf	3,6	;RP1=0, select bank0
-   565  05D1  0686               	xorwf	6,f	;volatile
-   566                           
-   567                           ;MIO.c: 222:             break;
-   568  05D2  2E19               	goto	l146
-   569  05D3                     l1192:
-   570                           
-   571                           ;MIO.c: 224:             PORTC ^= (1 << pinNum);
-   572  05D3  3001               	movlw	1
-   573  05D4  00F4               	movwf	??_togglePinData
-   574  05D5  0A72               	incf	togglePinData@pinNum,w
-   575  05D6  2DD9               	goto	u684
-   576  05D7                     u685:
-   577  05D7  1003               	clrc
-   578  05D8  0DF4               	rlf	??_togglePinData,f
-   579  05D9                     u684:
-   580  05D9  3EFF               	addlw	-1
-   581  05DA  1D03               	skipz
-   582  05DB  2DD7               	goto	u685
-   583  05DC  0874               	movf	??_togglePinData,w
-   584  05DD  00F5               	movwf	??_togglePinData+1
-   585  05DE  0875               	movf	??_togglePinData+1,w
-   586  05DF  1283               	bcf	3,5	;RP0=0, select bank0
-   587  05E0  1303               	bcf	3,6	;RP1=0, select bank0
-   588  05E1  0687               	xorwf	7,f	;volatile
-   589                           
-   590                           ;MIO.c: 225:             break;
-   591  05E2  2E19               	goto	l146
-   592  05E3                     l1194:
-   593                           
-   594                           ;MIO.c: 227:             PORTD ^= (1 << pinNum);
-   595  05E3  3001               	movlw	1
-   596  05E4  00F4               	movwf	??_togglePinData
-   597  05E5  0A72               	incf	togglePinData@pinNum,w
-   598  05E6  2DE9               	goto	u694
-   599  05E7                     u695:
-   600  05E7  1003               	clrc
-   601  05E8  0DF4               	rlf	??_togglePinData,f
-   602  05E9                     u694:
-   603  05E9  3EFF               	addlw	-1
-   604  05EA  1D03               	skipz
-   605  05EB  2DE7               	goto	u695
-   606  05EC  0874               	movf	??_togglePinData,w
-   607  05ED  00F5               	movwf	??_togglePinData+1
-   608  05EE  0875               	movf	??_togglePinData+1,w
-   609  05EF  1283               	bcf	3,5	;RP0=0, select bank0
-   610  05F0  1303               	bcf	3,6	;RP1=0, select bank0
-   611  05F1  0688               	xorwf	8,f	;volatile
+   525                           	psect	text2
+   526  079B                     __ptext2:	
+   527 ;; *************** function _setPortDir *****************
+   528 ;; Defined at:
+   529 ;;		line 28 in file "MIO.c"
+   530 ;; Parameters:    Size  Location     Type
+   531 ;;  portNum         2    0[COMMON] int 
+   532 ;;  state           2    2[COMMON] int 
+   533 ;; Auto vars:     Size  Location     Type
+   534 ;;		None
+   535 ;; Return value:  Size  Location     Type
+   536 ;;                  1    wreg      void 
+   537 ;; Registers used:
+   538 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   539 ;; Tracked objects:
+   540 ;;		On entry : 0/0
+   541 ;;		On exit  : 0/0
+   542 ;;		Unchanged: 0/0
+   543 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   544 ;;      Params:         4       0       0       0       0
+   545 ;;      Locals:         0       0       0       0       0
+   546 ;;      Temps:          0       0       0       0       0
+   547 ;;      Totals:         4       0       0       0       0
+   548 ;;Total ram usage:        4 bytes
+   549 ;; Hardware stack levels used: 1
+   550 ;; This function calls:
+   551 ;;		Nothing
+   552 ;; This function is called by:
+   553 ;;		_main
+   554 ;; This function uses a non-reentrant model
+   555 ;;
+   556                           
+   557                           
+   558                           ;psect for function _setPortDir
+   559  079B                     _setPortDir:
+   560  079B                     l1005:	
+   561                           ;incstack = 0
+   562                           ; Regs used in _setPortDir: [wreg-fsr0h+status,2+status,0]
+   563                           
+   564                           
+   565                           ;MIO.c: 29:          if (state) {
+   566  079B  0872               	movf	setPortDir@state,w
+   567  079C  0473               	iorwf	setPortDir@state+1,w
+   568  079D  1903               	btfsc	3,2
+   569  079E  2FA0               	goto	u291
+   570  079F  2FA1               	goto	u290
+   571  07A0                     u291:
+   572  07A0  2FE5               	goto	l1031
+   573  07A1                     u290:
+   574  07A1  2FBB               	goto	l1019
+   575  07A2                     l1009:
+   576                           
+   577                           ;MIO.c: 33:                 TRISA = 0xFF;
+   578  07A2  30FF               	movlw	255
+   579  07A3  1683               	bsf	3,5	;RP0=1, select bank1
+   580  07A4  1303               	bcf	3,6	;RP1=0, select bank1
+   581  07A5  0085               	movwf	5	;volatile
+   582                           
+   583                           ;MIO.c: 34:                 break;
+   584  07A6  2FFB               	goto	l68
+   585  07A7                     l1011:
+   586                           
+   587                           ;MIO.c: 36:                 TRISB = 0xFF;
+   588  07A7  30FF               	movlw	255
+   589  07A8  1683               	bsf	3,5	;RP0=1, select bank1
+   590  07A9  1303               	bcf	3,6	;RP1=0, select bank1
+   591  07AA  0086               	movwf	6	;volatile
+   592                           
+   593                           ;MIO.c: 37:                 break;
+   594  07AB  2FFB               	goto	l68
+   595  07AC                     l1013:
+   596                           
+   597                           ;MIO.c: 39:                 TRISC = 0xFF;
+   598  07AC  30FF               	movlw	255
+   599  07AD  1683               	bsf	3,5	;RP0=1, select bank1
+   600  07AE  1303               	bcf	3,6	;RP1=0, select bank1
+   601  07AF  0087               	movwf	7	;volatile
+   602                           
+   603                           ;MIO.c: 40:                 break;
+   604  07B0  2FFB               	goto	l68
+   605  07B1                     l1015:
+   606                           
+   607                           ;MIO.c: 42:                 TRISD = 0xFF;
+   608  07B1  30FF               	movlw	255
+   609  07B2  1683               	bsf	3,5	;RP0=1, select bank1
+   610  07B3  1303               	bcf	3,6	;RP1=0, select bank1
+   611  07B4  0088               	movwf	8	;volatile
    612                           
-   613                           ;MIO.c: 228:             break;
-   614  05F2  2E19               	goto	l146
-   615  05F3                     l1196:
+   613                           ;MIO.c: 43:                 break;
+   614  07B5  2FFB               	goto	l68
+   615  07B6                     l1017:
    616                           
-   617                           ;MIO.c: 230:             PORTE ^= (1 << pinNum);
-   618  05F3  3001               	movlw	1
-   619  05F4  00F4               	movwf	??_togglePinData
-   620  05F5  0A72               	incf	togglePinData@pinNum,w
-   621  05F6  2DF9               	goto	u704
-   622  05F7                     u705:
-   623  05F7  1003               	clrc
-   624  05F8  0DF4               	rlf	??_togglePinData,f
-   625  05F9                     u704:
-   626  05F9  3EFF               	addlw	-1
-   627  05FA  1D03               	skipz
-   628  05FB  2DF7               	goto	u705
-   629  05FC  0874               	movf	??_togglePinData,w
-   630  05FD  00F5               	movwf	??_togglePinData+1
-   631  05FE  0875               	movf	??_togglePinData+1,w
-   632  05FF  1283               	bcf	3,5	;RP0=0, select bank0
-   633  0600  1303               	bcf	3,6	;RP1=0, select bank0
-   634  0601  0689               	xorwf	9,f	;volatile
-   635                           
-   636                           ;MIO.c: 231:             break;
-   637  0602  2E19               	goto	l146
-   638  0603                     l1198:
-   639                           
-   640                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+   617                           ;MIO.c: 45:                 TRISE |= 0xFF;
+   618  07B6  30FF               	movlw	255
+   619  07B7  1683               	bsf	3,5	;RP0=1, select bank1
+   620  07B8  1303               	bcf	3,6	;RP1=0, select bank1
+   621  07B9  0089               	movwf	9	;volatile
+   622                           
+   623                           ;MIO.c: 46:                 break;
+   624  07BA  2FFB               	goto	l68
+   625  07BB                     l1019:
+   626                           
+   627                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-   641                           ; Switch size 1, requested type "simple"
-   642                           ; Number of cases is 1, Range of values is 0 to 0
-   643                           ; switch strategies available:
-   644                           ; Name         Instructions Cycles
-   645                           ; simple_byte            4     3 (average)
-   646                           ; direct_byte           11     8 (fixed)
-   647                           ; jumptable            260     6 (fixed)
-   648                           ;	Chosen strategy is simple_byte
-   649  0603  0871               	movf	togglePinData@portNum+1,w
-   650  0604  3A00               	xorlw	0	; case 0
-   651  0605  1903               	skipnz
-   652  0606  2E08               	goto	l1330
-   653  0607  2E19               	goto	l146
-   654  0608                     l1330:
-   655                           
-   656                           ; Switch size 1, requested type "simple"
-   657                           ; Number of cases is 5, Range of values is 0 to 4
-   658                           ; switch strategies available:
-   659                           ; Name         Instructions Cycles
-   660                           ; simple_byte           16     9 (average)
-   661                           ; direct_byte           23     8 (fixed)
-   662                           ; jumptable            260     6 (fixed)
-   663                           ;	Chosen strategy is simple_byte
-   664  0608  0870               	movf	togglePinData@portNum,w
-   665  0609  3A00               	xorlw	0	; case 0
-   666  060A  1903               	skipnz
-   667  060B  2DB3               	goto	l1188
-   668  060C  3A01               	xorlw	1	; case 1
-   669  060D  1903               	skipnz
-   670  060E  2DC3               	goto	l1190
-   671  060F  3A03               	xorlw	3	; case 2
-   672  0610  1903               	skipnz
-   673  0611  2DD3               	goto	l1192
-   674  0612  3A01               	xorlw	1	; case 3
-   675  0613  1903               	skipnz
-   676  0614  2DE3               	goto	l1194
-   677  0615  3A07               	xorlw	7	; case 4
-   678  0616  1903               	skipnz
-   679  0617  2DF3               	goto	l1196
-   680  0618  2E19               	goto	l146
-   681  0619                     l146:
-   682  0619  0008               	return
-   683  061A                     __end_of_togglePinData:
-   684                           
-   685                           	psect	text2
-   686  0551                     __ptext2:	
-   687 ;; *************** function _setPortDir *****************
-   688 ;; Defined at:
-   689 ;;		line 28 in file "MIO.c"
-   690 ;; Parameters:    Size  Location     Type
-   691 ;;  portNum         2    0[COMMON] int 
-   692 ;;  state           2    2[COMMON] int 
-   693 ;; Auto vars:     Size  Location     Type
-   694 ;;		None
-   695 ;; Return value:  Size  Location     Type
-   696 ;;                  1    wreg      void 
-   697 ;; Registers used:
-   698 ;;		wreg, fsr0l, fsr0h, status,2, status,0
-   699 ;; Tracked objects:
-   700 ;;		On entry : 0/0
-   701 ;;		On exit  : 0/0
-   702 ;;		Unchanged: 0/0
-   703 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   704 ;;      Params:         4       0       0       0       0
-   705 ;;      Locals:         0       0       0       0       0
-   706 ;;      Temps:          0       0       0       0       0
-   707 ;;      Totals:         4       0       0       0       0
-   708 ;;Total ram usage:        4 bytes
-   709 ;; Hardware stack levels used: 1
-   710 ;; This function calls:
-   711 ;;		Nothing
-   712 ;; This function is called by:
-   713 ;;		_main
-   714 ;; This function uses a non-reentrant model
-   715 ;;
-   716                           
-   717                           
-   718                           ;psect for function _setPortDir
-   719  0551                     _setPortDir:
-   720  0551                     l1070:	
-   721                           ;incstack = 0
-   722                           ; Regs used in _setPortDir: [wreg-fsr0h+status,2+status,0]
-   723                           
-   724                           
-   725                           ;MIO.c: 29:          if (state) {
-   726  0551  0872               	movf	setPortDir@state,w
-   727  0552  0473               	iorwf	setPortDir@state+1,w
-   728  0553  1903               	btfsc	3,2
-   729  0554  2D56               	goto	u421
-   730  0555  2D57               	goto	u420
-   731  0556                     u421:
-   732  0556  2D9B               	goto	l1096
-   733  0557                     u420:
-   734  0557  2D71               	goto	l1084
-   735  0558                     l1074:
-   736                           
-   737                           ;MIO.c: 33:                 TRISA = 0xFF;
-   738  0558  30FF               	movlw	255
-   739  0559  1683               	bsf	3,5	;RP0=1, select bank1
-   740  055A  1303               	bcf	3,6	;RP1=0, select bank1
-   741  055B  0085               	movwf	5	;volatile
-   742                           
-   743                           ;MIO.c: 34:                 break;
-   744  055C  2DB1               	goto	l71
-   745  055D                     l1076:
-   746                           
-   747                           ;MIO.c: 36:                 TRISB = 0xFF;
-   748  055D  30FF               	movlw	255
-   749  055E  1683               	bsf	3,5	;RP0=1, select bank1
-   750  055F  1303               	bcf	3,6	;RP1=0, select bank1
-   751  0560  0086               	movwf	6	;volatile
-   752                           
-   753                           ;MIO.c: 37:                 break;
-   754  0561  2DB1               	goto	l71
-   755  0562                     l1078:
-   756                           
-   757                           ;MIO.c: 39:                 TRISC = 0xFF;
-   758  0562  30FF               	movlw	255
-   759  0563  1683               	bsf	3,5	;RP0=1, select bank1
-   760  0564  1303               	bcf	3,6	;RP1=0, select bank1
-   761  0565  0087               	movwf	7	;volatile
-   762                           
-   763                           ;MIO.c: 40:                 break;
-   764  0566  2DB1               	goto	l71
-   765  0567                     l1080:
-   766                           
-   767                           ;MIO.c: 42:                 TRISD = 0xFF;
-   768  0567  30FF               	movlw	255
-   769  0568  1683               	bsf	3,5	;RP0=1, select bank1
-   770  0569  1303               	bcf	3,6	;RP1=0, select bank1
-   771  056A  0088               	movwf	8	;volatile
-   772                           
-   773                           ;MIO.c: 43:                 break;
-   774  056B  2DB1               	goto	l71
-   775  056C                     l1082:
-   776                           
-   777                           ;MIO.c: 45:                 TRISE = 0x07;
-   778  056C  3007               	movlw	7
-   779  056D  1683               	bsf	3,5	;RP0=1, select bank1
-   780  056E  1303               	bcf	3,6	;RP1=0, select bank1
-   781  056F  0089               	movwf	9	;volatile
-   782                           
-   783                           ;MIO.c: 46:                 break;
-   784  0570  2DB1               	goto	l71
-   785  0571                     l1084:
-   786                           
-   787                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+   628                           ; Switch size 1, requested type "simple"
+   629                           ; Number of cases is 1, Range of values is 0 to 0
+   630                           ; switch strategies available:
+   631                           ; Name         Instructions Cycles
+   632                           ; simple_byte            4     3 (average)
+   633                           ; direct_byte           11     8 (fixed)
+   634                           ; jumptable            260     6 (fixed)
+   635                           ;	Chosen strategy is simple_byte
+   636  07BB  0871               	movf	setPortDir@portNum+1,w
+   637  07BC  3A00               	xorlw	0	; case 0
+   638  07BD  1903               	skipnz
+   639  07BE  2FC0               	goto	l1167
+   640  07BF  2FFB               	goto	l68
+   641  07C0                     l1167:
+   642                           
+   643                           ; Switch size 1, requested type "simple"
+   644                           ; Number of cases is 5, Range of values is 0 to 4
+   645                           ; switch strategies available:
+   646                           ; Name         Instructions Cycles
+   647                           ; simple_byte           16     9 (average)
+   648                           ; direct_byte           23     8 (fixed)
+   649                           ; jumptable            260     6 (fixed)
+   650                           ;	Chosen strategy is simple_byte
+   651  07C0  0870               	movf	setPortDir@portNum,w
+   652  07C1  3A00               	xorlw	0	; case 0
+   653  07C2  1903               	skipnz
+   654  07C3  2FA2               	goto	l1009
+   655  07C4  3A01               	xorlw	1	; case 1
+   656  07C5  1903               	skipnz
+   657  07C6  2FA7               	goto	l1011
+   658  07C7  3A03               	xorlw	3	; case 2
+   659  07C8  1903               	skipnz
+   660  07C9  2FAC               	goto	l1013
+   661  07CA  3A01               	xorlw	1	; case 3
+   662  07CB  1903               	skipnz
+   663  07CC  2FB1               	goto	l1015
+   664  07CD  3A07               	xorlw	7	; case 4
+   665  07CE  1903               	skipnz
+   666  07CF  2FB6               	goto	l1017
+   667  07D0  2FFB               	goto	l68
+   668  07D1                     l1021:
+   669                           
+   670                           ;MIO.c: 55:                 TRISA = 0x00;
+   671  07D1  1683               	bsf	3,5	;RP0=1, select bank1
+   672  07D2  1303               	bcf	3,6	;RP1=0, select bank1
+   673  07D3  0185               	clrf	5	;volatile
+   674                           
+   675                           ;MIO.c: 56:                 break;
+   676  07D4  2FFB               	goto	l68
+   677  07D5                     l1023:
+   678                           
+   679                           ;MIO.c: 58:                 TRISB = 0x00;
+   680  07D5  1683               	bsf	3,5	;RP0=1, select bank1
+   681  07D6  1303               	bcf	3,6	;RP1=0, select bank1
+   682  07D7  0186               	clrf	6	;volatile
+   683                           
+   684                           ;MIO.c: 59:                 break;
+   685  07D8  2FFB               	goto	l68
+   686  07D9                     l1025:
+   687                           
+   688                           ;MIO.c: 61:                 TRISC = 0x00;
+   689  07D9  1683               	bsf	3,5	;RP0=1, select bank1
+   690  07DA  1303               	bcf	3,6	;RP1=0, select bank1
+   691  07DB  0187               	clrf	7	;volatile
+   692                           
+   693                           ;MIO.c: 62:                 break;
+   694  07DC  2FFB               	goto	l68
+   695  07DD                     l1027:
+   696                           
+   697                           ;MIO.c: 64:                 TRISD = 0x00;
+   698  07DD  1683               	bsf	3,5	;RP0=1, select bank1
+   699  07DE  1303               	bcf	3,6	;RP1=0, select bank1
+   700  07DF  0188               	clrf	8	;volatile
+   701                           
+   702                           ;MIO.c: 65:                 break;
+   703  07E0  2FFB               	goto	l68
+   704  07E1                     l1029:
+   705                           
+   706                           ;MIO.c: 67:                 TRISE = 0x00;
+   707  07E1  1683               	bsf	3,5	;RP0=1, select bank1
+   708  07E2  1303               	bcf	3,6	;RP1=0, select bank1
+   709  07E3  0189               	clrf	9	;volatile
+   710                           
+   711                           ;MIO.c: 68:                 break;
+   712  07E4  2FFB               	goto	l68
+   713  07E5                     l1031:
+   714                           
+   715                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-   788                           ; Switch size 1, requested type "simple"
-   789                           ; Number of cases is 1, Range of values is 0 to 0
-   790                           ; switch strategies available:
-   791                           ; Name         Instructions Cycles
-   792                           ; simple_byte            4     3 (average)
-   793                           ; direct_byte           11     8 (fixed)
-   794                           ; jumptable            260     6 (fixed)
-   795                           ;	Chosen strategy is simple_byte
-   796  0571  0871               	movf	setPortDir@portNum+1,w
-   797  0572  3A00               	xorlw	0	; case 0
-   798  0573  1903               	skipnz
-   799  0574  2D76               	goto	l1332
-   800  0575  2DB1               	goto	l71
-   801  0576                     l1332:
-   802                           
-   803                           ; Switch size 1, requested type "simple"
-   804                           ; Number of cases is 5, Range of values is 0 to 4
-   805                           ; switch strategies available:
-   806                           ; Name         Instructions Cycles
-   807                           ; simple_byte           16     9 (average)
-   808                           ; direct_byte           23     8 (fixed)
-   809                           ; jumptable            260     6 (fixed)
-   810                           ;	Chosen strategy is simple_byte
-   811  0576  0870               	movf	setPortDir@portNum,w
-   812  0577  3A00               	xorlw	0	; case 0
-   813  0578  1903               	skipnz
-   814  0579  2D58               	goto	l1074
-   815  057A  3A01               	xorlw	1	; case 1
-   816  057B  1903               	skipnz
-   817  057C  2D5D               	goto	l1076
-   818  057D  3A03               	xorlw	3	; case 2
-   819  057E  1903               	skipnz
-   820  057F  2D62               	goto	l1078
-   821  0580  3A01               	xorlw	1	; case 3
-   822  0581  1903               	skipnz
-   823  0582  2D67               	goto	l1080
-   824  0583  3A07               	xorlw	7	; case 4
-   825  0584  1903               	skipnz
-   826  0585  2D6C               	goto	l1082
-   827  0586  2DB1               	goto	l71
-   828  0587                     l1086:
+   716                           ; Switch size 1, requested type "simple"
+   717                           ; Number of cases is 1, Range of values is 0 to 0
+   718                           ; switch strategies available:
+   719                           ; Name         Instructions Cycles
+   720                           ; simple_byte            4     3 (average)
+   721                           ; direct_byte           11     8 (fixed)
+   722                           ; jumptable            260     6 (fixed)
+   723                           ;	Chosen strategy is simple_byte
+   724  07E5  0871               	movf	setPortDir@portNum+1,w
+   725  07E6  3A00               	xorlw	0	; case 0
+   726  07E7  1903               	skipnz
+   727  07E8  2FEA               	goto	l1169
+   728  07E9  2FFB               	goto	l68
+   729  07EA                     l1169:
+   730                           
+   731                           ; Switch size 1, requested type "simple"
+   732                           ; Number of cases is 5, Range of values is 0 to 4
+   733                           ; switch strategies available:
+   734                           ; Name         Instructions Cycles
+   735                           ; simple_byte           16     9 (average)
+   736                           ; direct_byte           23     8 (fixed)
+   737                           ; jumptable            260     6 (fixed)
+   738                           ;	Chosen strategy is simple_byte
+   739  07EA  0870               	movf	setPortDir@portNum,w
+   740  07EB  3A00               	xorlw	0	; case 0
+   741  07EC  1903               	skipnz
+   742  07ED  2FD1               	goto	l1021
+   743  07EE  3A01               	xorlw	1	; case 1
+   744  07EF  1903               	skipnz
+   745  07F0  2FD5               	goto	l1023
+   746  07F1  3A03               	xorlw	3	; case 2
+   747  07F2  1903               	skipnz
+   748  07F3  2FD9               	goto	l1025
+   749  07F4  3A01               	xorlw	1	; case 3
+   750  07F5  1903               	skipnz
+   751  07F6  2FDD               	goto	l1027
+   752  07F7  3A07               	xorlw	7	; case 4
+   753  07F8  1903               	skipnz
+   754  07F9  2FE1               	goto	l1029
+   755  07FA  2FFB               	goto	l68
+   756  07FB                     l68:
+   757  07FB  0008               	return
+   758  07FC                     __end_of_setPortDir:
+   759                           
+   760                           	psect	text3
+   761  072F                     __ptext3:	
+   762 ;; *************** function _setPortData *****************
+   763 ;; Defined at:
+   764 ;;		line 77 in file "MIO.c"
+   765 ;; Parameters:    Size  Location     Type
+   766 ;;  portNum         2    0[COMMON] int 
+   767 ;;  data            2    2[COMMON] int 
+   768 ;; Auto vars:     Size  Location     Type
+   769 ;;		None
+   770 ;; Return value:  Size  Location     Type
+   771 ;;                  1    wreg      void 
+   772 ;; Registers used:
+   773 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   774 ;; Tracked objects:
+   775 ;;		On entry : 0/0
+   776 ;;		On exit  : 0/0
+   777 ;;		Unchanged: 0/0
+   778 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   779 ;;      Params:         4       0       0       0       0
+   780 ;;      Locals:         0       0       0       0       0
+   781 ;;      Temps:          0       0       0       0       0
+   782 ;;      Totals:         4       0       0       0       0
+   783 ;;Total ram usage:        4 bytes
+   784 ;; Hardware stack levels used: 1
+   785 ;; This function calls:
+   786 ;;		Nothing
+   787 ;; This function is called by:
+   788 ;;		_main
+   789 ;; This function uses a non-reentrant model
+   790 ;;
+   791                           
+   792                           
+   793                           ;psect for function _setPortData
+   794  072F                     _setPortData:
+   795  072F                     l1041:	
+   796                           ;incstack = 0
+   797                           ; Regs used in _setPortData: [wreg-fsr0h+status,2+status,0]
+   798                           
+   799                           
+   800                           ;MIO.c: 78: switch (portNum) {
+   801  072F  2F49               	goto	l1053
+   802  0730                     l1043:
+   803                           
+   804                           ;MIO.c: 80:             PORTA = data;
+   805  0730  0872               	movf	setPortData@data,w
+   806  0731  1283               	bcf	3,5	;RP0=0, select bank0
+   807  0732  1303               	bcf	3,6	;RP1=0, select bank0
+   808  0733  0085               	movwf	5	;volatile
+   809                           
+   810                           ;MIO.c: 81:             break;
+   811  0734  2F5F               	goto	l79
+   812  0735                     l1045:
+   813                           
+   814                           ;MIO.c: 83:             PORTB = data;
+   815  0735  0872               	movf	setPortData@data,w
+   816  0736  1283               	bcf	3,5	;RP0=0, select bank0
+   817  0737  1303               	bcf	3,6	;RP1=0, select bank0
+   818  0738  0086               	movwf	6	;volatile
+   819                           
+   820                           ;MIO.c: 84:             break;
+   821  0739  2F5F               	goto	l79
+   822  073A                     l1047:
+   823                           
+   824                           ;MIO.c: 86:             PORTC = data;
+   825  073A  0872               	movf	setPortData@data,w
+   826  073B  1283               	bcf	3,5	;RP0=0, select bank0
+   827  073C  1303               	bcf	3,6	;RP1=0, select bank0
+   828  073D  0087               	movwf	7	;volatile
    829                           
-   830                           ;MIO.c: 55:                 TRISA = 0x00;
-   831  0587  1683               	bsf	3,5	;RP0=1, select bank1
-   832  0588  1303               	bcf	3,6	;RP1=0, select bank1
-   833  0589  0185               	clrf	5	;volatile
-   834                           
-   835                           ;MIO.c: 56:                 break;
-   836  058A  2DB1               	goto	l71
-   837  058B                     l1088:
-   838                           
-   839                           ;MIO.c: 58:                 TRISB = 0x00;
-   840  058B  1683               	bsf	3,5	;RP0=1, select bank1
-   841  058C  1303               	bcf	3,6	;RP1=0, select bank1
-   842  058D  0186               	clrf	6	;volatile
+   830                           ;MIO.c: 87:             break;
+   831  073E  2F5F               	goto	l79
+   832  073F                     l1049:
+   833                           
+   834                           ;MIO.c: 89:             PORTD = data;
+   835  073F  0872               	movf	setPortData@data,w
+   836  0740  1283               	bcf	3,5	;RP0=0, select bank0
+   837  0741  1303               	bcf	3,6	;RP1=0, select bank0
+   838  0742  0088               	movwf	8	;volatile
+   839                           
+   840                           ;MIO.c: 90:             break;
+   841  0743  2F5F               	goto	l79
+   842  0744                     l1051:
    843                           
-   844                           ;MIO.c: 59:                 break;
-   845  058E  2DB1               	goto	l71
-   846  058F                     l1090:
-   847                           
-   848                           ;MIO.c: 61:                 TRISC = 0x00;
-   849  058F  1683               	bsf	3,5	;RP0=1, select bank1
-   850  0590  1303               	bcf	3,6	;RP1=0, select bank1
-   851  0591  0187               	clrf	7	;volatile
-   852                           
-   853                           ;MIO.c: 62:                 break;
-   854  0592  2DB1               	goto	l71
-   855  0593                     l1092:
-   856                           
-   857                           ;MIO.c: 64:                 TRISD = 0x00;
-   858  0593  1683               	bsf	3,5	;RP0=1, select bank1
-   859  0594  1303               	bcf	3,6	;RP1=0, select bank1
-   860  0595  0188               	clrf	8	;volatile
-   861                           
-   862                           ;MIO.c: 65:                 break;
-   863  0596  2DB1               	goto	l71
-   864  0597                     l1094:
-   865                           
-   866                           ;MIO.c: 67:                 TRISE = 0x00;
-   867  0597  1683               	bsf	3,5	;RP0=1, select bank1
-   868  0598  1303               	bcf	3,6	;RP1=0, select bank1
-   869  0599  0189               	clrf	9	;volatile
-   870                           
-   871                           ;MIO.c: 68:                 break;
-   872  059A  2DB1               	goto	l71
-   873  059B                     l1096:
-   874                           
-   875                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+   844                           ;MIO.c: 92:             PORTE = data;
+   845  0744  0872               	movf	setPortData@data,w
+   846  0745  1283               	bcf	3,5	;RP0=0, select bank0
+   847  0746  1303               	bcf	3,6	;RP1=0, select bank0
+   848  0747  0089               	movwf	9	;volatile
+   849                           
+   850                           ;MIO.c: 93:             break;
+   851  0748  2F5F               	goto	l79
+   852  0749                     l1053:
+   853                           
+   854                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-   876                           ; Switch size 1, requested type "simple"
-   877                           ; Number of cases is 1, Range of values is 0 to 0
-   878                           ; switch strategies available:
-   879                           ; Name         Instructions Cycles
-   880                           ; simple_byte            4     3 (average)
-   881                           ; direct_byte           11     8 (fixed)
-   882                           ; jumptable            260     6 (fixed)
-   883                           ;	Chosen strategy is simple_byte
-   884  059B  0871               	movf	setPortDir@portNum+1,w
-   885  059C  3A00               	xorlw	0	; case 0
-   886  059D  1903               	skipnz
-   887  059E  2DA0               	goto	l1334
-   888  059F  2DB1               	goto	l71
-   889  05A0                     l1334:
-   890                           
-   891                           ; Switch size 1, requested type "simple"
-   892                           ; Number of cases is 5, Range of values is 0 to 4
-   893                           ; switch strategies available:
-   894                           ; Name         Instructions Cycles
-   895                           ; simple_byte           16     9 (average)
-   896                           ; direct_byte           23     8 (fixed)
-   897                           ; jumptable            260     6 (fixed)
-   898                           ;	Chosen strategy is simple_byte
-   899  05A0  0870               	movf	setPortDir@portNum,w
-   900  05A1  3A00               	xorlw	0	; case 0
-   901  05A2  1903               	skipnz
-   902  05A3  2D87               	goto	l1086
-   903  05A4  3A01               	xorlw	1	; case 1
-   904  05A5  1903               	skipnz
-   905  05A6  2D8B               	goto	l1088
-   906  05A7  3A03               	xorlw	3	; case 2
-   907  05A8  1903               	skipnz
-   908  05A9  2D8F               	goto	l1090
-   909  05AA  3A01               	xorlw	1	; case 3
-   910  05AB  1903               	skipnz
-   911  05AC  2D93               	goto	l1092
-   912  05AD  3A07               	xorlw	7	; case 4
-   913  05AE  1903               	skipnz
-   914  05AF  2D97               	goto	l1094
-   915  05B0  2DB1               	goto	l71
-   916  05B1                     l71:
-   917  05B1  0008               	return
-   918  05B2                     __end_of_setPortDir:
-   919                           
-   920                           	psect	text3
-   921  0723                     __ptext3:	
-   922 ;; *************** function _setPinDir *****************
-   923 ;; Defined at:
-   924 ;;		line 123 in file "MIO.c"
-   925 ;; Parameters:    Size  Location     Type
-   926 ;;  portNum         2    0[COMMON] int 
-   927 ;;  pinNum          2    2[COMMON] int 
-   928 ;;  state           2    4[COMMON] int 
-   929 ;; Auto vars:     Size  Location     Type
-   930 ;;		None
-   931 ;; Return value:  Size  Location     Type
-   932 ;;                  1    wreg      void 
-   933 ;; Registers used:
-   934 ;;		wreg, fsr0l, fsr0h, status,2, status,0
-   935 ;; Tracked objects:
-   936 ;;		On entry : 0/0
-   937 ;;		On exit  : 0/0
-   938 ;;		Unchanged: 0/0
-   939 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   940 ;;      Params:         6       0       0       0       0
-   941 ;;      Locals:         0       0       0       0       0
-   942 ;;      Temps:          2       0       0       0       0
-   943 ;;      Totals:         8       0       0       0       0
-   944 ;;Total ram usage:        8 bytes
-   945 ;; Hardware stack levels used: 1
-   946 ;; This function calls:
-   947 ;;		Nothing
-   948 ;; This function is called by:
-   949 ;;		_main
-   950 ;; This function uses a non-reentrant model
-   951 ;;
-   952                           
-   953                           
-   954                           ;psect for function _setPinDir
-   955  0723                     _setPinDir:
-   956  0723                     l1106:	
-   957                           ;incstack = 0
-   958                           ; Regs used in _setPinDir: [wreg-fsr0h+status,2+status,0]
-   959                           
-   960                           
-   961                           ;MIO.c: 124: if (state) {
-   962  0723  0874               	movf	setPinDir@state,w
-   963  0724  0475               	iorwf	setPinDir@state+1,w
-   964  0725  1903               	btfsc	3,2
-   965  0726  2F28               	goto	u431
-   966  0727  2F29               	goto	u430
-   967  0728                     u431:
-   968  0728  2FE5               	goto	l1132
-   969  0729                     u430:
-   970  0729  2F7A               	goto	l1120
-   971  072A                     l1110:
-   972                           
-   973                           ;MIO.c: 128:                 TRISA |= (1 << pinNum);
-   974  072A  3001               	movlw	1
-   975  072B  00F6               	movwf	??_setPinDir
-   976  072C  0A72               	incf	setPinDir@pinNum,w
-   977  072D  2F30               	goto	u444
-   978  072E                     u445:
-   979  072E  1003               	clrc
-   980  072F  0DF6               	rlf	??_setPinDir,f
-   981  0730                     u444:
-   982  0730  3EFF               	addlw	-1
-   983  0731  1D03               	skipz
-   984  0732  2F2E               	goto	u445
-   985  0733  0876               	movf	??_setPinDir,w
-   986  0734  00F7               	movwf	??_setPinDir+1
-   987  0735  0877               	movf	??_setPinDir+1,w
-   988  0736  1683               	bsf	3,5	;RP0=1, select bank1
-   989  0737  1303               	bcf	3,6	;RP1=0, select bank1
-   990  0738  0485               	iorwf	5,f	;volatile
-   991                           
-   992                           ;MIO.c: 129:                 break;
-   993  0739  2FFB               	goto	l114
-   994  073A                     l1112:
-   995                           
-   996                           ;MIO.c: 131:                 TRISB |= (1 << pinNum);
-   997  073A  3001               	movlw	1
-   998  073B  00F6               	movwf	??_setPinDir
-   999  073C  0A72               	incf	setPinDir@pinNum,w
-  1000  073D  2F40               	goto	u454
-  1001  073E                     u455:
-  1002  073E  1003               	clrc
-  1003  073F  0DF6               	rlf	??_setPinDir,f
-  1004  0740                     u454:
-  1005  0740  3EFF               	addlw	-1
-  1006  0741  1D03               	skipz
-  1007  0742  2F3E               	goto	u455
-  1008  0743  0876               	movf	??_setPinDir,w
-  1009  0744  00F7               	movwf	??_setPinDir+1
-  1010  0745  0877               	movf	??_setPinDir+1,w
-  1011  0746  1683               	bsf	3,5	;RP0=1, select bank1
-  1012  0747  1303               	bcf	3,6	;RP1=0, select bank1
-  1013  0748  0486               	iorwf	6,f	;volatile
-  1014                           
-  1015                           ;MIO.c: 132:                 break;
-  1016  0749  2FFB               	goto	l114
-  1017  074A                     l1114:
-  1018                           
-  1019                           ;MIO.c: 134:                 TRISC |= (1 << pinNum);
-  1020  074A  3001               	movlw	1
-  1021  074B  00F6               	movwf	??_setPinDir
-  1022  074C  0A72               	incf	setPinDir@pinNum,w
-  1023  074D  2F50               	goto	u464
-  1024  074E                     u465:
-  1025  074E  1003               	clrc
-  1026  074F  0DF6               	rlf	??_setPinDir,f
-  1027  0750                     u464:
-  1028  0750  3EFF               	addlw	-1
-  1029  0751  1D03               	skipz
-  1030  0752  2F4E               	goto	u465
-  1031  0753  0876               	movf	??_setPinDir,w
-  1032  0754  00F7               	movwf	??_setPinDir+1
-  1033  0755  0877               	movf	??_setPinDir+1,w
-  1034  0756  1683               	bsf	3,5	;RP0=1, select bank1
-  1035  0757  1303               	bcf	3,6	;RP1=0, select bank1
-  1036  0758  0487               	iorwf	7,f	;volatile
-  1037                           
-  1038                           ;MIO.c: 135:                 break;
-  1039  0759  2FFB               	goto	l114
-  1040  075A                     l1116:
-  1041                           
-  1042                           ;MIO.c: 137:                 TRISD |= (1 << pinNum);
-  1043  075A  3001               	movlw	1
-  1044  075B  00F6               	movwf	??_setPinDir
-  1045  075C  0A72               	incf	setPinDir@pinNum,w
-  1046  075D  2F60               	goto	u474
-  1047  075E                     u475:
-  1048  075E  1003               	clrc
-  1049  075F  0DF6               	rlf	??_setPinDir,f
-  1050  0760                     u474:
-  1051  0760  3EFF               	addlw	-1
-  1052  0761  1D03               	skipz
-  1053  0762  2F5E               	goto	u475
-  1054  0763  0876               	movf	??_setPinDir,w
-  1055  0764  00F7               	movwf	??_setPinDir+1
-  1056  0765  0877               	movf	??_setPinDir+1,w
-  1057  0766  1683               	bsf	3,5	;RP0=1, select bank1
-  1058  0767  1303               	bcf	3,6	;RP1=0, select bank1
-  1059  0768  0488               	iorwf	8,f	;volatile
-  1060                           
-  1061                           ;MIO.c: 138:                 break;
-  1062  0769  2FFB               	goto	l114
-  1063  076A                     l1118:
-  1064                           
-  1065                           ;MIO.c: 140:                 TRISE |= (1 << pinNum);
-  1066  076A  3001               	movlw	1
-  1067  076B  00F6               	movwf	??_setPinDir
-  1068  076C  0A72               	incf	setPinDir@pinNum,w
-  1069  076D  2F70               	goto	u484
-  1070  076E                     u485:
-  1071  076E  1003               	clrc
-  1072  076F  0DF6               	rlf	??_setPinDir,f
-  1073  0770                     u484:
-  1074  0770  3EFF               	addlw	-1
-  1075  0771  1D03               	skipz
-  1076  0772  2F6E               	goto	u485
-  1077  0773  0876               	movf	??_setPinDir,w
-  1078  0774  00F7               	movwf	??_setPinDir+1
-  1079  0775  0877               	movf	??_setPinDir+1,w
-  1080  0776  1683               	bsf	3,5	;RP0=1, select bank1
-  1081  0777  1303               	bcf	3,6	;RP1=0, select bank1
-  1082  0778  0489               	iorwf	9,f	;volatile
-  1083                           
-  1084                           ;MIO.c: 141:                 break;
-  1085  0779  2FFB               	goto	l114
-  1086  077A                     l1120:
-  1087                           
-  1088                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
-      +                          itches
-  1089                           ; Switch size 1, requested type "simple"
-  1090                           ; Number of cases is 1, Range of values is 0 to 0
-  1091                           ; switch strategies available:
-  1092                           ; Name         Instructions Cycles
-  1093                           ; simple_byte            4     3 (average)
-  1094                           ; direct_byte           11     8 (fixed)
-  1095                           ; jumptable            260     6 (fixed)
-  1096                           ;	Chosen strategy is simple_byte
-  1097  077A  0871               	movf	setPinDir@portNum+1,w
-  1098  077B  3A00               	xorlw	0	; case 0
-  1099  077C  1903               	skipnz
-  1100  077D  2F7F               	goto	l1336
-  1101  077E  2FFB               	goto	l114
-  1102  077F                     l1336:
-  1103                           
-  1104                           ; Switch size 1, requested type "simple"
-  1105                           ; Number of cases is 5, Range of values is 0 to 4
-  1106                           ; switch strategies available:
-  1107                           ; Name         Instructions Cycles
-  1108                           ; simple_byte           16     9 (average)
-  1109                           ; direct_byte           23     8 (fixed)
-  1110                           ; jumptable            260     6 (fixed)
-  1111                           ;	Chosen strategy is simple_byte
-  1112  077F  0870               	movf	setPinDir@portNum,w
-  1113  0780  3A00               	xorlw	0	; case 0
-  1114  0781  1903               	skipnz
-  1115  0782  2F2A               	goto	l1110
-  1116  0783  3A01               	xorlw	1	; case 1
-  1117  0784  1903               	skipnz
-  1118  0785  2F3A               	goto	l1112
-  1119  0786  3A03               	xorlw	3	; case 2
-  1120  0787  1903               	skipnz
-  1121  0788  2F4A               	goto	l1114
-  1122  0789  3A01               	xorlw	1	; case 3
-  1123  078A  1903               	skipnz
-  1124  078B  2F5A               	goto	l1116
-  1125  078C  3A07               	xorlw	7	; case 4
-  1126  078D  1903               	skipnz
-  1127  078E  2F6A               	goto	l1118
-  1128  078F  2FFB               	goto	l114
-  1129  0790                     l1122:
-  1130                           
-  1131                           ;MIO.c: 150:                 TRISA &= ~(1 << pinNum);
-  1132  0790  3001               	movlw	1
-  1133  0791  00F6               	movwf	??_setPinDir
-  1134  0792  0A72               	incf	setPinDir@pinNum,w
-  1135  0793  2F96               	goto	u494
-  1136  0794                     u495:
-  1137  0794  1003               	clrc
-  1138  0795  0DF6               	rlf	??_setPinDir,f
-  1139  0796                     u494:
-  1140  0796  3EFF               	addlw	-1
-  1141  0797  1D03               	skipz
-  1142  0798  2F94               	goto	u495
-  1143  0799  0876               	movf	??_setPinDir,w
-  1144  079A  3AFF               	xorlw	255
-  1145  079B  00F7               	movwf	??_setPinDir+1
-  1146  079C  0877               	movf	??_setPinDir+1,w
-  1147  079D  1683               	bsf	3,5	;RP0=1, select bank1
-  1148  079E  1303               	bcf	3,6	;RP1=0, select bank1
-  1149  079F  0585               	andwf	5,f	;volatile
-  1150                           
-  1151                           ;MIO.c: 151:                 break;
-  1152  07A0  2FFB               	goto	l114
-  1153  07A1                     l1124:
-  1154                           
-  1155                           ;MIO.c: 153:                 TRISB &= ~(1 << pinNum);
-  1156  07A1  3001               	movlw	1
-  1157  07A2  00F6               	movwf	??_setPinDir
-  1158  07A3  0A72               	incf	setPinDir@pinNum,w
-  1159  07A4  2FA7               	goto	u504
-  1160  07A5                     u505:
-  1161  07A5  1003               	clrc
-  1162  07A6  0DF6               	rlf	??_setPinDir,f
-  1163  07A7                     u504:
-  1164  07A7  3EFF               	addlw	-1
-  1165  07A8  1D03               	skipz
-  1166  07A9  2FA5               	goto	u505
-  1167  07AA  0876               	movf	??_setPinDir,w
-  1168  07AB  3AFF               	xorlw	255
-  1169  07AC  00F7               	movwf	??_setPinDir+1
-  1170  07AD  0877               	movf	??_setPinDir+1,w
-  1171  07AE  1683               	bsf	3,5	;RP0=1, select bank1
-  1172  07AF  1303               	bcf	3,6	;RP1=0, select bank1
-  1173  07B0  0586               	andwf	6,f	;volatile
-  1174                           
-  1175                           ;MIO.c: 154:                 break;
-  1176  07B1  2FFB               	goto	l114
-  1177  07B2                     l1126:
-  1178                           
-  1179                           ;MIO.c: 156:                 TRISC &= ~(1 << pinNum);
-  1180  07B2  3001               	movlw	1
-  1181  07B3  00F6               	movwf	??_setPinDir
-  1182  07B4  0A72               	incf	setPinDir@pinNum,w
-  1183  07B5  2FB8               	goto	u514
-  1184  07B6                     u515:
-  1185  07B6  1003               	clrc
-  1186  07B7  0DF6               	rlf	??_setPinDir,f
-  1187  07B8                     u514:
-  1188  07B8  3EFF               	addlw	-1
-  1189  07B9  1D03               	skipz
-  1190  07BA  2FB6               	goto	u515
-  1191  07BB  0876               	movf	??_setPinDir,w
-  1192  07BC  3AFF               	xorlw	255
-  1193  07BD  00F7               	movwf	??_setPinDir+1
-  1194  07BE  0877               	movf	??_setPinDir+1,w
-  1195  07BF  1683               	bsf	3,5	;RP0=1, select bank1
-  1196  07C0  1303               	bcf	3,6	;RP1=0, select bank1
-  1197  07C1  0587               	andwf	7,f	;volatile
-  1198                           
-  1199                           ;MIO.c: 157:                 break;
-  1200  07C2  2FFB               	goto	l114
-  1201  07C3                     l1128:
-  1202                           
-  1203                           ;MIO.c: 159:                 TRISD &= ~(1 << pinNum);
-  1204  07C3  3001               	movlw	1
-  1205  07C4  00F6               	movwf	??_setPinDir
-  1206  07C5  0A72               	incf	setPinDir@pinNum,w
-  1207  07C6  2FC9               	goto	u524
-  1208  07C7                     u525:
-  1209  07C7  1003               	clrc
-  1210  07C8  0DF6               	rlf	??_setPinDir,f
-  1211  07C9                     u524:
-  1212  07C9  3EFF               	addlw	-1
-  1213  07CA  1D03               	skipz
-  1214  07CB  2FC7               	goto	u525
-  1215  07CC  0876               	movf	??_setPinDir,w
-  1216  07CD  3AFF               	xorlw	255
-  1217  07CE  00F7               	movwf	??_setPinDir+1
-  1218  07CF  0877               	movf	??_setPinDir+1,w
-  1219  07D0  1683               	bsf	3,5	;RP0=1, select bank1
-  1220  07D1  1303               	bcf	3,6	;RP1=0, select bank1
-  1221  07D2  0588               	andwf	8,f	;volatile
-  1222                           
-  1223                           ;MIO.c: 160:                 break;
-  1224  07D3  2FFB               	goto	l114
-  1225  07D4                     l1130:
-  1226                           
-  1227                           ;MIO.c: 162:                 TRISE &= ~(1 << pinNum);
-  1228  07D4  3001               	movlw	1
-  1229  07D5  00F6               	movwf	??_setPinDir
-  1230  07D6  0A72               	incf	setPinDir@pinNum,w
-  1231  07D7  2FDA               	goto	u534
-  1232  07D8                     u535:
-  1233  07D8  1003               	clrc
-  1234  07D9  0DF6               	rlf	??_setPinDir,f
-  1235  07DA                     u534:
-  1236  07DA  3EFF               	addlw	-1
-  1237  07DB  1D03               	skipz
-  1238  07DC  2FD8               	goto	u535
-  1239  07DD  0876               	movf	??_setPinDir,w
-  1240  07DE  3AFF               	xorlw	255
-  1241  07DF  00F7               	movwf	??_setPinDir+1
-  1242  07E0  0877               	movf	??_setPinDir+1,w
-  1243  07E1  1683               	bsf	3,5	;RP0=1, select bank1
-  1244  07E2  1303               	bcf	3,6	;RP1=0, select bank1
-  1245  07E3  0589               	andwf	9,f	;volatile
-  1246                           
-  1247                           ;MIO.c: 163:                 break;
-  1248  07E4  2FFB               	goto	l114
-  1249  07E5                     l1132:
-  1250                           
-  1251                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
-      +                          itches
-  1252                           ; Switch size 1, requested type "simple"
-  1253                           ; Number of cases is 1, Range of values is 0 to 0
-  1254                           ; switch strategies available:
-  1255                           ; Name         Instructions Cycles
-  1256                           ; simple_byte            4     3 (average)
-  1257                           ; direct_byte           11     8 (fixed)
-  1258                           ; jumptable            260     6 (fixed)
-  1259                           ;	Chosen strategy is simple_byte
-  1260  07E5  0871               	movf	setPinDir@portNum+1,w
-  1261  07E6  3A00               	xorlw	0	; case 0
-  1262  07E7  1903               	skipnz
-  1263  07E8  2FEA               	goto	l1338
-  1264  07E9  2FFB               	goto	l114
-  1265  07EA                     l1338:
-  1266                           
-  1267                           ; Switch size 1, requested type "simple"
-  1268                           ; Number of cases is 5, Range of values is 0 to 4
-  1269                           ; switch strategies available:
-  1270                           ; Name         Instructions Cycles
-  1271                           ; simple_byte           16     9 (average)
-  1272                           ; direct_byte           23     8 (fixed)
-  1273                           ; jumptable            260     6 (fixed)
-  1274                           ;	Chosen strategy is simple_byte
-  1275  07EA  0870               	movf	setPinDir@portNum,w
-  1276  07EB  3A00               	xorlw	0	; case 0
-  1277  07EC  1903               	skipnz
-  1278  07ED  2F90               	goto	l1122
-  1279  07EE  3A01               	xorlw	1	; case 1
-  1280  07EF  1903               	skipnz
-  1281  07F0  2FA1               	goto	l1124
-  1282  07F1  3A03               	xorlw	3	; case 2
-  1283  07F2  1903               	skipnz
-  1284  07F3  2FB2               	goto	l1126
-  1285  07F4  3A01               	xorlw	1	; case 3
-  1286  07F5  1903               	skipnz
-  1287  07F6  2FC3               	goto	l1128
-  1288  07F7  3A07               	xorlw	7	; case 4
-  1289  07F8  1903               	skipnz
-  1290  07F9  2FD4               	goto	l1130
-  1291  07FA  2FFB               	goto	l114
-  1292  07FB                     l114:
-  1293  07FB  0008               	return
-  1294  07FC                     __end_of_setPinDir:
-  1295                           
-  1296                           	psect	text4
-  1297  069C                     __ptext4:	
-  1298 ;; *************** function _isPressed *****************
-  1299 ;; Defined at:
-  1300 ;;		line 6 in file "MIO.c"
-  1301 ;; Parameters:    Size  Location     Type
-  1302 ;;  portNum         2    0[COMMON] int 
-  1303 ;;  pinNum          2    2[COMMON] int 
-  1304 ;; Auto vars:     Size  Location     Type
-  1305 ;;		None
-  1306 ;; Return value:  Size  Location     Type
-  1307 ;;                  2    0[COMMON] int 
-  1308 ;; Registers used:
-  1309 ;;		wreg, fsr0l, fsr0h, status,2, status,0
-  1310 ;; Tracked objects:
-  1311 ;;		On entry : 0/0
-  1312 ;;		On exit  : 0/0
-  1313 ;;		Unchanged: 0/0
-  1314 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1315 ;;      Params:         4       0       0       0       0
-  1316 ;;      Locals:         0       0       0       0       0
-  1317 ;;      Temps:          7       0       0       0       0
-  1318 ;;      Totals:        11       0       0       0       0
-  1319 ;;Total ram usage:       11 bytes
-  1320 ;; Hardware stack levels used: 1
-  1321 ;; This function calls:
-  1322 ;;		Nothing
-  1323 ;; This function is called by:
-  1324 ;;		_main
-  1325 ;; This function uses a non-reentrant model
-  1326 ;;
-  1327                           
-  1328                           
-  1329                           ;psect for function _isPressed
-  1330  069C                     _isPressed:
-  1331  069C                     l1142:	
-  1332                           ;incstack = 0
-  1333                           ; Regs used in _isPressed: [wreg-fsr0h+status,2+status,0]
-  1334                           
-  1335                           
-  1336                           ;MIO.c: 7:  switch (portNum) {
-  1337  069C  2F0C               	goto	l1180
-  1338  069D                     l1144:
-  1339                           
-  1340                           ;MIO.c: 9:             return (0 & (1 << pinNum)) ? 1 : 0;
-  1341  069D  01F0               	clrf	?_isPressed
-  1342  069E  01F1               	clrf	?_isPressed+1
-  1343  069F  2F22               	goto	l44
-  1344  06A0                     l1150:
-  1345                           
-  1346                           ;MIO.c: 12:             return (1 & (1 << pinNum)) ? 1 : 0;
-  1347  06A0  0A72               	incf	isPressed@pinNum,w
-  1348  06A1  00F4               	movwf	??_isPressed
-  1349  06A2  3001               	movlw	1
-  1350  06A3  00F5               	movwf	??_isPressed+1
-  1351  06A4  3000               	movlw	0
-  1352  06A5  00F6               	movwf	??_isPressed+2
-  1353  06A6  2EAA               	goto	u544
-  1354  06A7                     u545:
-  1355  06A7  1003               	clrc
-  1356  06A8  0DF5               	rlf	??_isPressed+1,f
-  1357  06A9  0DF6               	rlf	??_isPressed+2,f
-  1358  06AA                     u544:
-  1359  06AA  0BF4               	decfsz	??_isPressed,f
-  1360  06AB  2EA7               	goto	u545
-  1361  06AC  1875               	btfsc	??_isPressed+1,0
-  1362  06AD  2EAF               	goto	u551
-  1363  06AE  2EB1               	goto	u550
-  1364  06AF                     u551:
-  1365  06AF  3001               	movlw	1
-  1366  06B0  2EB2               	goto	u560
-  1367  06B1                     u550:
-  1368  06B1  3000               	movlw	0
-  1369  06B2                     u560:
-  1370  06B2  00F7               	movwf	??_isPressed+3
-  1371  06B3  01F8               	clrf	??_isPressed+4
-  1372  06B4  0877               	movf	??_isPressed+3,w
-  1373  06B5  00F0               	movwf	?_isPressed
-  1374  06B6  0878               	movf	??_isPressed+4,w
-  1375  06B7  00F1               	movwf	?_isPressed+1
-  1376  06B8  2F22               	goto	l44
-  1377  06B9                     l1156:
-  1378                           
-  1379                           ;MIO.c: 15:             return (2 & (1 << pinNum)) ? 1 : 0;
-  1380  06B9  0A72               	incf	isPressed@pinNum,w
-  1381  06BA  00F4               	movwf	??_isPressed
-  1382  06BB  3001               	movlw	1
-  1383  06BC  00F5               	movwf	??_isPressed+1
-  1384  06BD  3000               	movlw	0
-  1385  06BE  00F6               	movwf	??_isPressed+2
-  1386  06BF  2EC3               	goto	u574
-  1387  06C0                     u575:
-  1388  06C0  1003               	clrc
-  1389  06C1  0DF5               	rlf	??_isPressed+1,f
-  1390  06C2  0DF6               	rlf	??_isPressed+2,f
-  1391  06C3                     u574:
-  1392  06C3  0BF4               	decfsz	??_isPressed,f
-  1393  06C4  2EC0               	goto	u575
-  1394  06C5  18F5               	btfsc	??_isPressed+1,1
-  1395  06C6  2EC8               	goto	u581
-  1396  06C7  2ECA               	goto	u580
-  1397  06C8                     u581:
-  1398  06C8  3001               	movlw	1
-  1399  06C9  2ECB               	goto	u590
-  1400  06CA                     u580:
-  1401  06CA  3000               	movlw	0
-  1402  06CB                     u590:
-  1403  06CB  00F7               	movwf	??_isPressed+3
-  1404  06CC  01F8               	clrf	??_isPressed+4
-  1405  06CD  0877               	movf	??_isPressed+3,w
-  1406  06CE  00F0               	movwf	?_isPressed
-  1407  06CF  0878               	movf	??_isPressed+4,w
-  1408  06D0  00F1               	movwf	?_isPressed+1
-  1409  06D1  2F22               	goto	l44
-  1410  06D2                     l1162:
-  1411                           
-  1412                           ;MIO.c: 18:             return (3 & (1 << pinNum)) ? 1 : 0;
-  1413  06D2  0A72               	incf	isPressed@pinNum,w
-  1414  06D3  00F4               	movwf	??_isPressed
-  1415  06D4  3001               	movlw	1
-  1416  06D5  00F5               	movwf	??_isPressed+1
-  1417  06D6  3000               	movlw	0
-  1418  06D7  00F6               	movwf	??_isPressed+2
-  1419  06D8  2EDC               	goto	u604
-  1420  06D9                     u605:
-  1421  06D9  1003               	clrc
-  1422  06DA  0DF5               	rlf	??_isPressed+1,f
-  1423  06DB  0DF6               	rlf	??_isPressed+2,f
-  1424  06DC                     u604:
-  1425  06DC  0BF4               	decfsz	??_isPressed,f
-  1426  06DD  2ED9               	goto	u605
-  1427  06DE  3003               	movlw	3
-  1428  06DF  0575               	andwf	??_isPressed+1,w
-  1429  06E0  00F7               	movwf	??_isPressed+3
-  1430  06E1  3000               	movlw	0
-  1431  06E2  0576               	andwf	??_isPressed+2,w
-  1432  06E3  00F8               	movwf	??_isPressed+4
-  1433  06E4  0877               	movf	??_isPressed+3,w
-  1434  06E5  0478               	iorwf	??_isPressed+4,w
-  1435  06E6  1D03               	btfss	3,2
-  1436  06E7  2EE9               	goto	u611
-  1437  06E8  2EEB               	goto	u610
-  1438  06E9                     u611:
-  1439  06E9  3001               	movlw	1
-  1440  06EA  2EEC               	goto	u620
-  1441  06EB                     u610:
-  1442  06EB  3000               	movlw	0
-  1443  06EC                     u620:
-  1444  06EC  00F9               	movwf	??_isPressed+5
-  1445  06ED  01FA               	clrf	??_isPressed+6
-  1446  06EE  0879               	movf	??_isPressed+5,w
-  1447  06EF  00F0               	movwf	?_isPressed
-  1448  06F0  087A               	movf	??_isPressed+6,w
-  1449  06F1  00F1               	movwf	?_isPressed+1
-  1450  06F2  2F22               	goto	l44
-  1451  06F3                     l1168:
-  1452                           
-  1453                           ;MIO.c: 21:             return (4 & (1 << pinNum)) ? 1 : 0;
-  1454  06F3  0A72               	incf	isPressed@pinNum,w
-  1455  06F4  00F4               	movwf	??_isPressed
-  1456  06F5  3001               	movlw	1
-  1457  06F6  00F5               	movwf	??_isPressed+1
-  1458  06F7  3000               	movlw	0
-  1459  06F8  00F6               	movwf	??_isPressed+2
-  1460  06F9  2EFD               	goto	u634
-  1461  06FA                     u635:
-  1462  06FA  1003               	clrc
-  1463  06FB  0DF5               	rlf	??_isPressed+1,f
-  1464  06FC  0DF6               	rlf	??_isPressed+2,f
-  1465  06FD                     u634:
-  1466  06FD  0BF4               	decfsz	??_isPressed,f
-  1467  06FE  2EFA               	goto	u635
-  1468  06FF  1975               	btfsc	??_isPressed+1,2
-  1469  0700  2F02               	goto	u641
-  1470  0701  2F04               	goto	u640
-  1471  0702                     u641:
-  1472  0702  3001               	movlw	1
-  1473  0703  2F05               	goto	u650
-  1474  0704                     u640:
-  1475  0704  3000               	movlw	0
-  1476  0705                     u650:
-  1477  0705  00F7               	movwf	??_isPressed+3
-  1478  0706  01F8               	clrf	??_isPressed+4
-  1479  0707  0877               	movf	??_isPressed+3,w
-  1480  0708  00F0               	movwf	?_isPressed
-  1481  0709  0878               	movf	??_isPressed+4,w
-  1482  070A  00F1               	movwf	?_isPressed+1
-  1483  070B  2F22               	goto	l44
-  1484  070C                     l1180:
-  1485                           
-  1486                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
-      +                          itches
-  1487                           ; Switch size 1, requested type "simple"
-  1488                           ; Number of cases is 1, Range of values is 0 to 0
-  1489                           ; switch strategies available:
-  1490                           ; Name         Instructions Cycles
-  1491                           ; simple_byte            4     3 (average)
-  1492                           ; direct_byte           11     8 (fixed)
-  1493                           ; jumptable            260     6 (fixed)
-  1494                           ;	Chosen strategy is simple_byte
-  1495  070C  0871               	movf	isPressed@portNum+1,w
-  1496  070D  3A00               	xorlw	0	; case 0
-  1497  070E  1903               	skipnz
-  1498  070F  2F11               	goto	l1340
-  1499  0710  2E9D               	goto	l1144
-  1500  0711                     l1340:
-  1501                           
-  1502                           ; Switch size 1, requested type "simple"
-  1503                           ; Number of cases is 5, Range of values is 0 to 4
-  1504                           ; switch strategies available:
-  1505                           ; Name         Instructions Cycles
-  1506                           ; simple_byte           16     9 (average)
-  1507                           ; direct_byte           23     8 (fixed)
-  1508                           ; jumptable            260     6 (fixed)
-  1509                           ;	Chosen strategy is simple_byte
-  1510  0711  0870               	movf	isPressed@portNum,w
-  1511  0712  3A00               	xorlw	0	; case 0
-  1512  0713  1903               	skipnz
-  1513  0714  2E9D               	goto	l1144
-  1514  0715  3A01               	xorlw	1	; case 1
-  1515  0716  1903               	skipnz
-  1516  0717  2EA0               	goto	l1150
-  1517  0718  3A03               	xorlw	3	; case 2
-  1518  0719  1903               	skipnz
-  1519  071A  2EB9               	goto	l1156
-  1520  071B  3A01               	xorlw	1	; case 3
-  1521  071C  1903               	skipnz
-  1522  071D  2ED2               	goto	l1162
-  1523  071E  3A07               	xorlw	7	; case 4
-  1524  071F  1903               	skipnz
-  1525  0720  2EF3               	goto	l1168
-  1526  0721  2E9D               	goto	l1144
-  1527  0722                     l44:
-  1528  0722  0008               	return
-  1529  0723                     __end_of_isPressed:
-  1530  007E                     btemp	set	126	;btemp
-  1531  007E                     wtemp0	set	126
+   855                           ; Switch size 1, requested type "simple"
+   856                           ; Number of cases is 1, Range of values is 0 to 0
+   857                           ; switch strategies available:
+   858                           ; Name         Instructions Cycles
+   859                           ; simple_byte            4     3 (average)
+   860                           ; direct_byte           11     8 (fixed)
+   861                           ; jumptable            260     6 (fixed)
+   862                           ;	Chosen strategy is simple_byte
+   863  0749  0871               	movf	setPortData@portNum+1,w
+   864  074A  3A00               	xorlw	0	; case 0
+   865  074B  1903               	skipnz
+   866  074C  2F4E               	goto	l1171
+   867  074D  2F5F               	goto	l79
+   868  074E                     l1171:
+   869                           
+   870                           ; Switch size 1, requested type "simple"
+   871                           ; Number of cases is 5, Range of values is 0 to 4
+   872                           ; switch strategies available:
+   873                           ; Name         Instructions Cycles
+   874                           ; simple_byte           16     9 (average)
+   875                           ; direct_byte           23     8 (fixed)
+   876                           ; jumptable            260     6 (fixed)
+   877                           ;	Chosen strategy is simple_byte
+   878  074E  0870               	movf	setPortData@portNum,w
+   879  074F  3A00               	xorlw	0	; case 0
+   880  0750  1903               	skipnz
+   881  0751  2F30               	goto	l1043
+   882  0752  3A01               	xorlw	1	; case 1
+   883  0753  1903               	skipnz
+   884  0754  2F35               	goto	l1045
+   885  0755  3A03               	xorlw	3	; case 2
+   886  0756  1903               	skipnz
+   887  0757  2F3A               	goto	l1047
+   888  0758  3A01               	xorlw	1	; case 3
+   889  0759  1903               	skipnz
+   890  075A  2F3F               	goto	l1049
+   891  075B  3A07               	xorlw	7	; case 4
+   892  075C  1903               	skipnz
+   893  075D  2F44               	goto	l1051
+   894  075E  2F5F               	goto	l79
+   895  075F                     l79:
+   896  075F  0008               	return
+   897  0760                     __end_of_setPortData:
+   898  007E                     btemp	set	126	;btemp
+   899  007E                     wtemp0	set	126
 
 Data Sizes:
     Strings     0
@@ -1560,7 +926,7 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMMON           14     12      12
+    COMMON           14      5       5
     BANK0            80      0       0
     BANK1            80      0       0
     BANK3            96      0       0
@@ -1572,7 +938,8 @@ Pointer List with Targets:
 
 Critical Paths under _main in COMMON
 
-    _main->_isPressed
+    _main->_setPortData
+    _main->_setPortDir
 
 Critical Paths under _main in BANK0
 
@@ -1595,24 +962,20 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 1     1      0    2114
-                                             11 COMMON     1     1      0
-                          _isPressed
-                          _setPinDir
+ (0) _main                                                 3     3      0     601
+                                              4 COMMON     1     1      0
+                        _setPortData
                          _setPortDir
-                      _togglePinData
+                     _togglePortData
  ---------------------------------------------------------------------------------
- (1) _togglePinData                                        6     2      4     284
-                                              0 COMMON     6     2      4
+ (1) _togglePortData                                       3     1      2      98
+                                              0 COMMON     3     1      2
  ---------------------------------------------------------------------------------
- (1) _setPortDir                                           4     0      4     826
+ (1) _setPortDir                                           4     0      4     218
                                               0 COMMON     4     0      4
  ---------------------------------------------------------------------------------
- (1) _setPinDir                                            8     2      6     742
-                                              0 COMMON     8     2      6
- ---------------------------------------------------------------------------------
- (1) _isPressed                                           11     7      4     262
-                                              0 COMMON    11     7      4
+ (1) _setPortData                                          4     0      4     284
+                                              0 COMMON     4     0      4
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 1
  ---------------------------------------------------------------------------------
@@ -1620,10 +983,9 @@ Call Graph Tables:
  Call Graph Graphs:
 
  _main (ROOT)
-   _isPressed
-   _setPinDir
+   _setPortData
    _setPortDir
-   _togglePinData
+   _togglePortData
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
@@ -1631,7 +993,7 @@ BITCOMMON            E      0       0       0        0.0%
 EEDATA             100      0       0       0        0.0%
 NULL                 0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-COMMON               E      C       C       1       85.7%
+COMMON               E      5       5       1       35.7%
 BITSFR0              0      0       0       1        0.0%
 SFR0                 0      0       0       1        0.0%
 BITSFR1              0      0       0       2        0.0%
@@ -1654,62 +1016,35 @@ DATA                 0      0       0      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Wed Nov 03 21:16:12 2021
+Symbol Table                                                                                   Thu Nov 04 23:02:07 2021
 
-                     l15 0675                       l44 0722                       l71 05B1  
-         ?_togglePinData 0070                      l114 07FB                      l146 0619  
-                    u420 0557                      u421 0556                      u430 0729  
-                    u431 0728                      u504 07A7                      u505 07A5  
-                    u610 06EB                      u514 07B8                      u611 06E9  
-                    u515 07B6                      u620 06EC                      u604 06DC  
-                    u524 07C9                      u444 0730                      u605 06D9  
-                    u525 07C7                      u445 072E                      u550 06B1  
-                    u534 07DA                      u454 0740                      u710 0687  
-                    u551 06AF                      u535 07D8                      u455 073E  
-                    u711 0686                      u640 0704                      u560 06B2  
-                    u544 06AA                      u464 0750                      u704 05F9  
-                    u641 0702                      u545 06A7                      u465 074E  
-                    u705 05F7                      u650 0705                      u634 06FD  
-                    u474 0760                      u635 06FA                      u475 075E  
-                    u580 06CA                      u484 0770                      u581 06C8  
-                    u485 076E                      u590 06CB                      u574 06C3  
-                    u494 0796                      u575 06C0                      u495 0794  
-                    u727 0689                      u664 05B9                      u665 05B7  
-                    u674 05C9                      u675 05C7                      u684 05D9  
-                    u685 05D7                      u694 05E9                      u695 05E7  
-   togglePinData@portNum 0070                     l1110 072A                     l1112 073A  
-                   l1120 077A                     l1130 07D4                     l1122 0790  
-                   l1114 074A                     l1106 0723                     l1124 07A1  
-                   l1116 075A                     l1132 07E5                     l1204 061A  
-                   l1150 06A0                     l1142 069C                     l1126 07B2  
-                   l1118 076A                     l1070 0551                     l1206 0687  
-                   l1144 069D                     l1128 07C3                     l1080 0567  
-                   l1208 068B                     l1162 06D2                     l1090 058F  
-                   l1082 056C                     l1074 0558                     l1330 0608  
-                   l1340 0711                     l1156 06B9                     l1180 070C  
-                   l1092 0593                     l1332 0576                     l1076 055D  
-                   l1084 0571                     l1334 05A0                     l1094 0597  
-                   l1086 0587                     l1078 0562                     l1190 05C3  
-                   l1168 06F3                     l1336 077F                     l1088 058B  
-                   l1096 059B                     l1192 05D3                     l1338 07EA  
-                   l1194 05E3                     l1186 05B2                     l1196 05F3  
-                   l1188 05B3                     l1198 0603                     _main 061A  
-                   btemp 007E                     start 0000                    ?_main 0070  
-                  _PORTA 0005                    _PORTB 0006                    _PORTC 0007  
-                  _PORTD 0008                    _PORTE 0009                    _TRISA 0085  
-                  _TRISB 0086                    _TRISC 0087                    _TRISD 0088  
-                  _TRISE 0089                    status 0003                    wtemp0 007E  
-        __initialization 07FC             __end_of_main 069C          ??_togglePinData 0074  
-                 ??_main 007B          setPortDir@state 0072  __end_of__initialization 07FC  
-         __pcstackCOMMON 0070         setPinDir@portNum 0070       __size_of_isPressed 0087  
-             __pmaintext 061A       __size_of_setPinDir 00D9        __end_of_isPressed 0723  
-                __ptext1 05B2                  __ptext2 0551                  __ptext3 0723  
-                __ptext4 069C     end_of_initialization 07FC        __end_of_setPinDir 07FC  
-             _setPortDir 0551         isPressed@portNum 0070    __end_of_togglePinData 061A  
-    togglePinData@pinNum 0072      start_initialization 07FC              ?_setPortDir 0070  
-              ___latbits 0002          setPinDir@pinNum 0072        setPortDir@portNum 0070  
-    __size_of_setPortDir 0061                _isPressed 069C                _setPinDir 0723  
-        isPressed@pinNum 0072               ?_isPressed 0070               ?_setPinDir 0070  
-         setPinDir@state 0074             ??_setPortDir 0074            __size_of_main 0082  
- __size_of_togglePinData 0068              ??_isPressed 0074       __end_of_setPortDir 05B2  
-            ??_setPinDir 0076            _togglePinData 05B2  
+                     l90 079A                       l68 07FB                       l79 075F  
+                    u307 0729                      u290 07A1                      u291 07A0  
+                   l1011 07A7                     l1021 07D1                     l1013 07AC  
+                   l1005 079B                     l1023 07D5                     l1015 07B1  
+                   l1031 07E5                     l1041 072F                     l1025 07D9  
+                   l1017 07B6                     l1009 07A2                     l1051 0744  
+                   l1043 0730                     l1027 07DD                     l1019 07BB  
+                   l1045 0735                     l1053 0749                     l1029 07E1  
+                   l1061 0761                     l1047 073A                     l1063 0768  
+                   l1071 0784                     l1049 073F                     l1065 076F  
+                   l1081 071E                     l1171 074E                     l1067 0776  
+                   l1059 0760                     l1083 0727                     l1165 0789  
+                   l1069 077D                     l1077 0705                     l1167 07C0  
+                   l1079 071E                     l1169 07EA          ?_togglePortData 0070  
+                   _main 0705                     btemp 007E                     start 0000  
+                  ?_main 0070                    _PORTA 0005                    _PORTB 0006  
+                  _PORTC 0007                    _PORTD 0008                    _PORTE 0009  
+                  _TRISA 0085                    _TRISB 0086                    _TRISC 0087  
+                  _TRISD 0088                    _TRISE 0089                    status 0003  
+                  wtemp0 007E          __initialization 07FC             __end_of_main 072F  
+                 ??_main 0074          setPortData@data 0072          setPortDir@state 0072  
+           ?_setPortData 0070  __end_of__initialization 07FC       setPortData@portNum 0070  
+         __pcstackCOMMON 0070         ??_togglePortData 0072               __pmaintext 0705  
+  togglePortData@portNum 0070     __size_of_setPortData 0031                  __ptext1 0760  
+                __ptext2 079B                  __ptext3 072F     end_of_initialization 07FC  
+             _setPortDir 079B      start_initialization 07FC              ?_setPortDir 0070  
+              ___latbits 0002        setPortDir@portNum 0070      __size_of_setPortDir 0061  
+          ??_setPortData 0074  __size_of_togglePortData 003B      __end_of_setPortData 0760  
+           ??_setPortDir 0074            __size_of_main 002A       __end_of_setPortDir 07FC  
+            _setPortData 072F           _togglePortData 0760   __end_of_togglePortData 079B  

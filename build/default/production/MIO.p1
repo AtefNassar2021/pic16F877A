@@ -350,8 +350,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MIO.c: 44:             case 4:
 [e :U 112 ]
 "45
-[; ;MIO.c: 45:                 TRISE = 0x07;
-[e = _TRISE -> -> 7 `i `uc ]
+[; ;MIO.c: 45:                 TRISE |= 0xFF;
+[e =| _TRISE -> -> 255 `i `Vuc ]
 "46
 [; ;MIO.c: 46:                 break;
 [e $U 106  ]
@@ -539,8 +539,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MIO.c: 102:         case 0:
 [e :U 135 ]
 "103
-[; ;MIO.c: 103:             PORTA ^= 0x3F;
-[e =^ _PORTA -> -> 63 `i `Vuc ]
+[; ;MIO.c: 103:             PORTA ^= 0xFF;
+[e =^ _PORTA -> -> 255 `i `Vuc ]
 "104
 [; ;MIO.c: 104:             break;
 [e $U 133  ]
@@ -575,8 +575,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MIO.c: 114:         case 4:
 [e :U 139 ]
 "115
-[; ;MIO.c: 115:             PORTE ^= 0x07;
-[e =^ _PORTE -> -> 7 `i `Vuc ]
+[; ;MIO.c: 115:             PORTE ^= 0xFF;
+[e =^ _PORTE -> -> 255 `i `Vuc ]
 "116
 [; ;MIO.c: 116:             break;
 [e $U 133  ]

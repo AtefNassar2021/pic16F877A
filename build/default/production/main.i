@@ -1748,23 +1748,23 @@ void togglePinData(int portNum, int pinNum);
 
 
 void main(void) {
-    setPortDir(0,0);
-
-
-    setPortDir(4,0);
-    setPortDir(2,0);
-    setPortDir(3,0);
     setPortDir(1,0);
-    setPinDir(1,2,0);
-    setPinDir(1,0,1);
-    while(1){
-# 35 "main.c"
-         if(isPressed(1,0)){
-          _delay(100);
-        togglePinData(1,2);
-    }
+    setPortData(1,7);
 
+
+
+
+
+
+
+    int count =0;
+    while(1){
+
+        togglePortData(1),
+                _delay(100);
+# 42 "main.c"
         }
+
 
 
 

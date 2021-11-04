@@ -13,14 +13,12 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "14 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"6 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
-[v _isPressed isPressed `(i  1 e 2 0 ]
-"28
+"28 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
 [v _setPortDir setPortDir `(v  1 e 1 0 ]
-"123
-[v _setPinDir setPinDir `(v  1 e 1 0 ]
-"215
-[v _togglePinData togglePinData `(v  1 e 1 0 ]
+"77
+[v _setPortData setPortData `(v  1 e 1 0 ]
+"99
+[v _togglePortData togglePortData `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "216
@@ -44,14 +42,13 @@
 "14 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"45
+"48
 } 0
-"215 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
-[v _togglePinData togglePinData `(v  1 e 1 0 ]
+"99 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
+[v _togglePortData togglePortData `(v  1 e 1 0 ]
 {
-[v togglePinData@portNum portNum `i  1 p 2 0 ]
-[v togglePinData@pinNum pinNum `i  1 p 2 2 ]
-"236
+[v togglePortData@portNum portNum `i  1 p 2 0 ]
+"122
 } 0
 "28
 [v _setPortDir setPortDir `(v  1 e 1 0 ]
@@ -60,18 +57,10 @@
 [v setPortDir@state state `i  1 p 2 2 ]
 "76
 } 0
-"123
-[v _setPinDir setPinDir `(v  1 e 1 0 ]
+"77
+[v _setPortData setPortData `(v  1 e 1 0 ]
 {
-[v setPinDir@portNum portNum `i  1 p 2 0 ]
-[v setPinDir@pinNum pinNum `i  1 p 2 2 ]
-[v setPinDir@state state `i  1 p 2 4 ]
-"169
-} 0
-"6
-[v _isPressed isPressed `(i  1 e 2 0 ]
-{
-[v isPressed@portNum portNum `i  1 p 2 0 ]
-[v isPressed@pinNum pinNum `i  1 p 2 2 ]
-"26
+[v setPortData@portNum portNum `i  1 p 2 0 ]
+[v setPortData@data data `i  1 p 2 2 ]
+"98
 } 0

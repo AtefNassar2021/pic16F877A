@@ -42,7 +42,7 @@ void setPortDir(int portNum, int state){
                 TRISD = 0xFF;
                 break;
             case _PE:
-                TRISE = 0x07;
+                TRISE |= 0xFF;
                 break;    
             default:
                 ;
@@ -100,7 +100,7 @@ void togglePortData(int portNum){
 
 switch (portNum) {
         case _PA:
-            PORTA ^= 0x3F;
+            PORTA ^= 0xFF;
             break;
         case _PB:
             PORTB ^= 0xFF;
@@ -112,7 +112,7 @@ switch (portNum) {
             PORTD ^= 0xFF;
             break;
         case _PE:
-            PORTE ^= 0x07;
+            PORTE ^= 0xFF;
             break;            
         default:
             ;

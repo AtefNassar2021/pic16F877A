@@ -3,19 +3,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19 ./MIO.h
 [; ;./MIO.h: 19: void setPortDir(int portNum, int state);
 [v _setPortDir `(v ~T0 @X0 0 ef2`i`i ]
-"24
-[; ;./MIO.h: 24: void setPinDir(int portNum,int pinNum, int state);
-[v _setPinDir `(v ~T0 @X0 0 ef3`i`i`i ]
-"16
-[; ;./MIO.h: 16: int isPressed(int portNum, int pinNum);
-[v _isPressed `(i ~T0 @X0 0 ef2`i`i ]
+"20
+[; ;./MIO.h: 20: void setPortData(int portNum, int data);
+[v _setPortData `(v ~T0 @X0 0 ef2`i`i ]
+"21
+[; ;./MIO.h: 21: void togglePortData(int portNum);
+[v _togglePortData `(v ~T0 @X0 0 ef1`i ]
 [v F842 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
 [v __delay `JF842 ~T0 @X0 0 e ]
 [p i __delay ]
-"26 ./MIO.h
-[; ;./MIO.h: 26: void togglePinData(int portNum, int pinNum);
-[v _togglePinData `(v ~T0 @X0 0 ef2`i`i ]
 "54 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -204,54 +201,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _main ]
 [f ]
 "15
-[; ;main.c: 15:     setPortDir(0,0);
-[e ( _setPortDir (2 , -> 0 `i -> 0 `i ]
-"18
-[; ;main.c: 18:     setPortDir(4,0);
-[e ( _setPortDir (2 , -> 4 `i -> 0 `i ]
-"19
-[; ;main.c: 19:     setPortDir(2,0);
-[e ( _setPortDir (2 , -> 2 `i -> 0 `i ]
-"20
-[; ;main.c: 20:     setPortDir(3,0);
-[e ( _setPortDir (2 , -> 3 `i -> 0 `i ]
-"21
-[; ;main.c: 21:     setPortDir(1,0);
+[; ;main.c: 15:     setPortDir(1,0);
 [e ( _setPortDir (2 , -> 1 `i -> 0 `i ]
-"22
-[; ;main.c: 22:     setPinDir(1,2,0);
-[e ( _setPinDir (3 , , -> 1 `i -> 2 `i -> 0 `i ]
-"23
-[; ;main.c: 23:     setPinDir(1,0,1);
-[e ( _setPinDir (3 , , -> 1 `i -> 0 `i -> 1 `i ]
+"16
+[; ;main.c: 16:     setPortData(1,7);
+[e ( _setPortData (2 , -> 1 `i -> 7 `i ]
 "24
-[; ;main.c: 24:     while(1){
+[; ;main.c: 24:     int count =0;
+[v _count `i ~T0 @X0 1 a ]
+[e = _count -> 0 `i ]
+"25
+[; ;main.c: 25:     while(1){
 [e :U 97 ]
 {
-"35
-[; ;main.c: 35:          if(isPressed(1,0)){
-[e $ ! != ( _isPressed (2 , -> 1 `i -> 0 `i -> 0 `i 99  ]
-{
-"36
-[; ;main.c: 36:           _delay(100);
-[e ( __delay (1 -> -> -> 100 `i `l `ul ]
-"37
-[; ;main.c: 37:         togglePinData(1,2);
-[e ( _togglePinData (2 , -> 1 `i -> 2 `i ]
-"38
-[; ;main.c: 38:     }
-}
-[e :U 99 ]
-"40
-[; ;main.c: 40:         }
+"27
+[; ;main.c: 27:         togglePortData(1),
+[e ; ( _togglePortData (1 -> 1 `i ( __delay (1 -> -> -> 100 `i `l `ul ]
+"42
+[; ;main.c: 42:         }
 }
 [e :U 96 ]
 [e $U 97  ]
 [e :U 98 ]
-"44
-[; ;main.c: 44:     return;
+"47
+[; ;main.c: 47:     return;
 [e $UE 95  ]
-"45
-[; ;main.c: 45: }
+"48
+[; ;main.c: 48: }
 [e :UE 95 ]
 }
