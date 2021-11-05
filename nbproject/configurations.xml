@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>MIO.h</itemPath>
       <itemPath>config.h</itemPath>
+      <itemPath>LCD.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -16,6 +17,7 @@
                    projectFiles="true">
       <itemPath>main.c</itemPath>
       <itemPath>MIO.c</itemPath>
+      <itemPath>LCD.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
