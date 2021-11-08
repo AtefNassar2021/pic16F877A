@@ -1,5 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
+"35 ./LCD.h
+[; ;./LCD.h: 35: void LCD_cmd(char cmd);
+[v _LCD_cmd `(v ~T0 @X0 0 ef1`uc ]
+[v F856 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
+[v __delay `JF856 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -180,31 +186,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-[v $root$_main `(v ~T0 @X0 0 e ]
-"14 main.c
-[; ;main.c: 14: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+"43 LCD.c
+[; ;LCD.c: 43: void LCD_clear() {
+[v _LCD_clear `(v ~T0 @X0 1 ef ]
 {
-[e :U _main ]
+[e :U _LCD_clear ]
 [f ]
-"24
-[; ;main.c: 24:     int count =0;
-[v _count `i ~T0 @X0 1 a ]
-[e = _count -> 0 `i ]
-"25
-[; ;main.c: 25:     while(1){
-[e :U 97 ]
-{
-"42
-[; ;main.c: 42:         }
-}
-[e :U 96 ]
-[e $U 97  ]
-[e :U 98 ]
-"47
-[; ;main.c: 47:     return;
-[e $UE 95  ]
-"48
-[; ;main.c: 48: }
+"44
+[; ;LCD.c: 44:     LCD_cmd(0x01);
+[e ( _LCD_cmd (1 -> -> 1 `i `uc ]
+"45
+[; ;LCD.c: 45:     _delay(100);
+[e ( __delay (1 -> -> -> 100 `i `l `ul ]
+"46
+[; ;LCD.c: 46: }
 [e :UE 95 ]
 }

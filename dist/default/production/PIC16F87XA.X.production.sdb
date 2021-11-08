@@ -13,12 +13,6 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "14 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"28 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
-[v _setPortDir setPortDir `(v  1 e 1 0 ]
-"77
-[v _setPortData setPortData `(v  1 e 1 0 ]
-"99
-[v _togglePortData togglePortData `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "216
@@ -29,6 +23,8 @@
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "402
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
+"1255
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
 "1325
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1375
@@ -39,28 +35,12 @@
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1561
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
+"2644
+[v _PSA PSA `VEb  1 e 0 @1035 ]
+"2878
+[v _TMR0IE TMR0IE `VEb  1 e 0 @93 ]
 "14 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "48
-} 0
-"99 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
-[v _togglePortData togglePortData `(v  1 e 1 0 ]
-{
-[v togglePortData@portNum portNum `i  1 p 2 0 ]
-"122
-} 0
-"28
-[v _setPortDir setPortDir `(v  1 e 1 0 ]
-{
-[v setPortDir@portNum portNum `i  1 p 2 0 ]
-[v setPortDir@state state `i  1 p 2 2 ]
-"76
-} 0
-"77
-[v _setPortData setPortData `(v  1 e 1 0 ]
-{
-[v setPortData@portNum portNum `i  1 p 2 0 ]
-[v setPortData@data data `i  1 p 2 2 ]
-"98
 } 0

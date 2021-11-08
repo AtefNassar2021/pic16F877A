@@ -12,8 +12,8 @@
 //#define OUT     0
 //#define IN      1
 void main(void) {
-    setPortDir(_PB,OUT);
-    setPortData(_PB,7);
+   // setPortDir(_PB,OUT);
+   // setPortData(_PB,7);
     //PORTA=0X3F;
     //setPortDir(_PE,OUT);
     //setPortDir(_PD,IN);
@@ -24,8 +24,8 @@ void main(void) {
     int count =0;
     while(1){
         
-        togglePortData(_PB),
-                _delay(100);
+       // togglePortData(_PB),
+       //         _delay(100);
     //PORTC=0X3F;
     //togglePortData(_PB);
     //_delay(100);

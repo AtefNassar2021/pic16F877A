@@ -1727,7 +1727,7 @@ extern __bank0 __bit __timeout;
 # 9 "main.c" 2
 
 # 1 "./config.h" 1
-# 25 "./config.h"
+# 26 "./config.h"
 # 1 "./MIO.h" 1
 # 16 "./MIO.h"
 int isPressed(int portNum, int pinNum);
@@ -1741,27 +1741,23 @@ void togglePortData(int portNum);
 void setPinDir(int portNum,int pinNum, int state);
 void setPinData(int portNum,int pinNum, int data);
 void togglePinData(int portNum, int pinNum);
-# 25 "./config.h" 2
+# 26 "./config.h" 2
+
+# 1 "./timer.h" 1
+# 40 "./timer.h"
+void init_Timer(int mode, int clockSelect);
+
+void Timer_enable_INT(int selectINT);
+# 27 "./config.h" 2
 # 10 "main.c" 2
 
 
 
 
 void main(void) {
-    setPortDir(1,0);
-    setPortData(1,7);
-
-
-
-
-
-
-
+# 24 "main.c"
     int count =0;
     while(1){
-
-        togglePortData(1),
-                _delay(100);
 # 42 "main.c"
         }
 

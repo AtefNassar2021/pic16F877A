@@ -1,7 +1,7 @@
 #include"LCD.h"
 #include"config.h"
 
-
+/*
 void init_LCD(){
     // Configure IO PIC
     setPortDir(LCD_data_Dir, OUT);
@@ -30,6 +30,17 @@ void LCD_write(char data);
 void LCD_write_str(char* str);
 void LCD_write_num(int num);
 void LCD_cmd(char cmd);
-void LCD_enable();
-void LCD_clear();
+
 void LCD_goto(int row, int column);
+
+
+void LCD_enable() {
+    setPinData(LCD_control, EN, ON);
+    _delay(100);
+    setPinData(LCD_control, EN, OFF);
+}
+*/
+void LCD_clear() {
+    LCD_cmd(0x01);
+    _delay(100);
+}

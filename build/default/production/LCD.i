@@ -1,4 +1,4 @@
-# 1 "MIO.c"
+# 1 "LCD.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,22 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MIO.c" 2
+# 1 "LCD.c" 2
+# 1 "./LCD.h" 1
+# 30 "./LCD.h"
+void init_LCD();
+
+void LCD_write(char data);
+void LCD_write_str(char* str);
+void LCD_write_num(int num);
+void LCD_cmd(char cmd);
+void LCD_enable();
+void LCD_clear();
+void LCD_goto(int row, int column);
+# 1 "LCD.c" 2
+
+# 1 "./config.h" 1
+# 11 "./config.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1716,9 +1731,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 1 "MIO.c" 2
-
-# 1 "./config.h" 1
+# 11 "./config.h" 2
 # 26 "./config.h"
 # 1 "./MIO.h" 1
 # 16 "./MIO.h"
@@ -1741,218 +1754,9 @@ void init_Timer(int mode, int clockSelect);
 
 void Timer_enable_INT(int selectINT);
 # 27 "./config.h" 2
-# 2 "MIO.c" 2
-
-
-
-
-int isPressed(int portNum, int pinNum){
- switch (portNum) {
-        case 0:
-            return (0 & (1 << pinNum)) ? 1 : 0;
-            break;
-        case 1:
-            return (1 & (1 << pinNum)) ? 1 : 0;
-            break;
-        case 2:
-            return (2 & (1 << pinNum)) ? 1 : 0;
-            break;
-        case 3:
-            return (3 & (1 << pinNum)) ? 1 : 0;
-            break;
-        case 4:
-            return (4 & (1 << pinNum)) ? 1 : 0;
-            break;
-        default:
-            return 0;
-    }
-}
-
-void setPortDir(int portNum, int state){
-         if (state) {
-
-        switch (portNum) {
-            case 0:
-                TRISA = 0xFF;
-                break;
-            case 1:
-                TRISB = 0xFF;
-                break;
-            case 2:
-                TRISC = 0xFF;
-                break;
-            case 3:
-                TRISD = 0xFF;
-                break;
-            case 4:
-                TRISE |= 0xFF;
-                break;
-            default:
-                ;
-
-        }
-    } else {
-
-        switch (portNum) {
-            case 0:
-                TRISA = 0x00;
-                break;
-            case 1:
-                TRISB = 0x00;
-                break;
-            case 2:
-                TRISC = 0x00;
-                break;
-            case 3:
-                TRISD = 0x00;
-                break;
-            case 4:
-                TRISE = 0x00;
-                break;
-            default:
-                ;
-
-        }
-
-
-    }
-}
-# 99 "MIO.c"
-void togglePortData(int portNum){
-
-switch (portNum) {
-        case 0:
-            PORTA ^= 0xFF;
-            break;
-        case 1:
-            PORTB ^= 0xFF;
-            break;
-        case 2:
-            PORTC ^= 0xFF;
-            break;
-        case 3:
-            PORTD ^= 0xFF;
-            break;
-        case 4:
-            PORTE ^= 0xFF;
-            break;
-        default:
-            ;
-
-    }
-
-}
-void setPinDir(int portNum,int pinNum, int state){
-if (state) {
-
-        switch (portNum) {
-            case 0:
-                TRISA |= (1 << pinNum);
-                break;
-            case 1:
-                TRISB |= (1 << pinNum);
-                break;
-            case 2:
-                TRISC |= (1 << pinNum);
-                break;
-            case 3:
-                TRISD |= (1 << pinNum);
-                break;
-            case 4:
-                TRISE |= (1 << pinNum);
-                break;
-            default:
-                ;
-
-        }
-    } else {
-
-        switch (portNum) {
-            case 0:
-                TRISA &= ~(1 << pinNum);
-                break;
-            case 1:
-                TRISB &= ~(1 << pinNum);
-                break;
-            case 2:
-                TRISC &= ~(1 << pinNum);
-                break;
-            case 3:
-                TRISD &= ~(1 << pinNum);
-                break;
-            case 4:
-                TRISE &= ~(1 << pinNum);
-                break;
-            default:
-                ;
-
-        }
-    }
-}
-void setPinData(int portNum,int pinNum, int data){
-if (data) {
-        switch (portNum) {
-            case 0:
-                PORTA |= (1 << pinNum);
-                break;
-            case 1:
-                PORTB |= (1 << pinNum);
-                break;
-            case 2:
-                PORTC |= (1 << pinNum);
-                break;
-            case 3:
-                PORTD |= (1 << pinNum);
-                break;
-            case 4:
-                PORTE |= (1 << pinNum);
-                break;
-            default:
-                ;
-
-        }
-    } else {
-        switch (portNum) {
-            case 0:
-                PORTA &= ~(1 << pinNum);
-                break;
-            case 1:
-                PORTB &= ~(1 << pinNum);
-                break;
-            case 2:
-                PORTC &= ~(1 << pinNum);
-                break;
-            case 3:
-                PORTD &= ~(1 << pinNum);
-                break;
-            case 4:
-                PORTE &= ~(1 << pinNum);
-                break;
-            default:
-                ;
-
-        }
-    }
-}
-void togglePinData(int portNum, int pinNum) {
-    switch (portNum) {
-        case 0:
-            PORTA ^= (1 << pinNum);
-            break;
-        case 1:
-            PORTB ^= (1 << pinNum);
-            break;
-        case 2:
-            PORTC ^= (1 << pinNum);
-            break;
-        case 3:
-            PORTD ^= (1 << pinNum);
-            break;
-        case 4:
-            PORTE ^= (1 << pinNum);
-            break;
-        default:
-            ;
-
-    }
+# 2 "LCD.c" 2
+# 43 "LCD.c"
+void LCD_clear() {
+    LCD_cmd(0x01);
+    _delay(100);
 }

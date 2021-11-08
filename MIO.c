@@ -73,7 +73,7 @@ void setPortDir(int portNum, int state){
                                         
                                         
     }
-}
+}/*
 void setPortData(int portNum, int data){
 switch (portNum) {
         case _PA:
@@ -95,7 +95,7 @@ switch (portNum) {
             ;
 
     }
-}
+}*/
 void togglePortData(int portNum){
 
 switch (portNum) {

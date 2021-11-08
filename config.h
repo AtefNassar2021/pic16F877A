@@ -24,7 +24,7 @@
 #define OFF     0 
 
 #include "MIO.h"
-
+#include"timer.h"
 
 #endif	/* CONFIG_H */
 

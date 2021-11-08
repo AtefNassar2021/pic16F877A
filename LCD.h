@@ -15,9 +15,9 @@
 #define LCD_control     _PC
 #define LCD_control_Dir _PC
 
-#define RS              PC0
-#define RW              PC1
-#define EN              PC2
+//#define  RS              PC0
+//#define  RW              PC1
+//#define  EN              PC2
 /////////////////////////////////
 // Command List
 #define _8bit_mode    0x38  // _8bit_mode
