@@ -201,11 +201,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _OPTION_REG -> -> 0 `i `uc ]
 "7
 [; ;timer.c: 7:     switch (mode) {
-[e $U 97  ]
+[e $U 101  ]
 {
 "8
 [; ;timer.c: 8:         case 0:
-[e :U 98 ]
+[e :U 102 ]
 "9
 [; ;timer.c: 9:             OPTION_REG |=(1<<PSA);
 [e =| _OPTION_REG -> << -> 1 `i -> _PSA `i `Vuc ]
@@ -214,10 +214,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =| _OPTION_REG -> _clockSelect `Vuc ]
 "11
 [; ;timer.c: 11:             break;
-[e $U 96  ]
+[e $U 100  ]
 "12
 [; ;timer.c: 12:         case 1:
-[e :U 99 ]
+[e :U 103 ]
 "13
 [; ;timer.c: 13:             OPTION_REG &=~(1<<PSA);
 [e =& _OPTION_REG -> ~ << -> 1 `i -> _PSA `i `Vuc ]
@@ -226,25 +226,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =| _OPTION_REG -> _clockSelect `Vuc ]
 "15
 [; ;timer.c: 15:             break;
-[e $U 96  ]
+[e $U 100  ]
 "16
 [; ;timer.c: 16:         default:
-[e :U 100 ]
+[e :U 104 ]
 "17
 [; ;timer.c: 17:             return ;
-[e $UE 95  ]
+[e $UE 99  ]
 "18
 [; ;timer.c: 18:     }
 }
-[e $U 96  ]
-[e :U 97 ]
-[e [\ _mode , $ -> 0 `i 98
- , $ -> 1 `i 99
- 100 ]
-[e :U 96 ]
+[e $U 100  ]
+[e :U 101 ]
+[e [\ _mode , $ -> 0 `i 102
+ , $ -> 1 `i 103
+ 104 ]
+[e :U 100 ]
 "19
 [; ;timer.c: 19: }
-[e :UE 95 ]
+[e :UE 99 ]
 }
 "20
 [; ;timer.c: 20: void Timer_enable_INT(int selectINT){
@@ -258,5 +258,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =& _TMR0IE -> -> ~ << -> 1 `i _selectINT `b `Vb ]
 "22
 [; ;timer.c: 22: }
-[e :UE 101 ]
+[e :UE 105 ]
 }

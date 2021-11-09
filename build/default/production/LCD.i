@@ -1754,9 +1754,170 @@ void init_Timer(int mode, int clockSelect);
 
 void Timer_enable_INT(int selectINT);
 # 27 "./config.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 1 3
+
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 2 3
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
+# 6 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 2 3
+
+typedef unsigned short wchar_t;
+
+
+
+
+
+
+
+typedef struct {
+ int rem;
+ int quot;
+} div_t;
+typedef struct {
+ unsigned rem;
+ unsigned quot;
+} udiv_t;
+typedef struct {
+ long quot;
+ long rem;
+} ldiv_t;
+typedef struct {
+ unsigned long quot;
+ unsigned long rem;
+} uldiv_t;
+# 65 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 3
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+
+
+
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+
+
+
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+# 104 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 3
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+# 28 "./config.h" 2
 # 2 "LCD.c" 2
-# 43 "LCD.c"
+
+
+
+
+
+void LCD_enable() {
+    setPinData(2, RC2, 1);
+    _delay(100);
+    setPinData(2, RC2, 0);
+}
+
 void LCD_clear() {
     LCD_cmd(0x01);
     _delay(100);
 }
+void init_LCD(){
+
+    setPortDir(3, 0);
+    setPinDir(2, RC0, 0);
+    setPinDir(2, RC1, 0);
+    setPinDir(2, RC2, 0);
+
+    setPinData(2, RC1, 0);
+
+
+    _delay(100);
+    LCD_clear();
+
+    LCD_cmd(0x38);
+    _delay(100);
+    LCD_cmd(0x0C);
+    _delay(100);
+    LCD_cmd(0x06);
+    _delay(100);
+    LCD_cmd(0x02);
+
+    _delay(500);
+
+}
+void LCD_write(char data) {
+
+    setPinData(2, RC0, 1);
+
+    setPortData(3, data);
+
+    LCD_enable();
+
+}
+void LCD_write_str(char* str){
+    for(int i = 0; str[i]!= '\0'; i++){
+        LCD_write(str[i]);
+    }
+}
+void LCD_write_num(int num){
+    char buffer[11];
+    itoa(num, buffer, 10);
+    LCD_write_str(buffer);
+}
+void LCD_cmd(char cmd) {
+
+    setPinData(2, RC0, 0);
+
+    setPortData(3, cmd);
+
+    LCD_enable();
+}
+
+
+
+
+
+
+void LCD_goto(int row, int column);

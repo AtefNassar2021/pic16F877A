@@ -10,7 +10,7 @@
 
 #include <xc.h>
         
-#define F_CPU 16000000UL
+#define F_CPU 20000000UL
 
 #define _PA    0
 #define _PB    1
@@ -25,6 +25,7 @@
 
 #include "MIO.h"
 #include"timer.h"
+#include <stdlib.h>
 
 #endif	/* CONFIG_H */
 

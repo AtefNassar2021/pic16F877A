@@ -15,9 +15,9 @@
 #define LCD_control     _PC
 #define LCD_control_Dir _PC
 
-//#define  RS              PC0
-//#define  RW              PC1
-//#define  EN              PC2
+#define  RS              RC0
+#define  RW              RC1
+#define  EN              RC2
 /////////////////////////////////
 // Command List
 #define _8bit_mode    0x38  // _8bit_mode
@@ -28,7 +28,6 @@
 
 /////////////////
 void init_LCD();
-
 void LCD_write(char data);
 void LCD_write_str(char* str);
 void LCD_write_num(int num);
