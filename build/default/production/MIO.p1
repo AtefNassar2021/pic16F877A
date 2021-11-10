@@ -350,16 +350,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MIO.c: 44:             case 4:
 [e :U 116 ]
 "45
-[; ;MIO.c: 45:                 TRISE |= 0xFF;
-[e =| _TRISE -> -> 255 `i `Vuc ]
+[; ;MIO.c: 45:                 TRISE = 0xFF;
+[e = _TRISE -> -> 255 `i `uc ]
 "46
 [; ;MIO.c: 46:                 break;
 [e $U 110  ]
 "47
 [; ;MIO.c: 47:             default:
 [e :U 117 ]
-"50
-[; ;MIO.c: 50:         }
+"49
+[; ;MIO.c: 49:         }
 }
 [e $U 110  ]
 [e :U 111 ]
@@ -370,66 +370,66 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 4 `i 116
  117 ]
 [e :U 110 ]
-"51
-[; ;MIO.c: 51:     } else {
+"50
+[; ;MIO.c: 50:     } else {
 }
 [e $U 118  ]
 [e :U 109 ]
 {
-"53
-[; ;MIO.c: 53:         switch (portNum) {
+"52
+[; ;MIO.c: 52:         switch (portNum) {
 [e $U 120  ]
 {
-"54
-[; ;MIO.c: 54:             case 0:
+"53
+[; ;MIO.c: 53:             case 0:
 [e :U 121 ]
-"55
-[; ;MIO.c: 55:                 TRISA = 0x00;
+"54
+[; ;MIO.c: 54:                 TRISA = 0x00;
 [e = _TRISA -> -> 0 `i `uc ]
+"55
+[; ;MIO.c: 55:                 break;
+[e $U 119  ]
 "56
-[; ;MIO.c: 56:                 break;
-[e $U 119  ]
-"57
-[; ;MIO.c: 57:             case 1:
+[; ;MIO.c: 56:             case 1:
 [e :U 122 ]
-"58
-[; ;MIO.c: 58:                 TRISB = 0x00;
+"57
+[; ;MIO.c: 57:                 TRISB = 0x00;
 [e = _TRISB -> -> 0 `i `uc ]
+"58
+[; ;MIO.c: 58:                 break;
+[e $U 119  ]
 "59
-[; ;MIO.c: 59:                 break;
-[e $U 119  ]
-"60
-[; ;MIO.c: 60:             case 2:
+[; ;MIO.c: 59:             case 2:
 [e :U 123 ]
-"61
-[; ;MIO.c: 61:                 TRISC = 0x00;
+"60
+[; ;MIO.c: 60:                 TRISC = 0x00;
 [e = _TRISC -> -> 0 `i `uc ]
+"61
+[; ;MIO.c: 61:                 break;
+[e $U 119  ]
 "62
-[; ;MIO.c: 62:                 break;
-[e $U 119  ]
-"63
-[; ;MIO.c: 63:             case 3:
+[; ;MIO.c: 62:             case 3:
 [e :U 124 ]
-"64
-[; ;MIO.c: 64:                 TRISD = 0x00;
+"63
+[; ;MIO.c: 63:                 TRISD = 0x00;
 [e = _TRISD -> -> 0 `i `uc ]
+"64
+[; ;MIO.c: 64:                 break;
+[e $U 119  ]
 "65
-[; ;MIO.c: 65:                 break;
-[e $U 119  ]
-"66
-[; ;MIO.c: 66:             case 4:
+[; ;MIO.c: 65:             case 4:
 [e :U 125 ]
-"67
-[; ;MIO.c: 67:                 TRISE = 0x00;
+"66
+[; ;MIO.c: 66:                 TRISE = 0x00;
 [e = _TRISE -> -> 0 `i `uc ]
-"68
-[; ;MIO.c: 68:                 break;
+"67
+[; ;MIO.c: 67:                 break;
 [e $U 119  ]
-"69
-[; ;MIO.c: 69:             default:
+"68
+[; ;MIO.c: 68:             default:
 [e :U 126 ]
-"72
-[; ;MIO.c: 72:         }
+"70
+[; ;MIO.c: 70:         }
 }
 [e $U 119  ]
 [e :U 120 ]
@@ -440,75 +440,76 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 4 `i 125
  126 ]
 [e :U 119 ]
-"75
-[; ;MIO.c: 75:     }
+"71
+[; ;MIO.c: 71:     }
 }
 [e :U 118 ]
-"76
-[; ;MIO.c: 76: }
+"72
+[; ;MIO.c: 72: }
 [e :UE 108 ]
 }
-"99
-[; ;MIO.c: 99: void togglePortData(int portNum){
-[v _togglePortData `(v ~T0 @X0 1 ef1`i ]
+"73
+[; ;MIO.c: 73: void setPortData(int portNum, int data){
+[v _setPortData `(v ~T0 @X0 1 ef2`i`i ]
 {
-[e :U _togglePortData ]
+[e :U _setPortData ]
 [v _portNum `i ~T0 @X0 1 r1 ]
+[v _data `i ~T0 @X0 1 r2 ]
 [f ]
-"101
-[; ;MIO.c: 101: switch (portNum) {
+"74
+[; ;MIO.c: 74: switch (portNum) {
 [e $U 129  ]
 {
-"102
-[; ;MIO.c: 102:         case 0:
+"75
+[; ;MIO.c: 75:         case 0:
 [e :U 130 ]
-"103
-[; ;MIO.c: 103:             PORTA ^= 0xFF;
-[e =^ _PORTA -> -> 255 `i `Vuc ]
-"104
-[; ;MIO.c: 104:             break;
+"76
+[; ;MIO.c: 76:             PORTA = data;
+[e = _PORTA -> _data `uc ]
+"77
+[; ;MIO.c: 77:             break;
 [e $U 128  ]
-"105
-[; ;MIO.c: 105:         case 1:
+"78
+[; ;MIO.c: 78:         case 1:
 [e :U 131 ]
-"106
-[; ;MIO.c: 106:             PORTB ^= 0xFF;
-[e =^ _PORTB -> -> 255 `i `Vuc ]
-"107
-[; ;MIO.c: 107:             break;
+"79
+[; ;MIO.c: 79:             PORTB = data;
+[e = _PORTB -> _data `uc ]
+"80
+[; ;MIO.c: 80:             break;
 [e $U 128  ]
-"108
-[; ;MIO.c: 108:         case 2:
+"81
+[; ;MIO.c: 81:         case 2:
 [e :U 132 ]
-"109
-[; ;MIO.c: 109:             PORTC ^= 0xFF;
-[e =^ _PORTC -> -> 255 `i `Vuc ]
-"110
-[; ;MIO.c: 110:             break;
+"82
+[; ;MIO.c: 82:             PORTC = data;
+[e = _PORTC -> _data `uc ]
+"83
+[; ;MIO.c: 83:             break;
 [e $U 128  ]
-"111
-[; ;MIO.c: 111:         case 3:
+"84
+[; ;MIO.c: 84:         case 3:
 [e :U 133 ]
-"112
-[; ;MIO.c: 112:             PORTD ^= 0xFF;
-[e =^ _PORTD -> -> 255 `i `Vuc ]
-"113
-[; ;MIO.c: 113:             break;
+"85
+[; ;MIO.c: 85:             PORTD = data;
+[e = _PORTD -> _data `uc ]
+"86
+[; ;MIO.c: 86:             break;
 [e $U 128  ]
-"114
-[; ;MIO.c: 114:         case 4:
+"87
+[; ;MIO.c: 87:         case 4:
 [e :U 134 ]
-"115
-[; ;MIO.c: 115:             PORTE ^= 0xFF;
-[e =^ _PORTE -> -> 255 `i `Vuc ]
-"116
-[; ;MIO.c: 116:             break;
+"88
+[; ;MIO.c: 88:             PORTE = data;
+[e = _PORTE -> _data `uc ]
+"89
+[; ;MIO.c: 89:             break;
 [e $U 128  ]
-"117
-[; ;MIO.c: 117:         default:
+"90
+[; ;MIO.c: 90:         default:
 [e :U 135 ]
-"120
-[; ;MIO.c: 120:     }
+"93
+[; ;MIO.c: 93:     }
 }
 [e $U 128  ]
 [e :U 129 ]
@@ -519,12 +520,87 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 4 `i 134
  135 ]
 [e :U 128 ]
-"122
-[; ;MIO.c: 122: }
+"94
+[; ;MIO.c: 94: }
 [e :UE 127 ]
 }
-"123
-[; ;MIO.c: 123: void setPinDir(int portNum,int pinNum, int state){
+"95
+[; ;MIO.c: 95: void togglePortData(int portNum){
+[v _togglePortData `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _togglePortData ]
+[v _portNum `i ~T0 @X0 1 r1 ]
+[f ]
+"96
+[; ;MIO.c: 96:     switch (portNum) {
+[e $U 138  ]
+{
+"97
+[; ;MIO.c: 97:         case 0:
+[e :U 139 ]
+"98
+[; ;MIO.c: 98:             PORTA ^= 0xFF;
+[e =^ _PORTA -> -> 255 `i `Vuc ]
+"99
+[; ;MIO.c: 99:             break;
+[e $U 137  ]
+"100
+[; ;MIO.c: 100:         case 1:
+[e :U 140 ]
+"101
+[; ;MIO.c: 101:             PORTB ^= 0xFF;
+[e =^ _PORTB -> -> 255 `i `Vuc ]
+"102
+[; ;MIO.c: 102:             break;
+[e $U 137  ]
+"103
+[; ;MIO.c: 103:         case 2:
+[e :U 141 ]
+"104
+[; ;MIO.c: 104:             PORTC ^= 0xFF;
+[e =^ _PORTC -> -> 255 `i `Vuc ]
+"105
+[; ;MIO.c: 105:             break;
+[e $U 137  ]
+"106
+[; ;MIO.c: 106:         case 3:
+[e :U 142 ]
+"107
+[; ;MIO.c: 107:             PORTD ^= 0xFF;
+[e =^ _PORTD -> -> 255 `i `Vuc ]
+"108
+[; ;MIO.c: 108:             break;
+[e $U 137  ]
+"109
+[; ;MIO.c: 109:         case 4:
+[e :U 143 ]
+"110
+[; ;MIO.c: 110:             PORTE ^= 0xFF;
+[e =^ _PORTE -> -> 255 `i `Vuc ]
+"111
+[; ;MIO.c: 111:             break;
+[e $U 137  ]
+"112
+[; ;MIO.c: 112:         default:
+[e :U 144 ]
+"115
+[; ;MIO.c: 115:     }
+}
+[e $U 137  ]
+[e :U 138 ]
+[e [\ _portNum , $ -> 0 `i 139
+ , $ -> 1 `i 140
+ , $ -> 2 `i 141
+ , $ -> 3 `i 142
+ , $ -> 4 `i 143
+ 144 ]
+[e :U 137 ]
+"117
+[; ;MIO.c: 117: }
+[e :UE 136 ]
+}
+"118
+[; ;MIO.c: 118: void setPinDir(int portNum,int pinNum, int state){
 [v _setPinDir `(v ~T0 @X0 1 ef3`i`i`i ]
 {
 [e :U _setPinDir ]
@@ -532,134 +608,64 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _pinNum `i ~T0 @X0 1 r2 ]
 [v _state `i ~T0 @X0 1 r3 ]
 [f ]
-"124
-[; ;MIO.c: 124: if (state) {
-[e $ ! != _state -> 0 `i 137  ]
+"119
+[; ;MIO.c: 119: if (state) {
+[e $ ! != _state -> 0 `i 146  ]
 {
-"126
-[; ;MIO.c: 126:         switch (portNum) {
-[e $U 139  ]
-{
-"127
-[; ;MIO.c: 127:             case 0:
-[e :U 140 ]
-"128
-[; ;MIO.c: 128:                 TRISA |= (1 << pinNum);
-[e =| _TRISA -> << -> 1 `i _pinNum `Vuc ]
-"129
-[; ;MIO.c: 129:                 break;
-[e $U 138  ]
-"130
-[; ;MIO.c: 130:             case 1:
-[e :U 141 ]
-"131
-[; ;MIO.c: 131:                 TRISB |= (1 << pinNum);
-[e =| _TRISB -> << -> 1 `i _pinNum `Vuc ]
-"132
-[; ;MIO.c: 132:                 break;
-[e $U 138  ]
-"133
-[; ;MIO.c: 133:             case 2:
-[e :U 142 ]
-"134
-[; ;MIO.c: 134:                 TRISC |= (1 << pinNum);
-[e =| _TRISC -> << -> 1 `i _pinNum `Vuc ]
-"135
-[; ;MIO.c: 135:                 break;
-[e $U 138  ]
-"136
-[; ;MIO.c: 136:             case 3:
-[e :U 143 ]
-"137
-[; ;MIO.c: 137:                 TRISD |= (1 << pinNum);
-[e =| _TRISD -> << -> 1 `i _pinNum `Vuc ]
-"138
-[; ;MIO.c: 138:                 break;
-[e $U 138  ]
-"139
-[; ;MIO.c: 139:             case 4:
-[e :U 144 ]
-"140
-[; ;MIO.c: 140:                 TRISE |= (1 << pinNum);
-[e =| _TRISE -> << -> 1 `i _pinNum `Vuc ]
-"141
-[; ;MIO.c: 141:                 break;
-[e $U 138  ]
-"142
-[; ;MIO.c: 142:             default:
-[e :U 145 ]
-"145
-[; ;MIO.c: 145:         }
-}
-[e $U 138  ]
-[e :U 139 ]
-[e [\ _portNum , $ -> 0 `i 140
- , $ -> 1 `i 141
- , $ -> 2 `i 142
- , $ -> 3 `i 143
- , $ -> 4 `i 144
- 145 ]
-[e :U 138 ]
-"146
-[; ;MIO.c: 146:     } else {
-}
-[e $U 146  ]
-[e :U 137 ]
-{
-"148
-[; ;MIO.c: 148:         switch (portNum) {
+"121
+[; ;MIO.c: 121:         switch (portNum) {
 [e $U 148  ]
 {
-"149
-[; ;MIO.c: 149:             case 0:
+"122
+[; ;MIO.c: 122:             case 0:
 [e :U 149 ]
-"150
-[; ;MIO.c: 150:                 TRISA &= ~(1 << pinNum);
-[e =& _TRISA -> ~ << -> 1 `i _pinNum `Vuc ]
-"151
-[; ;MIO.c: 151:                 break;
+"123
+[; ;MIO.c: 123:                 TRISA |= (1 << pinNum);
+[e =| _TRISA -> << -> 1 `i _pinNum `Vuc ]
+"124
+[; ;MIO.c: 124:                 break;
 [e $U 147  ]
-"152
-[; ;MIO.c: 152:             case 1:
+"125
+[; ;MIO.c: 125:             case 1:
 [e :U 150 ]
-"153
-[; ;MIO.c: 153:                 TRISB &= ~(1 << pinNum);
-[e =& _TRISB -> ~ << -> 1 `i _pinNum `Vuc ]
-"154
-[; ;MIO.c: 154:                 break;
+"126
+[; ;MIO.c: 126:                 TRISB |= (1 << pinNum);
+[e =| _TRISB -> << -> 1 `i _pinNum `Vuc ]
+"127
+[; ;MIO.c: 127:                 break;
 [e $U 147  ]
-"155
-[; ;MIO.c: 155:             case 2:
+"128
+[; ;MIO.c: 128:             case 2:
 [e :U 151 ]
-"156
-[; ;MIO.c: 156:                 TRISC &= ~(1 << pinNum);
-[e =& _TRISC -> ~ << -> 1 `i _pinNum `Vuc ]
-"157
-[; ;MIO.c: 157:                 break;
+"129
+[; ;MIO.c: 129:                 TRISC |= (1 << pinNum);
+[e =| _TRISC -> << -> 1 `i _pinNum `Vuc ]
+"130
+[; ;MIO.c: 130:                 break;
 [e $U 147  ]
-"158
-[; ;MIO.c: 158:             case 3:
+"131
+[; ;MIO.c: 131:             case 3:
 [e :U 152 ]
-"159
-[; ;MIO.c: 159:                 TRISD &= ~(1 << pinNum);
-[e =& _TRISD -> ~ << -> 1 `i _pinNum `Vuc ]
-"160
-[; ;MIO.c: 160:                 break;
+"132
+[; ;MIO.c: 132:                 TRISD |= (1 << pinNum);
+[e =| _TRISD -> << -> 1 `i _pinNum `Vuc ]
+"133
+[; ;MIO.c: 133:                 break;
 [e $U 147  ]
-"161
-[; ;MIO.c: 161:             case 4:
+"134
+[; ;MIO.c: 134:             case 4:
 [e :U 153 ]
-"162
-[; ;MIO.c: 162:                 TRISE &= ~(1 << pinNum);
-[e =& _TRISE -> ~ << -> 1 `i _pinNum `Vuc ]
-"163
-[; ;MIO.c: 163:                 break;
+"135
+[; ;MIO.c: 135:                 TRISE |= (1 << pinNum);
+[e =| _TRISE -> << -> 1 `i _pinNum `Vuc ]
+"136
+[; ;MIO.c: 136:                 break;
 [e $U 147  ]
-"164
-[; ;MIO.c: 164:             default:
+"137
+[; ;MIO.c: 137:             default:
 [e :U 154 ]
-"167
-[; ;MIO.c: 167:         }
+"140
+[; ;MIO.c: 140:         }
 }
 [e $U 147  ]
 [e :U 148 ]
@@ -670,16 +676,86 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 4 `i 153
  154 ]
 [e :U 147 ]
-"168
-[; ;MIO.c: 168:     }
+"141
+[; ;MIO.c: 141:     } else {
 }
+[e $U 155  ]
 [e :U 146 ]
-"169
-[; ;MIO.c: 169: }
-[e :UE 136 ]
+{
+"143
+[; ;MIO.c: 143:         switch (portNum) {
+[e $U 157  ]
+{
+"144
+[; ;MIO.c: 144:             case 0:
+[e :U 158 ]
+"145
+[; ;MIO.c: 145:                 TRISA &= ~(1 << pinNum);
+[e =& _TRISA -> ~ << -> 1 `i _pinNum `Vuc ]
+"146
+[; ;MIO.c: 146:                 break;
+[e $U 156  ]
+"147
+[; ;MIO.c: 147:             case 1:
+[e :U 159 ]
+"148
+[; ;MIO.c: 148:                 TRISB &= ~(1 << pinNum);
+[e =& _TRISB -> ~ << -> 1 `i _pinNum `Vuc ]
+"149
+[; ;MIO.c: 149:                 break;
+[e $U 156  ]
+"150
+[; ;MIO.c: 150:             case 2:
+[e :U 160 ]
+"151
+[; ;MIO.c: 151:                 TRISC &= ~(1 << pinNum);
+[e =& _TRISC -> ~ << -> 1 `i _pinNum `Vuc ]
+"152
+[; ;MIO.c: 152:                 break;
+[e $U 156  ]
+"153
+[; ;MIO.c: 153:             case 3:
+[e :U 161 ]
+"154
+[; ;MIO.c: 154:                 TRISD &= ~(1 << pinNum);
+[e =& _TRISD -> ~ << -> 1 `i _pinNum `Vuc ]
+"155
+[; ;MIO.c: 155:                 break;
+[e $U 156  ]
+"156
+[; ;MIO.c: 156:             case 4:
+[e :U 162 ]
+"157
+[; ;MIO.c: 157:                 TRISE &= ~(1 << pinNum);
+[e =& _TRISE -> ~ << -> 1 `i _pinNum `Vuc ]
+"158
+[; ;MIO.c: 158:                 break;
+[e $U 156  ]
+"159
+[; ;MIO.c: 159:             default:
+[e :U 163 ]
+"162
+[; ;MIO.c: 162:         }
 }
-"170
-[; ;MIO.c: 170: void setPinData(int portNum,int pinNum, int data){
+[e $U 156  ]
+[e :U 157 ]
+[e [\ _portNum , $ -> 0 `i 158
+ , $ -> 1 `i 159
+ , $ -> 2 `i 160
+ , $ -> 3 `i 161
+ , $ -> 4 `i 162
+ 163 ]
+[e :U 156 ]
+"163
+[; ;MIO.c: 163:     }
+}
+[e :U 155 ]
+"164
+[; ;MIO.c: 164: }
+[e :UE 145 ]
+}
+"165
+[; ;MIO.c: 165: void setPinData(int portNum,int pinNum, int data){
 [v _setPinData `(v ~T0 @X0 1 ef3`i`i`i ]
 {
 [e :U _setPinData ]
@@ -687,134 +763,64 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _pinNum `i ~T0 @X0 1 r2 ]
 [v _data `i ~T0 @X0 1 r3 ]
 [f ]
-"171
-[; ;MIO.c: 171: if (data) {
-[e $ ! != _data -> 0 `i 156  ]
+"166
+[; ;MIO.c: 166: if (data) {
+[e $ ! != _data -> 0 `i 165  ]
 {
-"172
-[; ;MIO.c: 172:         switch (portNum) {
-[e $U 158  ]
-{
-"173
-[; ;MIO.c: 173:             case 0:
-[e :U 159 ]
-"174
-[; ;MIO.c: 174:                 PORTA |= (1 << pinNum);
-[e =| _PORTA -> << -> 1 `i _pinNum `Vuc ]
-"175
-[; ;MIO.c: 175:                 break;
-[e $U 157  ]
-"176
-[; ;MIO.c: 176:             case 1:
-[e :U 160 ]
-"177
-[; ;MIO.c: 177:                 PORTB |= (1 << pinNum);
-[e =| _PORTB -> << -> 1 `i _pinNum `Vuc ]
-"178
-[; ;MIO.c: 178:                 break;
-[e $U 157  ]
-"179
-[; ;MIO.c: 179:             case 2:
-[e :U 161 ]
-"180
-[; ;MIO.c: 180:                 PORTC |= (1 << pinNum);
-[e =| _PORTC -> << -> 1 `i _pinNum `Vuc ]
-"181
-[; ;MIO.c: 181:                 break;
-[e $U 157  ]
-"182
-[; ;MIO.c: 182:             case 3:
-[e :U 162 ]
-"183
-[; ;MIO.c: 183:                 PORTD |= (1 << pinNum);
-[e =| _PORTD -> << -> 1 `i _pinNum `Vuc ]
-"184
-[; ;MIO.c: 184:                 break;
-[e $U 157  ]
-"185
-[; ;MIO.c: 185:             case 4:
-[e :U 163 ]
-"186
-[; ;MIO.c: 186:                 PORTE |= (1 << pinNum);
-[e =| _PORTE -> << -> 1 `i _pinNum `Vuc ]
-"187
-[; ;MIO.c: 187:                 break;
-[e $U 157  ]
-"188
-[; ;MIO.c: 188:             default:
-[e :U 164 ]
-"191
-[; ;MIO.c: 191:         }
-}
-[e $U 157  ]
-[e :U 158 ]
-[e [\ _portNum , $ -> 0 `i 159
- , $ -> 1 `i 160
- , $ -> 2 `i 161
- , $ -> 3 `i 162
- , $ -> 4 `i 163
- 164 ]
-[e :U 157 ]
-"192
-[; ;MIO.c: 192:     } else {
-}
-[e $U 165  ]
-[e :U 156 ]
-{
-"193
-[; ;MIO.c: 193:         switch (portNum) {
+"167
+[; ;MIO.c: 167:         switch (portNum) {
 [e $U 167  ]
 {
-"194
-[; ;MIO.c: 194:             case 0:
+"168
+[; ;MIO.c: 168:             case 0:
 [e :U 168 ]
-"195
-[; ;MIO.c: 195:                 PORTA &= ~(1 << pinNum);
-[e =& _PORTA -> ~ << -> 1 `i _pinNum `Vuc ]
-"196
-[; ;MIO.c: 196:                 break;
+"169
+[; ;MIO.c: 169:                 PORTA |= (1 << pinNum);
+[e =| _PORTA -> << -> 1 `i _pinNum `Vuc ]
+"170
+[; ;MIO.c: 170:                 break;
 [e $U 166  ]
-"197
-[; ;MIO.c: 197:             case 1:
+"171
+[; ;MIO.c: 171:             case 1:
 [e :U 169 ]
-"198
-[; ;MIO.c: 198:                 PORTB &= ~(1 << pinNum);
-[e =& _PORTB -> ~ << -> 1 `i _pinNum `Vuc ]
-"199
-[; ;MIO.c: 199:                 break;
+"172
+[; ;MIO.c: 172:                 PORTB |= (1 << pinNum);
+[e =| _PORTB -> << -> 1 `i _pinNum `Vuc ]
+"173
+[; ;MIO.c: 173:                 break;
 [e $U 166  ]
-"200
-[; ;MIO.c: 200:             case 2:
+"174
+[; ;MIO.c: 174:             case 2:
 [e :U 170 ]
-"201
-[; ;MIO.c: 201:                 PORTC &= ~(1 << pinNum);
-[e =& _PORTC -> ~ << -> 1 `i _pinNum `Vuc ]
-"202
-[; ;MIO.c: 202:                 break;
+"175
+[; ;MIO.c: 175:                 PORTC |= (1 << pinNum);
+[e =| _PORTC -> << -> 1 `i _pinNum `Vuc ]
+"176
+[; ;MIO.c: 176:                 break;
 [e $U 166  ]
-"203
-[; ;MIO.c: 203:             case 3:
+"177
+[; ;MIO.c: 177:             case 3:
 [e :U 171 ]
-"204
-[; ;MIO.c: 204:                 PORTD &= ~(1 << pinNum);
-[e =& _PORTD -> ~ << -> 1 `i _pinNum `Vuc ]
-"205
-[; ;MIO.c: 205:                 break;
+"178
+[; ;MIO.c: 178:                 PORTD |= (1 << pinNum);
+[e =| _PORTD -> << -> 1 `i _pinNum `Vuc ]
+"179
+[; ;MIO.c: 179:                 break;
 [e $U 166  ]
-"206
-[; ;MIO.c: 206:             case 4:
+"180
+[; ;MIO.c: 180:             case 4:
 [e :U 172 ]
-"207
-[; ;MIO.c: 207:                 PORTE &= ~(1 << pinNum);
-[e =& _PORTE -> ~ << -> 1 `i _pinNum `Vuc ]
-"208
-[; ;MIO.c: 208:                 break;
+"181
+[; ;MIO.c: 181:                 PORTE |= (1 << pinNum);
+[e =| _PORTE -> << -> 1 `i _pinNum `Vuc ]
+"182
+[; ;MIO.c: 182:                 break;
 [e $U 166  ]
-"209
-[; ;MIO.c: 209:             default:
+"183
+[; ;MIO.c: 183:             default:
 [e :U 173 ]
-"212
-[; ;MIO.c: 212:         }
+"186
+[; ;MIO.c: 186:         }
 }
 [e $U 166  ]
 [e :U 167 ]
@@ -825,76 +831,66 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 4 `i 172
  173 ]
 [e :U 166 ]
-"213
-[; ;MIO.c: 213:     }
+"187
+[; ;MIO.c: 187:     } else {
 }
+[e $U 174  ]
 [e :U 165 ]
-"214
-[; ;MIO.c: 214: }
-[e :UE 155 ]
-}
-"215
-[; ;MIO.c: 215: void togglePinData(int portNum, int pinNum) {
-[v _togglePinData `(v ~T0 @X0 1 ef2`i`i ]
 {
-[e :U _togglePinData ]
-[v _portNum `i ~T0 @X0 1 r1 ]
-[v _pinNum `i ~T0 @X0 1 r2 ]
-[f ]
-"216
-[; ;MIO.c: 216:     switch (portNum) {
+"188
+[; ;MIO.c: 188:         switch (portNum) {
 [e $U 176  ]
 {
-"217
-[; ;MIO.c: 217:         case 0:
+"189
+[; ;MIO.c: 189:             case 0:
 [e :U 177 ]
-"218
-[; ;MIO.c: 218:             PORTA ^= (1 << pinNum);
-[e =^ _PORTA -> << -> 1 `i _pinNum `Vuc ]
-"219
-[; ;MIO.c: 219:             break;
+"190
+[; ;MIO.c: 190:                 PORTA &= ~(1 << pinNum);
+[e =& _PORTA -> ~ << -> 1 `i _pinNum `Vuc ]
+"191
+[; ;MIO.c: 191:                 break;
 [e $U 175  ]
-"220
-[; ;MIO.c: 220:         case 1:
+"192
+[; ;MIO.c: 192:             case 1:
 [e :U 178 ]
-"221
-[; ;MIO.c: 221:             PORTB ^= (1 << pinNum);
-[e =^ _PORTB -> << -> 1 `i _pinNum `Vuc ]
-"222
-[; ;MIO.c: 222:             break;
+"193
+[; ;MIO.c: 193:                 PORTB &= ~(1 << pinNum);
+[e =& _PORTB -> ~ << -> 1 `i _pinNum `Vuc ]
+"194
+[; ;MIO.c: 194:                 break;
 [e $U 175  ]
-"223
-[; ;MIO.c: 223:         case 2:
+"195
+[; ;MIO.c: 195:             case 2:
 [e :U 179 ]
-"224
-[; ;MIO.c: 224:             PORTC ^= (1 << pinNum);
-[e =^ _PORTC -> << -> 1 `i _pinNum `Vuc ]
-"225
-[; ;MIO.c: 225:             break;
+"196
+[; ;MIO.c: 196:                 PORTC &= ~(1 << pinNum);
+[e =& _PORTC -> ~ << -> 1 `i _pinNum `Vuc ]
+"197
+[; ;MIO.c: 197:                 break;
 [e $U 175  ]
-"226
-[; ;MIO.c: 226:         case 3:
+"198
+[; ;MIO.c: 198:             case 3:
 [e :U 180 ]
-"227
-[; ;MIO.c: 227:             PORTD ^= (1 << pinNum);
-[e =^ _PORTD -> << -> 1 `i _pinNum `Vuc ]
-"228
-[; ;MIO.c: 228:             break;
+"199
+[; ;MIO.c: 199:                 PORTD &= ~(1 << pinNum);
+[e =& _PORTD -> ~ << -> 1 `i _pinNum `Vuc ]
+"200
+[; ;MIO.c: 200:                 break;
 [e $U 175  ]
-"229
-[; ;MIO.c: 229:         case 4:
+"201
+[; ;MIO.c: 201:             case 4:
 [e :U 181 ]
-"230
-[; ;MIO.c: 230:             PORTE ^= (1 << pinNum);
-[e =^ _PORTE -> << -> 1 `i _pinNum `Vuc ]
-"231
-[; ;MIO.c: 231:             break;
+"202
+[; ;MIO.c: 202:                 PORTE &= ~(1 << pinNum);
+[e =& _PORTE -> ~ << -> 1 `i _pinNum `Vuc ]
+"203
+[; ;MIO.c: 203:                 break;
 [e $U 175  ]
-"232
-[; ;MIO.c: 232:         default:
+"204
+[; ;MIO.c: 204:             default:
 [e :U 182 ]
-"235
-[; ;MIO.c: 235:     }
+"207
+[; ;MIO.c: 207:         }
 }
 [e $U 175  ]
 [e :U 176 ]
@@ -905,7 +901,87 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 4 `i 181
  182 ]
 [e :U 175 ]
-"236
-[; ;MIO.c: 236: }
-[e :UE 174 ]
+"208
+[; ;MIO.c: 208:     }
+}
+[e :U 174 ]
+"209
+[; ;MIO.c: 209: }
+[e :UE 164 ]
+}
+"210
+[; ;MIO.c: 210: void togglePinData(int portNum, int pinNum) {
+[v _togglePinData `(v ~T0 @X0 1 ef2`i`i ]
+{
+[e :U _togglePinData ]
+[v _portNum `i ~T0 @X0 1 r1 ]
+[v _pinNum `i ~T0 @X0 1 r2 ]
+[f ]
+"211
+[; ;MIO.c: 211:     switch (portNum) {
+[e $U 185  ]
+{
+"212
+[; ;MIO.c: 212:         case 0:
+[e :U 186 ]
+"213
+[; ;MIO.c: 213:             PORTA ^= (1 << pinNum);
+[e =^ _PORTA -> << -> 1 `i _pinNum `Vuc ]
+"214
+[; ;MIO.c: 214:             break;
+[e $U 184  ]
+"215
+[; ;MIO.c: 215:         case 1:
+[e :U 187 ]
+"216
+[; ;MIO.c: 216:             PORTB ^= (1 << pinNum);
+[e =^ _PORTB -> << -> 1 `i _pinNum `Vuc ]
+"217
+[; ;MIO.c: 217:             break;
+[e $U 184  ]
+"218
+[; ;MIO.c: 218:         case 2:
+[e :U 188 ]
+"219
+[; ;MIO.c: 219:             PORTC ^= (1 << pinNum);
+[e =^ _PORTC -> << -> 1 `i _pinNum `Vuc ]
+"220
+[; ;MIO.c: 220:             break;
+[e $U 184  ]
+"221
+[; ;MIO.c: 221:         case 3:
+[e :U 189 ]
+"222
+[; ;MIO.c: 222:             PORTD ^= (1 << pinNum);
+[e =^ _PORTD -> << -> 1 `i _pinNum `Vuc ]
+"223
+[; ;MIO.c: 223:             break;
+[e $U 184  ]
+"224
+[; ;MIO.c: 224:         case 4:
+[e :U 190 ]
+"225
+[; ;MIO.c: 225:             PORTE ^= (1 << pinNum);
+[e =^ _PORTE -> << -> 1 `i _pinNum `Vuc ]
+"226
+[; ;MIO.c: 226:             break;
+[e $U 184  ]
+"227
+[; ;MIO.c: 227:         default:
+[e :U 191 ]
+"230
+[; ;MIO.c: 230:     }
+}
+[e $U 184  ]
+[e :U 185 ]
+[e [\ _portNum , $ -> 0 `i 186
+ , $ -> 1 `i 187
+ , $ -> 2 `i 188
+ , $ -> 3 `i 189
+ , $ -> 4 `i 190
+ 191 ]
+[e :U 184 ]
+"231
+[; ;MIO.c: 231: }
+[e :UE 183 ]
 }

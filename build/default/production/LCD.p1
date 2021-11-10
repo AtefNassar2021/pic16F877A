@@ -9,8 +9,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "92 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
 [v __delay `JF856 ~T0 @X0 0 e ]
 [p i __delay ]
-"35 ./LCD.h
-[; ;./LCD.h: 35: void LCD_cmd(char cmd);
+"34 ./LCD.h
+[; ;./LCD.h: 34: void LCD_cmd(char cmd);
 [v _LCD_cmd `(v ~T0 @X0 0 ef1`uc ]
 "19 ./MIO.h
 [; ;./MIO.h: 19: void setPortDir(int portNum, int state);
@@ -264,8 +264,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LCD.c: 22:     setPinDir(2, RC2, 0);
 [e ( _setPinDir (3 , , -> 2 `i -> _RC2 `i -> 0 `i ]
 "24
-[; ;LCD.c: 24:     setPinData(2, RC1, 0);
-[e ( _setPinData (3 , , -> 2 `i -> _RC1 `i -> 0 `i ]
+[; ;LCD.c: 24:     setPinData(2, RC1, 1);
+[e ( _setPinData (3 , , -> 2 `i -> _RC1 `i -> 1 `i ]
 "27
 [; ;LCD.c: 27:     _delay(100);
 [e ( __delay (1 -> -> -> 100 `i `l `ul ]
@@ -350,43 +350,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LCD.c: 54: }
 [e :UE 103 ]
 }
-"55
-[; ;LCD.c: 55: void LCD_write_num(int num){
+"57
+[; ;LCD.c: 57: void LCD_write_num(int num){
 [v _LCD_write_num `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _LCD_write_num ]
 [v _num `i ~T0 @X0 1 r1 ]
 [f ]
-"56
-[; ;LCD.c: 56:     char buffer[11];
-[v _buffer `uc ~T0 @X0 -> 11 `i a ]
-"57
-[; ;LCD.c: 57:     itoa(num, buffer, 10);
-[e ( _itoa (3 , , -> _num `*uc -> &U _buffer `i -> 10 `i ]
 "58
-[; ;LCD.c: 58:     LCD_write_str(buffer);
-[e ( _LCD_write_str (1 &U _buffer ]
+[; ;LCD.c: 58:     char buffer[11];
+[v _buffer `uc ~T0 @X0 -> 11 `i a ]
 "59
-[; ;LCD.c: 59: }
+[; ;LCD.c: 59:     itoa(num, buffer, 10);
+[e ( _itoa (3 , , -> _num `*uc -> &U _buffer `i -> 10 `i ]
+"60
+[; ;LCD.c: 60:     LCD_write_str(buffer);
+[e ( _LCD_write_str (1 &U _buffer ]
+"61
+[; ;LCD.c: 61: }
 [e :UE 108 ]
 }
-"60
-[; ;LCD.c: 60: void LCD_cmd(char cmd) {
+"65
+[; ;LCD.c: 65: void LCD_cmd(char cmd) {
 [v _LCD_cmd `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _LCD_cmd ]
 [v _cmd `uc ~T0 @X0 1 r1 ]
 [f ]
-"62
-[; ;LCD.c: 62:     setPinData(2, RC0, 0);
-[e ( _setPinData (3 , , -> 2 `i -> _RC0 `i -> 0 `i ]
-"64
-[; ;LCD.c: 64:     setPortData(3, cmd);
-[e ( _setPortData (2 , -> 3 `i -> _cmd `i ]
-"66
-[; ;LCD.c: 66:     LCD_enable();
-[e ( _LCD_enable ..  ]
 "67
-[; ;LCD.c: 67: }
+[; ;LCD.c: 67:     setPinData(2, RC0, 0);
+[e ( _setPinData (3 , , -> 2 `i -> _RC0 `i -> 0 `i ]
+"69
+[; ;LCD.c: 69:     setPortData(3, cmd);
+[e ( _setPortData (2 , -> 3 `i -> _cmd `i ]
+"71
+[; ;LCD.c: 71:     LCD_enable();
+[e ( _LCD_enable ..  ]
+"72
+[; ;LCD.c: 72: }
 [e :UE 109 ]
 }

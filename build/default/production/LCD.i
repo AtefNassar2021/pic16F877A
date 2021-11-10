@@ -10,7 +10,6 @@
 # 1 "./LCD.h" 1
 # 30 "./LCD.h"
 void init_LCD();
-
 void LCD_write(char data);
 void LCD_write_str(char* str);
 void LCD_write_num(int num);
@@ -1870,7 +1869,7 @@ void init_LCD(){
     setPinDir(2, RC1, 0);
     setPinDir(2, RC2, 0);
 
-    setPinData(2, RC1, 0);
+    setPinData(2, RC1, 1);
 
 
     _delay(100);
@@ -1901,11 +1900,16 @@ void LCD_write_str(char* str){
         LCD_write(str[i]);
     }
 }
+
+
 void LCD_write_num(int num){
     char buffer[11];
     itoa(num, buffer, 10);
     LCD_write_str(buffer);
 }
+
+
+
 void LCD_cmd(char cmd) {
 
     setPinData(2, RC0, 0);
@@ -1914,10 +1918,5 @@ void LCD_cmd(char cmd) {
 
     LCD_enable();
 }
-
-
-
-
-
 
 void LCD_goto(int row, int column);

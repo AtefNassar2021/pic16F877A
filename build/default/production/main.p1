@@ -3,6 +3,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30 ./LCD.h
 [; ;./LCD.h: 30: void init_LCD();
 [v _init_LCD `(v ~T0 @X0 0 e? ]
+"31
+[; ;./LCD.h: 31: void LCD_write(char data);
+[v _LCD_write `(v ~T0 @X0 0 ef1`uc ]
+"19 ./MIO.h
+[; ;./MIO.h: 19: void setPortDir(int portNum, int state);
+[v _setPortDir `(v ~T0 @X0 0 ef2`i`i ]
+"24
+[; ;./MIO.h: 24: void setPinDir(int portNum,int pinNum, int state);
+[v _setPinDir `(v ~T0 @X0 0 ef3`i`i`i ]
+"25
+[; ;./MIO.h: 25: void setPinData(int portNum,int pinNum, int data);
+[v _setPinData `(v ~T0 @X0 0 ef3`i`i`i ]
+[v F842 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
+[v __delay `JF842 ~T0 @X0 0 e ]
+[p i __delay ]
+"26 ./MIO.h
+[; ;./MIO.h: 26: void togglePinData(int portNum, int pinNum);
+[v _togglePinData `(v ~T0 @X0 0 ef2`i`i ]
+"21
+[; ;./MIO.h: 21: void togglePortData(int portNum);
+[v _togglePortData `(v ~T0 @X0 0 ef1`i ]
 "54 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -184,29 +206,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"15 main.c
-[; ;main.c: 15: void main(void) {
+"14 main.c
+[; ;main.c: 14: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"17
-[; ;main.c: 17:     init_LCD();
+"16
+[; ;main.c: 16:     init_LCD();
 [e ( _init_LCD ..  ]
-"23
-[; ;main.c: 23:     while(1){
+"21
+[; ;main.c: 21:     while(1){
 [e :U 101 ]
 {
+"22
+[; ;main.c: 22:         LCD_write('A');
+[e ( _LCD_write (1 -> -> 65 `ui `uc ]
+"23
+[; ;main.c: 23:        setPortDir(3,0);
+[e ( _setPortDir (2 , -> 3 `i -> 0 `i ]
+"25
+[; ;main.c: 25:        setPinDir(2,2,0);
+[e ( _setPinDir (3 , , -> 2 `i -> 2 `i -> 0 `i ]
 "26
-[; ;main.c: 26:         }
+[; ;main.c: 26:        setPinData(2,2,0) ;
+[e ( _setPinData (3 , , -> 2 `i -> 2 `i -> 0 `i ]
+"27
+[; ;main.c: 27:        _delay(100);
+[e ( __delay (1 -> -> -> 100 `i `l `ul ]
+"29
+[; ;main.c: 29:        togglePinData(2,2);
+[e ( _togglePinData (2 , -> 2 `i -> 2 `i ]
+"30
+[; ;main.c: 30:        togglePortData(3);
+[e ( _togglePortData (1 -> 3 `i ]
+"31
+[; ;main.c: 31:     }
 }
 [e :U 100 ]
 [e $U 101  ]
 [e :U 102 ]
-"28
-[; ;main.c: 28:     return;
+"32
+[; ;main.c: 32:     return;
 [e $UE 99  ]
-"29
-[; ;main.c: 29: }
+"33
+[; ;main.c: 33: }
 [e :UE 99 ]
 }

@@ -37,9 +37,10 @@
 //#define SetOnComp     3
 
 
-void init_Timer(int mode, int clockSelect);
-
-void Timer_enable_INT(int selectINT);
+void init_Timer_0(int mode, int clockSelect);
+void init_Timer_2(int mode, int Prescaler,int postscale);
+void Timer_0_enable_INT(int selectINT);
+void Timer_2_enable_INT(int selectINT);
 //void setOutCompare(unsigned char compareValue);
 //void setOC0Mode(int OC0_Mode);
 

@@ -1847,7 +1847,6 @@ extern char * ftoa(float f, int * status);
 # 1 "./LCD.h" 1
 # 30 "./LCD.h"
 void init_LCD();
-
 void LCD_write(char data);
 void LCD_write_str(char* str);
 void LCD_write_num(int num);
@@ -1859,7 +1858,6 @@ void LCD_goto(int row, int column);
 
 
 
-
 void main(void) {
 
     init_LCD();
@@ -1867,11 +1865,16 @@ void main(void) {
 
 
 
-
     while(1){
+        LCD_write('A');
+       setPortDir(3,0);
 
+       setPinDir(2,2,0);
+       setPinData(2,2,0) ;
+       _delay(100);
 
-        }
-
+       togglePinData(2,2);
+       togglePortData(3);
+    }
     return;
 }

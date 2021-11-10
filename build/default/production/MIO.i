@@ -1878,11 +1878,10 @@ void setPortDir(int portNum, int state){
                 TRISD = 0xFF;
                 break;
             case 4:
-                TRISE |= 0xFF;
+                TRISE = 0xFF;
                 break;
             default:
                 ;
-
         }
     } else {
 
@@ -1904,16 +1903,33 @@ void setPortDir(int portNum, int state){
                 break;
             default:
                 ;
-
         }
-
+    }
+}
+void setPortData(int portNum, int data){
+switch (portNum) {
+        case 0:
+            PORTA = data;
+            break;
+        case 1:
+            PORTB = data;
+            break;
+        case 2:
+            PORTC = data;
+            break;
+        case 3:
+            PORTD = data;
+            break;
+        case 4:
+            PORTE = data;
+            break;
+        default:
+            ;
 
     }
 }
-# 99 "MIO.c"
 void togglePortData(int portNum){
-
-switch (portNum) {
+    switch (portNum) {
         case 0:
             PORTA ^= 0xFF;
             break;
