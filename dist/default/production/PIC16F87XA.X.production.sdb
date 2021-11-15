@@ -4,9 +4,9 @@
 [d chip 16F877A ]
 [d frameptr 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\itoa.c
-[v _itoa itoa `(*.39uc  1 e 1 0 ]
+[v _itoa itoa `(*.1uc  1 e 1 0 ]
 "17
-[v _utoa utoa `(*.39uc  1 e 1 0 ]
+[v _utoa utoa `(*.1uc  1 e 1 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwmod.c
@@ -25,26 +25,20 @@
 [v _LCD_clear LCD_clear `(v  1 e 1 0 ]
 "17
 [v _init_LCD init_LCD `(v  1 e 1 0 ]
-"41
+"44
 [v _LCD_write LCD_write `(v  1 e 1 0 ]
-"50
+"53
 [v _LCD_write_str LCD_write_str `(v  1 e 1 0 ]
-"65
+"68
 [v _LCD_cmd LCD_cmd `(v  1 e 1 0 ]
-"14 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\main.c
+"29 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"28 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
+"26 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
 [v _setPortDir setPortDir `(v  1 e 1 0 ]
-"73
+"72
 [v _setPortData setPortData `(v  1 e 1 0 ]
-"95
-[v _togglePortData togglePortData `(v  1 e 1 0 ]
-"118
-[v _setPinDir setPinDir `(v  1 e 1 0 ]
-"165
+"167
 [v _setPinData setPinData `(v  1 e 1 0 ]
-"210
-[v _togglePinData togglePinData `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "216
@@ -55,6 +49,16 @@
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "402
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
+"454
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+"532
+[v _PIR1 PIR1 `VEuc  1 e 1 @12 ]
+"737
+[v _T2CON T2CON `VEuc  1 e 1 @18 ]
+"1152
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"1159
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
 "1255
 [v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
 "1325
@@ -67,94 +71,99 @@
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1561
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
+"1618
+[v _PIE1 PIE1 `VEuc  1 e 1 @140 ]
+"2222
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
+"2229
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
+"2383
+[v _ADCS0 ADCS0 `VEb  1 e 0 @254 ]
+"2389
+[v _ADCS2 ADCS2 `VEb  1 e 0 @1278 ]
+"2398
+[v _ADIE ADIE `VEb  1 e 0 @1126 ]
+"2401
+[v _ADIF ADIF `VEb  1 e 0 @102 ]
+"2404
+[v _ADON ADON `VEb  1 e 0 @248 ]
+"2482
+[v _CHS0 CHS0 `VEb  1 e 0 @251 ]
+"2569
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"2629
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
 "2644
 [v _PSA PSA `VEb  1 e 0 @1035 ]
-"2704
-[v _RC0 RC0 `VEb  1 e 0 @56 ]
-"2707
-[v _RC1 RC1 `VEb  1 e 0 @57 ]
-"2710
-[v _RC2 RC2 `VEb  1 e 0 @58 ]
+"2674
+[v _RB0 RB0 `VEb  1 e 0 @48 ]
+"2686
+[v _RB4 RB4 `VEb  1 e 0 @52 ]
+"2689
+[v _RB5 RB5 `VEb  1 e 0 @53 ]
 "2878
 [v _TMR0IE TMR0IE `VEb  1 e 0 @93 ]
-"14 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\main.c
+"2896
+[v _TMR2IE TMR2IE `VEb  1 e 0 @1121 ]
+"2902
+[v _TMR2ON TMR2ON `VEb  1 e 0 @146 ]
+"29 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"33
-} 0
-"95 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
-[v _togglePortData togglePortData `(v  1 e 1 0 ]
-{
-[v togglePortData@portNum portNum `i  1 p 2 0 ]
-"117
-} 0
-"210
-[v _togglePinData togglePinData `(v  1 e 1 0 ]
-{
-[v togglePinData@portNum portNum `i  1 p 2 0 ]
-[v togglePinData@pinNum pinNum `i  1 p 2 2 ]
-"231
+"48
 } 0
 "17 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\LCD.c
 [v _init_LCD init_LCD `(v  1 e 1 0 ]
 {
-"40
+"43
 } 0
-"28 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
+"26 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
 [v _setPortDir setPortDir `(v  1 e 1 0 ]
 {
 [v setPortDir@portNum portNum `i  1 p 2 0 ]
 [v setPortDir@state state `i  1 p 2 2 ]
-"72
-} 0
-"118
-[v _setPinDir setPinDir `(v  1 e 1 0 ]
-{
-[v setPinDir@portNum portNum `i  1 p 2 0 ]
-[v setPinDir@pinNum pinNum `i  1 p 2 2 ]
-[v setPinDir@state state `i  1 p 2 4 ]
-"164
+"70
 } 0
 "13 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\LCD.c
 [v _LCD_clear LCD_clear `(v  1 e 1 0 ]
 {
 "16
 } 0
-"65
+"68
 [v _LCD_cmd LCD_cmd `(v  1 e 1 0 ]
 {
 [v LCD_cmd@cmd cmd `uc  1 a 1 wreg ]
 [v LCD_cmd@cmd cmd `uc  1 a 1 wreg ]
-"67
+"70
 [v LCD_cmd@cmd cmd `uc  1 a 1 12 ]
-"72
+"75
 } 0
-"41
+"44
 [v _LCD_write LCD_write `(v  1 e 1 0 ]
 {
 [v LCD_write@data data `uc  1 a 1 wreg ]
 [v LCD_write@data data `uc  1 a 1 wreg ]
-"43
+"46
 [v LCD_write@data data `uc  1 a 1 12 ]
-"49
+"52
 } 0
-"73 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
+"72 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
 [v _setPortData setPortData `(v  1 e 1 0 ]
 {
 [v setPortData@portNum portNum `i  1 p 2 0 ]
-[v setPortData@data data `i  1 p 2 2 ]
-"94
+[v setPortData@data data `uc  1 p 1 2 ]
+"93
 } 0
 "7 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\LCD.c
 [v _LCD_enable LCD_enable `(v  1 e 1 0 ]
 {
 "11
 } 0
-"165 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
+"167 C:\Users\Atef\Desktop\AMIT\PIC16F87XA.X\MIO.c
 [v _setPinData setPinData `(v  1 e 1 0 ]
 {
 [v setPinData@portNum portNum `i  1 p 2 0 ]
 [v setPinData@pinNum pinNum `i  1 p 2 2 ]
 [v setPinData@data data `i  1 p 2 4 ]
-"209
+"214
 } 0

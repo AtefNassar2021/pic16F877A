@@ -7,8 +7,15 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-
-
+# 10 "main.c"
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = ON
+#pragma config BOREN = ON
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
 
 
 
@@ -1724,7 +1731,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
+# 23 "main.c" 2
 
 # 1 "./config.h" 1
 # 26 "./config.h"
@@ -1734,7 +1741,7 @@ int isPressed(int portNum, int pinNum);
 
 
 void setPortDir(int portNum, int state);
-void setPortData(int portNum, int data);
+void setPortData(int portNum, char data);
 void togglePortData(int portNum);
 
 
@@ -1743,12 +1750,6 @@ void setPinData(int portNum,int pinNum, int data);
 void togglePinData(int portNum, int pinNum);
 # 26 "./config.h" 2
 
-# 1 "./timer.h" 1
-# 40 "./timer.h"
-void init_Timer(int mode, int clockSelect);
-
-void Timer_enable_INT(int selectINT);
-# 27 "./config.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -1842,11 +1843,11 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 # 28 "./config.h" 2
-# 10 "main.c" 2
+# 24 "main.c" 2
 
 # 1 "./LCD.h" 1
 # 30 "./LCD.h"
-void init_LCD();
+void init_LCD(void);
 void LCD_write(char data);
 void LCD_write_str(char* str);
 void LCD_write_num(int num);
@@ -1854,7 +1855,8 @@ void LCD_cmd(char cmd);
 void LCD_enable();
 void LCD_clear();
 void LCD_goto(int row, int column);
-# 11 "main.c" 2
+# 25 "main.c" 2
+
 
 
 
@@ -1867,14 +1869,14 @@ void main(void) {
 
     while(1){
         LCD_write('A');
-       setPortDir(3,0);
 
-       setPinDir(2,2,0);
-       setPinData(2,2,0) ;
+
+
+
        _delay(100);
 
-       togglePinData(2,2);
-       togglePortData(3);
+
+
     }
     return;
 }

@@ -9,9 +9,10 @@
 # 1 "timer.c" 2
 # 1 "./timer.h" 1
 # 40 "./timer.h"
-void init_Timer(int mode, int clockSelect);
-
-void Timer_enable_INT(int selectINT);
+void init_Timer_0(int mode, int clockSelect);
+void init_Timer_2(int mode, int Prescaler,int postscale);
+void Timer_0_enable_INT(int selectINT);
+void Timer_2_enable_INT(int selectINT);
 # 1 "timer.c" 2
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
@@ -1733,7 +1734,7 @@ int isPressed(int portNum, int pinNum);
 
 
 void setPortDir(int portNum, int state);
-void setPortData(int portNum, int data);
+void setPortData(int portNum, char data);
 void togglePortData(int portNum);
 
 
@@ -1838,7 +1839,7 @@ extern char * ftoa(float f, int * status);
 # 3 "timer.c" 2
 
 
-void init_Timer(int mode, int clockSelect){
+void init_Timer_0(int mode, int clockSelect){
 OPTION_REG = 0x00;
     switch (mode) {
         case 0:
@@ -1853,6 +1854,15 @@ OPTION_REG = 0x00;
             return ;
     }
 }
-void Timer_enable_INT(int selectINT){
+void Timer_0_enable_INT(int selectINT){
     TMR0IE &= ~(1<<selectINT);
+}
+
+void init_Timer_2(int mode, int Prescaler,int postscale){
+    T2CON |=(1<<TMR2ON);
+    T2CON |= Prescaler;
+    T2CON |= postscale;
+}
+void Timer_2_enable_INT(int selectINT){
+    PIE1 |=(1<<TMR2IE);
 }

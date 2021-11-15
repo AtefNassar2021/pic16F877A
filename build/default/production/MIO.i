@@ -1726,7 +1726,7 @@ int isPressed(int portNum, int pinNum);
 
 
 void setPortDir(int portNum, int state);
-void setPortData(int portNum, int data);
+void setPortData(int portNum, char data);
 void togglePortData(int portNum);
 
 
@@ -1735,12 +1735,6 @@ void setPinData(int portNum,int pinNum, int data);
 void togglePinData(int portNum, int pinNum);
 # 26 "./config.h" 2
 
-# 1 "./timer.h" 1
-# 40 "./timer.h"
-void init_Timer(int mode, int clockSelect);
-
-void Timer_enable_INT(int selectINT);
-# 27 "./config.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -1837,10 +1831,8 @@ extern char * ftoa(float f, int * status);
 # 2 "MIO.c" 2
 
 
-
-
-int isPressed(int portNum, int pinNum){
- switch (portNum) {
+int isPressed(int portNum, int pinNum) {
+    switch (portNum) {
         case 0:
             return (0 & (1 << pinNum)) ? 1 : 0;
             break;
@@ -1861,8 +1853,8 @@ int isPressed(int portNum, int pinNum){
     }
 }
 
-void setPortDir(int portNum, int state){
-         if (state) {
+void setPortDir(int portNum, int state) {
+    if (state) {
 
         switch (portNum) {
             case 0:
@@ -1906,8 +1898,9 @@ void setPortDir(int portNum, int state){
         }
     }
 }
-void setPortData(int portNum, int data){
-switch (portNum) {
+
+void setPortData(int portNum, char data) {
+    switch (portNum) {
         case 0:
             PORTA = data;
             break;
@@ -1928,7 +1921,8 @@ switch (portNum) {
 
     }
 }
-void togglePortData(int portNum){
+
+void togglePortData(int portNum) {
     switch (portNum) {
         case 0:
             PORTA ^= 0xFF;
@@ -1951,8 +1945,9 @@ void togglePortData(int portNum){
     }
 
 }
-void setPinDir(int portNum,int pinNum, int state){
-if (state) {
+
+void setPinDir(int portNum, int pinNum, int state) {
+    if (state) {
 
         switch (portNum) {
             case 0:
@@ -1998,8 +1993,12 @@ if (state) {
         }
     }
 }
-void setPinData(int portNum,int pinNum, int data){
-if (data) {
+
+void setPinData(int portNum, int pinNum, int data) {
+    if (data) {
+
+
+
         switch (portNum) {
             case 0:
                 PORTA |= (1 << pinNum);
@@ -2043,6 +2042,7 @@ if (data) {
         }
     }
 }
+
 void togglePinData(int portNum, int pinNum) {
     switch (portNum) {
         case 0:

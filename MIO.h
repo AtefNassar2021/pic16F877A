@@ -17,7 +17,7 @@ int isPressed(int portNum, int pinNum);
 
 // PORT LEVEL
 void setPortDir(int portNum, int state);
-void setPortData(int portNum, int data);
+void setPortData(int portNum, char data);
 void togglePortData(int portNum);
 
 // PIN LEVEL

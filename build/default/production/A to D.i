@@ -1,4 +1,4 @@
-# 1 "LCD.c"
+# 1 "A to D.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,18 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "LCD.c" 2
-# 1 "./LCD.h" 1
-# 30 "./LCD.h"
-void init_LCD(void);
-void LCD_write(char data);
-void LCD_write_str(char* str);
-void LCD_write_num(int num);
-void LCD_cmd(char cmd);
-void LCD_enable();
-void LCD_clear();
-void LCD_goto(int row, int column);
-# 1 "LCD.c" 2
+# 1 "A to D.c" 2
 
 # 1 "./config.h" 1
 # 11 "./config.h"
@@ -1840,80 +1829,64 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 # 28 "./config.h" 2
-# 2 "LCD.c" 2
+# 2 "A to D.c" 2
+
+# 1 "./A to D.h" 1
+# 37 "./A to D.h"
+void init_ADC(int _ch, int Ref, int Prescaler,char speed);
+
+void ADC_SC();
+
+int ADC_read();
+
+void init_Interrupt_ADC();
+# 3 "A to D.c" 2
 
 
 
 
-
-void LCD_enable() {
-    setPinData(1, RB5, 1);
-    _delay(500);
-    setPinData(1, RB5, 0);
-}
-
-void LCD_clear() {
-    LCD_cmd(0x01);
-    _delay(100);
-}
-void init_LCD(void){
-
-    setPortDir(3, 0);
-    TRISB &= ~((1<<RB0)|(1<<RB4)|(1<<RB5));
-
-
-
-
-    _delay(2000);
-
-    setPinData(1, RB4, 0);
-
-
-    _delay(100);
-    LCD_clear();
-
-    LCD_cmd(0x38);
-    _delay(100);
-    LCD_cmd(0x0C);
-    _delay(100);
-    LCD_cmd(0x06);
-    _delay(100);
-    LCD_cmd(0x02);
-
-    _delay(500);
-
-}
-void LCD_write(char data) {
-
-    setPinData(1, RB0, 1);
-
-    setPortData(3, data);
-
-    LCD_enable();
-
-}
-void LCD_write_str(char* str){
-    for(int i = 0; str[i]!= '\0'; i++){
-        LCD_write(str[i]);
+void init_ADC(int _CH, int Ref, int Prescaler,char speed){
+# 23 "A to D.c"
+    ADCON0 = 0x00;
+    ADCON0 |= (_CH<<CHS0);
+        switch (speed) {
+        case 1:
+               ADCON0 |= (Prescaler<<ADCS0);
+               ADCON1 |= (1<<ADCS2);
+            break;
+        case 0:
+               ADCON0 |= (Prescaler<<ADCS0);
+               ADCON1 &=~ (1<<ADCS2);
+            break;
+        default:
+            return ;
     }
+    ADCON1 |= (1<<ADON);
+
 }
 
+void ADC_SC(){
 
-void LCD_write_num(int num){
-    char buffer[11];
-    itoa(buffer, num, 10);
-    LCD_write_str(buffer);
+    ADCON1 |= (1<< 2);
 }
 
+int ADC_read(){
 
+    while(!(ADON & (1<<ADIF)));
+    int data = ADRESL;
+    data |= (ADRESH<<8);
+    return data;
 
-void LCD_cmd(char cmd) {
-
-    setPinData(1, RB0, 0);
-
-    setPortData(3, cmd);
-
-    LCD_enable();
 }
 
-void LCD_goto(int row, int column);
+void init_Interrupt_ADC(){
+
+
+
+
+
+
+      PIR1 &=~ (1<<ADIF);
+      PIE1 |= (1<<ADIE);
+      INTCON |= (1<<PEIE)|(1<<GIE);
+}

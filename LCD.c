@@ -6,7 +6,7 @@
 
 void LCD_enable() {
     setPinData(LCD_control, EN, ON);
-    _delay(100);
+    _delay(500);
     setPinData(LCD_control, EN, OFF);
 }
 
@@ -14,12 +14,15 @@ void LCD_clear() {
     LCD_cmd(0x01);
     _delay(100);
 }
-void init_LCD(){
+void init_LCD(void){
     // Configure IO PIC
     setPortDir(LCD_data_Dir, OUT);
-    setPinDir(LCD_control_Dir, RS, OUT);
-    setPinDir(LCD_control_Dir, RW, OUT);
-    setPinDir(LCD_control_Dir, EN, OUT);
+    TRISB &= ~((1<<RS)|(1<<RW)|(1<<EN));
+//    setPinDir(LCD_control_Dir, RS, OUT);
+//    setPinDir(LCD_control_Dir, RW, OUT);
+//    setPinDir(LCD_control_Dir, EN, OUT);
+    
+    _delay(2000);
     ////////////////////////////////////
     setPinData(LCD_control, RW, OFF);
     ////////////////////////////////////
@@ -56,7 +59,7 @@ void LCD_write_str(char* str){
 
 void LCD_write_num(int num){
     char buffer[11];
-    itoa(num, buffer, 10);
+    itoa(buffer, num, 10);
     LCD_write_str(buffer);
 }
 

@@ -1,10 +1,8 @@
 #include <xc.h>
 #include "config.h"
 
-
-
-int isPressed(int portNum, int pinNum){
- switch (portNum) {
+int isPressed(int portNum, int pinNum) {
+    switch (portNum) {
         case _PA:
             return (_PA & (1 << pinNum)) ? 1 : 0;
             break;
@@ -25,8 +23,8 @@ int isPressed(int portNum, int pinNum){
     }
 }
 
-void setPortDir(int portNum, int state){
-         if (state) {
+void setPortDir(int portNum, int state) {
+    if (state) {
         // PORT INPUT
         switch (portNum) {
             case _PA:
@@ -43,7 +41,7 @@ void setPortDir(int portNum, int state){
                 break;
             case _PE:
                 TRISE = 0xFF;
-                break;    
+                break;
             default:
                 ;
         }
@@ -64,14 +62,15 @@ void setPortDir(int portNum, int state){
                 break;
             case _PE:
                 TRISE = 0x00;
-                break;    
+                break;
             default:
                 ;
-        }                                                                  
+        }
     }
 }
-void setPortData(int portNum, int data){
-switch (portNum) {
+
+void setPortData(int portNum, char data) {
+    switch (portNum) {
         case _PA:
             PORTA = data;
             break;
@@ -86,13 +85,14 @@ switch (portNum) {
             break;
         case _PE:
             PORTE = data;
-            break;    
+            break;
         default:
             ;
 
     }
 }
-void togglePortData(int portNum){
+
+void togglePortData(int portNum) {
     switch (portNum) {
         case _PA:
             PORTA ^= 0xFF;
@@ -108,15 +108,16 @@ void togglePortData(int portNum){
             break;
         case _PE:
             PORTE ^= 0xFF;
-            break;            
+            break;
         default:
             ;
 
     }
 
 }
-void setPinDir(int portNum,int pinNum, int state){
-if (state) {
+
+void setPinDir(int portNum, int pinNum, int state) {
+    if (state) {
         // PORT INPUT
         switch (portNum) {
             case _PA:
@@ -133,7 +134,7 @@ if (state) {
                 break;
             case _PE:
                 TRISE |= (1 << pinNum);
-                break;                
+                break;
             default:
                 ;
 
@@ -155,15 +156,19 @@ if (state) {
                 break;
             case _PE:
                 TRISE &= ~(1 << pinNum);
-                break;                
+                break;
             default:
                 ;
 
         }
     }
 }
-void setPinData(int portNum,int pinNum, int data){
-if (data) {
+
+void setPinData(int portNum, int pinNum, int data) {
+    if (data) {
+        /// Data Direction TRISA
+        /// Data OUT LATA
+        /// Read INPUT Data  PORTA
         switch (portNum) {
             case _PA:
                 PORTA |= (1 << pinNum);
@@ -179,7 +184,7 @@ if (data) {
                 break;
             case _PE:
                 PORTE |= (1 << pinNum);
-                break;                
+                break;
             default:
                 ;
 
@@ -200,13 +205,14 @@ if (data) {
                 break;
             case _PE:
                 PORTE &= ~(1 << pinNum);
-                break;                
+                break;
             default:
                 ;
 
         }
     }
 }
+
 void togglePinData(int portNum, int pinNum) {
     switch (portNum) {
         case _PA:
@@ -223,7 +229,7 @@ void togglePinData(int portNum, int pinNum) {
             break;
         case _PE:
             PORTE ^= (1 << pinNum);
-            break;            
+            break;
         default:
             ;
 
