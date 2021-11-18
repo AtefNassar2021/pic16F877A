@@ -24,8 +24,9 @@
 #define OFF     0 
 
 #include "MIO.h"
-//#include "timer.h"
+#include "timer.h"
 #include <stdlib.h>
-
+#include "A to D.h"
+#include "UART.h"
 #endif	/* CONFIG_H */
 

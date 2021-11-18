@@ -28,13 +28,13 @@
 
 void main(void) {
 
-    init_LCD();
+    init_ADC(_CH1,1,6,_F);
    //setPortDir(_PD,OUT);
    //setPortData(_PD,5);
     
     
     while(1){
-        LCD_write('A');
+       // LCD_write('A');
 //       setPortDir(_PD,OUT);
        //setPortData(_PD,0x00);
 //       setPinDir(_PC,2,OUT);

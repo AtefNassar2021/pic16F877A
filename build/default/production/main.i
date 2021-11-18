@@ -1750,6 +1750,13 @@ void setPinData(int portNum,int pinNum, int data);
 void togglePinData(int portNum, int pinNum);
 # 26 "./config.h" 2
 
+# 1 "./timer.h" 1
+# 40 "./timer.h"
+void init_Timer_0(int mode, int clockSelect);
+void init_Timer_2(int mode, int Prescaler,int postscale);
+void Timer_0_enable_INT(int selectINT);
+void Timer_2_enable_INT(int selectINT);
+# 27 "./config.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -1843,6 +1850,17 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 # 28 "./config.h" 2
+
+# 1 "./A to D.h" 1
+# 38 "./A to D.h"
+void init_ADC(int _ch, int Ref, int Prescaler,int speed);
+
+void ADC_SC();
+
+int ADC_read();
+
+void init_Interrupt_ADC();
+# 29 "./config.h" 2
 # 24 "main.c" 2
 
 # 1 "./LCD.h" 1
@@ -1862,13 +1880,13 @@ void LCD_goto(int row, int column);
 
 void main(void) {
 
-    init_LCD();
+    init_ADC(RA1,1,6,0);
 
 
 
 
     while(1){
-        LCD_write('A');
+
 
 
 

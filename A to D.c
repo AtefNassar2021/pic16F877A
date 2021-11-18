@@ -4,7 +4,7 @@
 
 
 
-void init_ADC(int _CH, int Ref, int Prescaler,char speed){
+void init_ADC(int _CH, int Ref, int Prescaler,int speed){
     /*
        ADCON1:
  

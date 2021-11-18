@@ -1836,6 +1836,17 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 # 28 "./config.h" 2
+
+# 1 "./A to D.h" 1
+# 38 "./A to D.h"
+void init_ADC(int _ch, int Ref, int Prescaler,int speed);
+
+void ADC_SC();
+
+int ADC_read();
+
+void init_Interrupt_ADC();
+# 29 "./config.h" 2
 # 3 "timer.c" 2
 
 

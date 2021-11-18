@@ -225,14 +225,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "7 A to D.c
-[; ;A to D.c: 7: void init_ADC(int _CH, int Ref, int Prescaler,char speed){
-[v _init_ADC `(v ~T0 @X0 1 ef4`i`i`i`uc ]
+[; ;A to D.c: 7: void init_ADC(int _CH, int Ref, int Prescaler,int speed){
+[v _init_ADC `(v ~T0 @X0 1 ef4`i`i`i`i ]
 {
 [e :U _init_ADC ]
 [v __CH `i ~T0 @X0 1 r1 ]
 [v _Ref `i ~T0 @X0 1 r2 ]
 [v _Prescaler `i ~T0 @X0 1 r3 ]
-[v _speed `uc ~T0 @X0 1 r4 ]
+[v _speed `i ~T0 @X0 1 r4 ]
 [f ]
 "23
 [; ;A to D.c: 23:     ADCON0 = 0x00;
@@ -279,7 +279,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 100  ]
 [e :U 101 ]
-[e [\ -> _speed `i , $ -> 1 `i 102
+[e [\ _speed , $ -> 1 `i 102
  , $ -> 0 `i 103
  104 ]
 [e :U 100 ]

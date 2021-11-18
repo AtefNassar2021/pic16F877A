@@ -1736,6 +1736,13 @@ void setPinData(int portNum,int pinNum, int data);
 void togglePinData(int portNum, int pinNum);
 # 26 "./config.h" 2
 
+# 1 "./timer.h" 1
+# 40 "./timer.h"
+void init_Timer_0(int mode, int clockSelect);
+void init_Timer_2(int mode, int Prescaler,int postscale);
+void Timer_0_enable_INT(int selectINT);
+void Timer_2_enable_INT(int selectINT);
+# 27 "./config.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -1829,23 +1836,24 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 # 28 "./config.h" 2
-# 2 "A to D.c" 2
 
 # 1 "./A to D.h" 1
-# 37 "./A to D.h"
-void init_ADC(int _ch, int Ref, int Prescaler,char speed);
+# 38 "./A to D.h"
+void init_ADC(int _ch, int Ref, int Prescaler,int speed);
 
 void ADC_SC();
 
 int ADC_read();
 
 void init_Interrupt_ADC();
-# 3 "A to D.c" 2
+# 29 "./config.h" 2
+# 2 "A to D.c" 2
 
 
 
 
-void init_ADC(int _CH, int Ref, int Prescaler,char speed){
+
+void init_ADC(int _CH, int Ref, int Prescaler,int speed){
 # 23 "A to D.c"
     ADCON0 = 0x00;
     ADCON0 |= (_CH<<CHS0);

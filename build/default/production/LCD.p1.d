@@ -2,4 +2,6 @@ build/default/production/LCD.p1:  \
 LCD.c  \
 LCD.h  \
 config.h  \
-MIO.h 
+MIO.h  \
+timer.h  \
+A\ to\ D.h 

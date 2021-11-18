@@ -1,11 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"30 ./LCD.h
-[; ;./LCD.h: 30: void init_LCD(void);
-[v _init_LCD `(v ~T0 @X0 0 ef ]
-"31
-[; ;./LCD.h: 31: void LCD_write(char data);
-[v _LCD_write `(v ~T0 @X0 0 ef1`uc ]
+"38 ./A to D.h
+[; ;./A to D.h: 38: void init_ADC(int _ch, int Ref, int Prescaler,int speed);
+[v _init_ADC `(v ~T0 @X0 0 ef4`i`i`i`i ]
+"2659 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2659: extern volatile __bit RA1 __attribute__((address(0x29)));
+[v _RA1 `Vb ~T0 @X0 0 e@41 ]
 [v F842 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
 [v __delay `JF842 ~T0 @X0 0 e ]
@@ -214,15 +214,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _main ]
 [f ]
 "31
-[; ;main.c: 31:     init_LCD();
-[e ( _init_LCD ..  ]
+[; ;main.c: 31:     init_ADC(RA1,1,6,0);
+[e ( _init_ADC (4 , , , -> _RA1 `i -> 1 `i -> 6 `i -> 0 `i ]
 "36
 [; ;main.c: 36:     while(1){
 [e :U 101 ]
 {
-"37
-[; ;main.c: 37:         LCD_write('A');
-[e ( _LCD_write (1 -> -> 65 `ui `uc ]
 "42
 [; ;main.c: 42:        _delay(100);
 [e ( __delay (1 -> -> -> 100 `i `l `ul ]
